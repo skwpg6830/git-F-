@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1 id="text"></h1>
+  <script>
+    const text = document.getElementById('text')
+
+    let number = parseInt(prompt('秒'))
+
+    const countdown = () => {
+      text.innerText = `剩餘 ${number} 秒`
+      text.style.color = 'blue'
+      number--
+
+      if (number < 0) {
+        text.innerText = '時間到'
+        text.style.color = 'red'
+        clearInterval(timer)
+      }
+    }
+    const timer = setInterval(countdown, 1000)
+    countdown()
+  </script>
+</body>
+</html>

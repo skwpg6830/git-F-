@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Archery Clock</title>
+    <style>
+        #clock {
+            width: 300px;
+            height: 300px;
+            margin: auto;
+            border: 1px solid black;
+            border-radius: 50%;
+            position: relative;
+            margin-top: 15%;
+        }
+
+        #center {
+            width: 10px;
+            height: 10px;
+            background: red;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+
+        .arrow {
+            width: 10px;
+            height: 100px;
+            background: skyblue;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform-origin: center bottom;
+            border-radius: 5px;
+        }
+
+        #arrow1 {
+            transform: rotate(0deg);
+        }
+
+        #arrow2 {
+            transform: rotate(45deg);
+        }
+
+        #arrow3 {
+            transform: rotate(90deg);
+        }
+
+        #arrow4 {
+            transform: rotate(135deg);
+        }
+
+        #arrow5 {
+            transform: rotate(180deg);
+        }
+
+        #arrow6 {
+            transform: rotate(225deg);
+        }
+
+        #arrow7 {
+            transform: rotate(270deg);
+        }
+
+        #arrow8 {
+            transform: rotate(315deg);
+        }
+
+        #text {
+            text-align: center;
+            font: 30px 微軟正黑體 italic bold;
+            color: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="clock">
+        <div id="center"></div>
+        <div id="arrow1" class="arrow"></div>
+        <div id="arrow2" class="arrow"></div>
+        <div id="arrow3" class="arrow"></div>
+        <div id="arrow4" class="arrow"></div>
+        <div id="arrow5" class="arrow"></div>
+        <div id="arrow6" class="arrow"></div>
+        <div id="arrow7" class="arrow"></div>
+        <div id="arrow8" class="arrow"></div>
+    </div>
+    <p id="text">00:00:00</p>
+    <script>
+        const elText = document.getElementById('text')
+
+        const clock = () => {
+            const date = new Date()
+            const hour = date.getHours()
+            const minute = date.getUTCMinutes()
+            const second = date.getSeconds()
+            elText.innerText = `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}:${second.toString().padStart(2, '0')}`
+        }
+
+        setInterval(clock, 1000)
+        clock()
+    </script>
+</body>
+
+</html>

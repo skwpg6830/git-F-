@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var height = 100.0;
+    var result = 0.0;
+    
+    //第一次落下100
+    result += height; // result = result + height;
+
+    for(var i=0;i<=9;i++){
+        height/=2; // height = height / 2
+        result+=height*2; // result = result + height*2
+        }
+
+    document.write(`共經過${result}公尺, 反彈高${height}公尺`)
+    </script>
+</body>
+</html>

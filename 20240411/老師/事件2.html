@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="btn1" id="btn1">
+  <hr>
+  <input type="button" value="my-btn" class="my-btn">
+  <input type="button" value="my-btn" class="my-btn">
+  <input type="button" value="my-btn" class="my-btn">
+  <hr>
+  <input type="button" value="unbind" id="unbind">
+  <script>
+    const btn1 = document.getElementById('btn1')
+
+    // const aaa = () => {}
+    // btn1.onclick = aaa
+
+    // btn1.onclick = function () {}
+
+    btn1.onclick = () => {
+      alert('Hi')
+    }
+
+    const myBtn = document.getElementsByClassName('my-btn')
+    for (const el of myBtn) {
+      el.onclick = () => {
+        alert('hi')
+      }
+    }
+
+    const unbind = document.getElementById('unbind')
+    unbind.onclick = () => {
+      btn1.onclick = null
+    }
+  </script>
+</body>
+</html>

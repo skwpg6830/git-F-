@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const numbers = [33, 75, 69, 41, 50, 19]
+
+    // 第一題
+    for (const i in numbers) {
+      document.write(`第 ${i * 1 + 1} 個數字為 ${numbers[i]}<br>`)
+    }
+
+    // 第二題
+    for (const i in numbers) {
+      if (numbers[i] === 41) {
+        document.write(`41 是第 ${i * 1 + 1} 個字<br>`)
+        // 找到就停止迴圈
+        break
+      }
+    }
+
+    // 陣列索引從 0 開始
+    // 假設 41 的索引是 -1，代表他不在陣列裡面
+    let index41 = -1
+    for (const i in numbers) {
+      if (numbers[i] === 41) {
+        index41 = i * 1 + 1
+        break
+      }
+    }
+    document.write(index41 === -1 ? '找不到 41<br>' : `41 是第 ${index41} 個字<br>`)
+
+    // 第三題
+    let odd = 0
+    let even = 0
+    for (const i in numbers) {
+      if (numbers[i] % 2 === 1) {
+        odd++
+      } else {
+        even++
+      }
+    }
+    document.write(`奇數: ${odd}，偶數 ${even}<br>`)
+
+    // 第四題
+    let min = numbers[0]
+    let max = numbers[0]
+    for (const number of numbers) {
+      if (number > max) {
+        max = number
+      }
+      if (number < min) {
+        min = number
+      }
+    }
+    document.write(`最大: ${max}，最小 ${min}`)
+  </script>
+</body>
+</html>

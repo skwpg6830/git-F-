@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .text-blue {
+      color: blue;
+    }
+    .text-blue::before {
+      content: '藍色';
+      color: skyblue;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="title">標題</h1>
+  <h2>
+    <i>111</i>
+  </h2>
+  <h2>
+    <i>222</i>
+  </h2>
+  <h3 class="text-red">aaa</h3>
+  <h3 class="text-red">aaa</h3>
+  <h3 class="text-center">aaa</h3>
+  <h3 class="text-center">aaa</h3>
+  <h3 class="text-center">aaa</h3>
+  <h3 class="text-blue">aaa</h3>
+  <h3 class="text-blue">aaa</h3>
+  <h3 class="text-blue">aaa</h3>
+  <script>
+    // .getElementById() 用 ID 抓元素
+    const title = document.getElementById('title')
+    // .innerText 元素內的文字
+    console.log(title.innerText)
+    title.innerText = 'ABCD'
+
+    // .getElementsByTagName() 用標籤名稱抓元素
+    const h2 = document.getElementsByTagName('h2')
+    console.log(h2[0].innerHTML)
+    console.log(h2)
+    h2[0].innerHTML = '<del>AAA</del>'
+    for (let i = 0; i < h2.length; i++) {
+      console.log(i, h2[i].innerHTML.trim())
+    }
+    // 不能使用 forEach
+    // h2.forEach(element => {
+    //   console.log(element.innerHTML.trim())
+    // })
+
+    // .getElementsByClassName() 用標籤名稱抓元素
+    const red = document.getElementsByClassName('text-red')
+    for (const element of red) {
+      // .style.樣式 修改行內樣式
+      element.style.color = 'red'
+      console.log(element.style.color)
+    }
+
+    // .querySelector()     用選擇器抓符合的第一個
+    // .querySelectorAll()  用選擇器抓符合的全部
+    const center = document.querySelectorAll('.text-center')
+    for (const element of center) {
+      element.style.textAlign = 'center'
+      element.style['text-align'] = 'center'
+    }
+
+    const blue = document.querySelectorAll('.text-blue')
+    for (const element of blue) {
+      // .style 行內樣式
+      console.log(element.style.color)
+      // getComputedStyle() 取最終樣式，唯讀
+      console.log(getComputedStyle(element).color)
+      console.log(getComputedStyle(element, '::before').color)
+    }
+  </script>
+</body>
+</html>

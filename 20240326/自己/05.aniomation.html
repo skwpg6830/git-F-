@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.css">
+    <style>
+        .container {
+            width: 75%;
+            margin: auto;
+            padding: 1rem;
+            border: 1px solid #333;
+        }
+
+        .wrap {
+            border: 5px dashed #333;
+            margin: 50px;
+            padding: 50px 0;
+            position: relative;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #000;
+            color: white;
+            line-height: 100px;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        /* 建立 Animation */
+        /* 步驟一 建立一組關鍵影格(keyframes) 
+            設定動畫名稱，起始 from(0%)狀態，結束(100%)狀態
+            */
+
+        @keyframes animation {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+                background-color: red;
+            }
+
+            25% {
+                transform: translate(-50%, -50%);
+            }
+
+
+
+            50% {
+                transform: translate(30vw, 0) rotate(360deg);
+                background: green;
+            }
+
+            75% {
+                transform: skew(50deg, 50deg);
+            }
+
+            100% {
+                transform: translate(63.5vw, 0) rotate(720deg);
+                background-color: blue;
+            }
+        }
+
+        .animation {
+            animation-name: animation;
+            animation-duration: 2s;
+            /* 預設1，可以設定數字次數，infinite 是無限循環 */
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in;
+            /* normal(預設) 正向播放 => 0% ~ 100%
+            reverse 反向播放 => 100% ~ 0%
+            alternate 正向交替播放 => 0% ~ 100% ~ 0% ~ 100%
+            alternate-reverse 反向交替播放 => 100% ~ 0% ~ 100% ~ 0%
+
+            */
+            animation-direction: alternate-reverse;
+            /* 
+             none => 動畫結束時回到沒有進入動畫的初始狀態
+             fowards => 動畫結束時停留在動畫的最後一個關鍵影格 100%
+             backwards => 動畫開始前，先套用第一個關鍵影格 0% */
+
+            animation-fill-mode: none;
+            animation-delay: 1s;
+
+            /* animation: animation 2s 1s infinite both; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>動畫(animation)</h1>
+        <p>動畫與轉場的差異:</p>
+        <h2>animation</h2>
+        <ul>
+            <li>可以設定關鍵影格(keyframes)控制動畫進度狀態，產生更複雜的動畫。</li>
+            <li>可以循環或重複來回播放，網頁載入時自動發生，也可以透過觸發發生(新增、刪除 class)</li>
+        </ul>
+        <h2>transtion</h2>
+        <ul>
+            <li>一次性並沒有循環效果，必須重新在觸發一次。</li>
+            <li>一定要有觸發條件，兩種樣式狀態的改變。</li>
+        </ul>
+
+        <div class="wrap">
+            <div class="box animation"></div>
+        </div>
+    </div>
+
+    <h1 class="animate__animated animate__flash animate__bounce animate__delay-2s">An animated element</h1>
+</body>
+
+</html>

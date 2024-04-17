@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 300px;
+      height: 300px;
+    }
+    #div1 {
+      background-image: conic-gradient(black, white);
+    }
+    #div2 {
+      background-image: conic-gradient(black 270deg, white);
+      /* background-image: conic-gradient(black 75%, white); */
+    }
+    #div3 {
+      background-image: conic-gradient(black 50%, white 50%);
+    }
+    #div4 {
+      background-image: repeating-conic-gradient(black 0deg, black 90deg, white 90deg, white 180deg);
+      background-size: 40px 40px;
+      background-repeat: repeat;
+    }
+  </style>
+</head>
+<body>
+  <div id="div1"></div>
+  <div id="div2"></div>
+  <div id="div3"></div>
+  <div id="div4"></div>
+</body>
+</html>

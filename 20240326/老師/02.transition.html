@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .hover {
+
+      height: 100px;
+      color: white;
+      line-height: 100px;
+      font-size: 2rem;
+      position: relative;
+      left: 0;
+      text-align: center;
+
+      /* 起始樣式 */
+      width: 100px;
+      background: #000;
+      /* 各別設定轉場屬性 */
+      /* transition-property: width, background-color, font-size, transform, margin-top, left; */
+      /* 預設就是 all，也可以是 none(取消轉場效果) */
+      /* transition-property: all; */
+      /* 持續時間，也可以用 ms 毫秒 */
+      transition-duration: 1s;
+      /* 轉場速率 
+        ease: 預設值，慢速開始，然後加速
+        linear: 線性，等速
+        ease-in: 由慢變快
+        ease-out: 由快變慢
+        ease-in-out: 慢速開始，然後加速，最後減速
+        自訂義速率 cubic-bezier 參考 https://easings.net
+      */
+      transition-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+      /* 延遲時間 預設 0 */
+      transition-delay: 1s;
+
+      /* 縮寫，一組一組指定，第一個時間持續時間，第二個延遲時間 */
+      transition: width 0.5s 1s ease-in, background-color 1s 2s ease-out;
+
+      /* 最常用縮寫，沒寫就是預設，以下是持續時間 1s，延遲時間 2s */
+      transition: 1s 2s;
+    }
+
+    /* 狀態觸發 */
+    .hover:hover {
+      /* 結束樣式 */
+      width: 50vw;
+      background: darkmagenta;
+      font-size: 10rem;
+      /* transform: translate(100px); */
+      /* margin-top: 100px; */
+      /* left: 100px; */
+    }
+
+    /* inline 是沒有辦法變形(transform) */
+    .hover span {
+      display: inline-block;
+      color: yellow;
+      transition: 0.5s;
+      transform: rotate(0deg);
+    }
+
+    .hover:hover span {
+      color: purple;
+      transform: rotate(360deg);
+    }
+
+    .link {
+      text-decoration: none;
+      background: #000;
+      color: white;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.75rem;
+      /* box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); */
+      /* transform: rotate(0deg) scale(1); */
+      display: inline-block;
+      transition: 1s;
+    }
+
+    .link:hover {
+      background: darkmagenta;
+      color: yellow;
+      transform: rotate(360deg) scale(1.2);
+      /* inset 是內陰影 */
+      box-shadow: inset 0 0 5px 1px yellow;
+    }
+
+    label[for="checked-me"] {
+      cursor: pointer;
+      background: darkmagenta;
+      color: white;
+      padding: 0.5rem;
+      display: inline-block;
+    }
+
+    #checked-me {
+      display: none;
+    }
+
+    .sidebar {
+      width: 100px;
+      color: white;
+      background: #000;
+      padding: 1rem;
+      /* 初始樣式 */
+      margin-left: -200px;
+      transition: 1s;
+    }
+
+    /* 狀態改變 */
+    #checked-me:checked+.sidebar {
+      /* 結束樣式 */
+      margin-left: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>轉場(transition)或為過渡</h1>
+  <ul>
+    <li>轉場是兩組樣式之間漸進式的轉換過程，有起始樣式與結束樣式，瀏覽器會將兩組樣式形成補間動畫(Tween)。</li>
+    <li>必須要有狀態做觸發動作(狀態有很多種)，最常見是 :hover，或是 media quary 斷點的變化也可以造成轉場。</li>
+  </ul>
+
+  <h1>hover 狀態</h1>
+  <div class="hover">
+    <span>hover</span>
+  </div>
+
+  <hr>
+
+  <h2>練習:做一個按鈕，滑鼠 hover 時，背景顏色、文字顏色、按鈕放大的轉場效果</h2>
+  <a href="#" class="link">按鈕連結</a>
+
+  <hr>
+
+  <h1>checked 狀態</h1>
+  <p>:checked 狀態改變，transition 發生</p>
+  <label for="checked-me">CheckMe</label>
+  <input id="checked-me" type="checkbox">
+
+  <div class="sidebar">
+    解壓男子士兵區域貫徹接收年齡活動，依靠差不多用戶，增強試驗營養照顧動畫改進時期我這但他觀察很難，也會還不手機準備危機街道作品估計我和設計朋友財務，實用限制訊息文本網頁陽明山校長金額引進風險字體，印度大哥傢伙她們報紙報導情人對象那樣每個人宣佈，不多上來好看。
+  </div>
+</body>
+
+</html>

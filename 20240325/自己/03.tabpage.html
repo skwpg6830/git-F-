@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mytab {
+            display: flex;
+        }
+
+        label {
+            background: deeppink;
+            padding: 0.5rem 0.5rem;
+            text-align: center;
+            border: 1px solid #000;
+        }
+
+        .container {
+            width: 600px;
+            padding: 1rem;
+            border: 1px solid #333;
+
+        }
+
+        label:hover {
+            cursor: pointer;
+            background: #fff;
+        }
+
+        label+label {
+            margin-left: 5px;
+        }
+
+        input {
+            display: none;
+        }
+
+        .content1,
+        .content2,
+        .content3,
+        .content4 {
+            display: none;
+        }
+
+        /* 選擇誰要顯示 */
+        /* 藉由 radio 單一選項，當 radio 被勾選時，同層全體選擇器(~) 會找到對應的內容顯示 */
+        #tab1:checked~.content1 {
+            display: block;
+        }
+
+        #tab2:checked~.content2 {
+            display: block;
+        }
+
+        #tab3:checked~.content3 {
+            display: block;
+        }
+
+        #tab4:checked~.content4 {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mytab">
+        <label for="tab1">tab01</label>
+        <label for="tab2">tab02</label>
+        <label for="tab3">tab03</label>
+        <label for="tab4">tab04</label>
+    </div>
+
+    <div class="container">
+        <!-- input選擇器 -->
+        <input id="tab1" type="radio" name="tabControll" checked>
+        <input id="tab2" type="radio" name="tabControll">
+        <input id="tab3" type="radio" name="tabControll">
+        <input id="tab4" type="radio" name="tabControll">
+        <div class="content1">
+            con 出版及時上午暴力網頁班欣賞那位，怎麼代理兩人，執行一種，你。
+        </div>
+        <div class="content2">
+            tent 出版及時上午暴力網頁班欣賞那位，怎麼代理兩人，執行一種，你。
+        </div>
+        <div class="content3">
+            content 出版及時上午暴力網頁班欣賞那位，怎麼代理兩人，執行一種，你。
+        </div>
+        <div class="content4">
+            content4 出版及時上午暴力網頁班欣賞那位，怎麼代理兩人，執行一種，你。
+        </div>
+    </div>
+</body>
+
+</html>

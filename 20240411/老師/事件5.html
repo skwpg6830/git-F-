@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #div {
+      width: 100px;
+      height: 100px;
+      background: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div id="div"></div>
+  <p id="key"></p>
+  <input type="range" id="range" min="0" max="100" step="10" value="0">
+  <span id="range-value">0</span>
+  <br>
+  <input type="text" id="input-email">
+  <script>
+    const div = document.getElementById('div')
+    // div.onclick = (event) => {}
+    div.addEventListener('click', (event) => {
+      console.log(event)
+      // event.target 事件的目標
+      console.log(event.target)
+    })
+
+    const key = document.getElementById('key')
+    // 只能在 document 偵測 keydown
+    document.addEventListener('keydown', (event) => {
+      console.log(event)
+      key.innerText = event.key
+    })
+
+    const range = document.getElementById('range')
+    const rangeValue = document.getElementById('range-value')
+    // 邊拖拉邊觸發 input
+    range.addEventListener('input', () => {
+      console.log('range input')
+      rangeValue.innerText = range.value
+    })
+    // 拖拉完後，值改變才會觸發 change
+    range.addEventListener('change', () => {
+      console.log('range change')
+    })
+
+    const inputEmail = document.getElementById('input-email')
+    inputEmail.addEventListener('focus', () => {
+      console.log('focus')
+    })
+    inputEmail.addEventListener('blur', () => {
+      console.log('blur')
+    })
+    inputEmail.addEventListener('change', () => {
+      console.log('change')
+    })
+    inputEmail.addEventListener('input', () => {
+      console.log('input')
+      const valid = inputEmail.value.includes('@')
+      if (valid) {
+        inputEmail.style.border = '5px solid green'
+      } else {
+        inputEmail.style.border = '5px solid red'
+      }
+    })
+  </script>
+</body>
+</html>

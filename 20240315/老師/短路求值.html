@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // || 會取第一個 Boolean() 判斷為 true 的值
+    const x = null || 0 || undefined || 123 || 'abc' || 'dfgd' || false
+    console.log(x)
+
+    // const name = prompt('請輸入名字') || '路人'
+    // console.log(name)
+
+    // let name = prompt('請輸入名字')
+    // if (name === '' || name === null) {
+    //   name = '路人'
+    // }
+
+    // && 會取第一個 Boolean() 判斷為 false 的值
+    const y = 'abc' && 123 && 456 && false && 'def' && undefined
+    console.log(y)
+
+    // ?? 會取第一個不是 null 也不是 undefined 的值
+    const z = undefined ?? null ?? false ?? 'abc' ?? 123 ?? 456 ?? false ?? 'def'
+    console.log(z)
+  </script>
+</body>
+</html>

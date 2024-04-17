@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let a = 5
+    // 單純的 + 10，沒有改到 a 的值
+    a + 10
+    console.log('a', a)  // 5
+    // 將 a 改為 a 原本的值 + 10
+    a = a + 10
+    console.log('a', a)  // 15
+    // a = a + 10 --> a += 10
+    a += 10
+    console.log('a', a)  // 25
+
+    let b = 5
+    b -= 2
+    console.log('b', b)  // 3
+
+    let c = 5
+    c *= 5
+    console.log('c', c)  // 25
+
+    let d = 100
+    d /= 5
+    console.log('d', d)  // 20
+
+    let e = 51
+    e %= 5
+    console.log('e', e)  // 1
+  </script>
+</body>
+</html>

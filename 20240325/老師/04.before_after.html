@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      box-sizing: border-box;
+    }
+
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    h1 {
+      color: white;
+      background: #000;
+      margin: 2rem 0 0 0;
+      padding: 1rem;
+    }
+
+    .container {
+      width: 75%;
+      margin: 1% auto;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      color: white;
+      background-color: #333;
+      margin: 20px auto;
+      position: relative
+    }
+
+    .box::before {
+      content: "";
+      width: 100px;
+      height: 100px;
+      background: red;
+      /* inline 轉成 block */
+      position: absolute;
+      left: -100px;
+      top: 0;
+    }
+
+    .box::after {
+      content: "";
+      width: 100px;
+      height: 100px;
+      background: blue;
+      position: absolute;
+      right: -100px;
+      top: 0;
+    }
+
+    .bg-color {
+      background: #ffa;
+    }
+
+    .col {
+      width: 45%;
+      margin: 2.5%;
+      float: left;
+    }
+
+    .col img {
+      width: 100%;
+    }
+
+    .clearfix::after {
+      content: "";
+      /* inline => block */
+      display: block;
+      clear: both;
+    }
+
+    .box2 {
+      width: 150px;
+      height: 150px;
+      background: #aaa;
+      margin: auto;
+      position: relative;
+    }
+
+    .box2::before {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      top: 0;
+      left: -110%;
+      background: url("https://picsum.photos/150/150/?random=11") no-repeat center/cover;
+      transition: 0.5s;
+    }
+
+    .box2::after {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      top: 0;
+      right: -110%;
+      background: url("https://picsum.photos/150/150/?random=12") no-repeat center/cover;
+      transition: 0.5s;
+    }
+
+    /* 摸到主體 .box2，讓其分身 before、after 做事情，不能有空格 */
+    /* .box2:hover ::before 中間有空格這樣是錯的 */
+    .box2:hover::before {
+      background: url("https://picsum.photos/150/150/?random=21") no-repeat center/cover;
+      left: 110%;
+    }
+
+    .box2:hover::after {
+      background: url("https://picsum.photos/150/150/?random=22") no-repeat center/cover;
+      right: 110%;
+    }
+
+    .box2 .inside {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      color: white;
+      /* background: red; */
+    }
+
+    .box2 .inside::before {
+      content: "";
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 0, 0.5);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: 0.5s;
+    }
+
+    .box2:hover .inside::before {
+      width: 100%;
+      height: 100%;
+      background: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>::before、::after</h1>
+    <p>偽元素讓主元素擁有兩個分身來做事情，用於輔助裝飾或是繪圖創作。</p>
+    <div class="box">
+      lorem
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>啟動條件與特性</h1>
+    <ul style="font-size:22px;">
+      <li>1.要有 content:""，才會有作用，content 可以放內容。</li>
+      <li>2.建立時 inline。</li>
+      <li>3.使用絕對定位時要確認父元素有沒有定位。</li>
+      <li>4.在結構上，before在內容區域的前方，after 在內容區域的後方。</li>
+      <li>5.before與after定位時，遵循後面遮蓋前面的特性，可使用 z-index 來改變位置。</li>
+      <li>6.偽元素沒有辦法再建立偽元素。</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <h1>1.當作清除浮動</h1>
+  </div>
+  <div class="container clearfix bg-color">
+    <div class="col">
+      <img src="https://picsum.photos/600/400/?random=10">
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet ducimus nihil voluptates unde labore non! Maxime culpa facere praesentium reprehenderit ipsum aperiam ex, dolor libero sed quidem, ullam alias facilis.</p>
+    </div>
+    <div class="col">
+      <img src="https://picsum.photos/600/400/?random=10">
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet ducimus nihil voluptates unde labore non! Maxime culpa facere praesentium reprehenderit ipsum aperiam ex, dolor libero sed quidem, ullam alias facilis.</p>
+    </div>
+    <!-- ::after -->
+  </div>
+
+  <div class="container">
+    <h1>2.摸到主體，讓分身做事情</h1>
+  </div>
+  <div class="container">
+    <div class="box2">
+      <div class="inside"></div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // setTimeout(function () {
+    // })
+
+    // setTimeout(() => {
+    //   document.write('經過五秒')
+    // }, 5000)
+
+    // const write = () => {
+    //   document.write('經過五秒')
+    // }
+    // setTimeout(write, 5000)
+
+    const write = (ms, text) => {
+      document.write(`經過${ms/1000}秒，${text}`)
+    }
+    // setTimeout(function, 毫秒, function參數...)
+    const timer = setTimeout(write, 5000, 5000, 'aaa')
+    clearTimeout(timer)
+  </script>
+</body>
+</html>

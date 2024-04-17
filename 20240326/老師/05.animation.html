@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.css">
+
+  <style>
+    .container {
+      width: 75%;
+      margin: auto;
+      padding: 1rem;
+      border: 1px solid #333;
+    }
+
+    .wrap {
+      border: 5px dashed #333;
+      margin: 50px;
+      padding: 50px 0;
+      position: relative;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: #000;
+      color: white;
+      line-height: 100px;
+      text-align: center;
+      font-size: 2rem;
+    }
+
+    /* 建立 Animation */
+    /* 步驟一 建立一組關鍵影格(keyframes) 
+       設定動畫名稱、起始 from(0%)狀態、 結束(100%)狀態
+       百分比的進度可以自己去設定區段
+    */
+    @keyframes animation {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+        background-color: red;
+      }
+
+      50% {
+        transform: translate(25vw, 0) rotate(360deg);
+        background: green;
+      }
+
+      100% {
+        transform: translate(50vw, 0) rotate(720deg);
+        background-color: blue;
+      }
+    }
+
+    .animation {
+      animation-name: animation;
+      animation-duration: 2s;
+      /* 預設 1，可以設定數字次數，infinite 是無限循環 */
+      animation-iteration-count: 1;
+      /* 轉場速率 
+        ease: 預設值，慢速開始，然後加速
+        linear: 線性，等速
+        ease-in: 由慢變快
+        ease-out: 由快變慢
+        ease-in-out: 慢速開始，然後加速，最後減速
+        自訂義速率 cubic-bezier 參考 https://easings.net
+      */
+      animation-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+      /*  
+        播放方向
+        normal(預設) 正向播放 => 0% -> 100%
+        reverse 反向播放 => 100% -> 0%
+        alternate 正向交替播放 => 0% -> 100% -> 0% -> 100%
+        alternate-reverse 反向交替播放 => 100% -> 0% -> 100% -> 0%
+      */
+      animation-direction: normal;
+      /* 
+        none => 動畫結束時回到沒有進入動畫的初始狀態 
+        fowards => 動畫結束時停留在動畫的最後一個關鍵影格 100%
+        backwards => 動畫開始前，先套用第一個關鍵影格 0%，動畫結束回到初始狀態
+        both => 動畫一開始在第一幀，結束時在最後一幀
+      */
+      animation-fill-mode: backwards;
+      animation-delay: 1s;
+
+      /* 縮寫 */
+      animation: animation 2s 1s linear infinite alternate both;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>動畫(animation)</h1>
+    <p>動畫與轉場的差異:</p>
+    <h2>animation</h2>
+    <ul>
+      <li>可以設定關鍵影格(keyframes)控制動畫進度狀態，產生更複雜的動畫。</li>
+      <li>可以循環或重複來回播放，網頁載入時自動發生，也可以觸發發生(新增、刪除 class)</li>
+    </ul>
+    <h2>transition</h2>
+    <ul>
+      <li>一次性且沒有循環效果，必須重新再觸發一次。</li>
+      <li>一定要有觸發條件，兩種樣式狀態的改變。</li>
+    </ul>
+
+    <div class="wrap">
+      <div class="box animation"></div>
+    </div>
+  </div>
+
+  <h1 class="animate__animated animate__backInDown">An animated element</h1>
+
+</body>
+
+</html>

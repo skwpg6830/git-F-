@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/loadingio/loading.css@v2.0.0/dist/loading.min.css">
+  <style>
+    body {
+      margin: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+    #loading {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      display: table;
+      vertical-align: middle;
+      background-color: gray;
+      transition: opacity 1s;
+    }
+    #loading-content {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+    #loading-icon {
+      width: 100px;
+      animation: rotate 2s infinite;
+    }
+    #loading-icon path {
+      fill: white;
+    }
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg)
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="loading">
+    <div id="loading-content">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="loading-icon">
+        <path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/>
+      </svg>
+      <h1>
+        載入中...
+        <span id="loading-progress">0</span>%
+      </h1>
+    </div>
+  </div>
+  <div id="content">
+    <input type="button" value="AAA">
+    <img src="https://picsum.photos/1000/1000?random=1" alt="">
+    <img src="https://picsum.photos/1000/1000?random=2" alt="">
+    <img src="https://picsum.photos/1000/1000?random=3" alt="">
+    <img src="https://picsum.photos/1000/1000?random=4" alt="">
+    <img src="https://picsum.photos/1000/1000?random=5" alt="">
+  </div>
+  <script>
+    const loading = document.getElementById('loading')
+    const loadingProgress = document.getElementById('loading-progress')
+    const images = document.getElementsByTagName('img')
+
+    let loaded = 0
+    for (const el of images) {
+      el.addEventListener('load', () => {
+        loaded++
+        loadingProgress.innerText = Math.round(loaded / images.length * 100)
+      })
+    }
+
+    // document.onreadystatechange = () => {}
+    document.addEventListener('readystatechange', () => {
+      console.log(document.readyState)
+    })
+
+    // window.onload = () => {}
+    window.addEventListener('load', () => {
+      console.log('window load')
+      loading.style.opacity = 0
+      document.body.style.overflow = 'auto'
+      setTimeout(() => {
+        loading.style.display = 'none'
+      }, 1000)
+    })
+  </script>
+</body>
+</html>

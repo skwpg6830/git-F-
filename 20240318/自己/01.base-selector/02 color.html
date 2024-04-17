@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>使用顏色名稱</h1>
+    <p style="color: red;">Lorem ipsum dolor sit amet.</p>
+
+    <h1>使用 HEX 16 進位色碼</h1>
+    <!-- ff兩兩一組,第一組 紅色,第二組 綠色,第三組 藍色
+    #ff0000 > 紅色 > 255 , 0 , 0
+    #00ff00 > 綠色 > 0 , 255 , 0
+    #0000ff > 藍色 > 0 , 0 , 255
+    #000000 > 黑色 > 0 , 0 , 0
+    #ffffff > 白色 > 255 , 255 , 255
+ -->
+    <p style="color: #0000ff;">Lorem ipsum dolor sit amet.</p>
+    <!-- 每組若相同,可以止寫一個 -->
+    <p style="color: #00f;">Lorem ipsum dolor sit amet.</p>
+
+    <h1>使用函式 rgb() 或 rgba()</h1>
+    <p style="color: rgb(255, 0 ,0);">Lorem ipsum dolor sit amet.</p>
+    <!-- rgba 的 a 是指 alpha 透明度,1 完全不透明, 0 完全透明, 0.5 半透明 -->
+    <p style="color:rgba(255, 0 , 0 , 0.5)">Lorem ipsum dolor sit amet.</p>
+    <p style="color:rgb(255 0 0 / 0)">Lorem ipsum dolor sit amet.</p>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      position: relative;
+      background-image: url("https://picsum.photos/id/684/1920/1080");
+      background-size: 150%;
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-attachment: fixed;
+    }
+    #content {
+      height: 5000px;
+    }
+  </style>
+</head>
+<body>
+  <div id="background"></div>
+  <div id="content"></div>
+  <script>
+    window.addEventListener('scroll', () => {
+      // documentElement = <html>
+      // scrollTop 元素捲動高度
+      const top = document.documentElement.scrollTop
+      console.log(top)
+      document.body.style.backgroundPosition = `center -${top/50}px`
+    })
+  </script>
+</body>
+</html>

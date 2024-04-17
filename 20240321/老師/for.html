@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const numbers = [1, 2, 3, 4]
+    // for (值 of 陣列)
+    for (const number of numbers) {
+      document.write(number + '<br>')
+    }
+
+    document.write('<hr>')
+
+    // for (索引 in 陣列或物件)
+    // 索引的資料型態是文字
+    for (const i in numbers) {
+      document.write(`第 ${i+1} 個 - 索引 ${i} - ${numbers[i]}<br>`)
+    }
+
+    document.write('<hr>')
+
+    const obj = { a:1, b:2, c:3 }
+    for (const key in obj) {
+      document.write(`${key}: ${obj[key]}<br>`)
+    }
+
+    document.write('<hr>')
+
+    const numbers2 = [1, 2, 3, 4]
+    for (let number of numbers2) {
+      number *= 100
+    } 
+    console.log(numbers2)
+    for (const i in numbers2) {
+      numbers2[i] *= 100
+    }
+    console.log(numbers2)
+  </script>
+</body>
+</html>

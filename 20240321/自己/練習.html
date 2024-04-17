@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let numbers = [33, 75, 69, 41, 50, 19]
+        for (let y = 0; y <= 5; y++) {
+
+            document.write(`第${y + 1}個數字是${numbers[y]}<br>`)
+
+
+            document.write(`<hr>`)
+            for (let y in numbers) {
+                if (numbers[y] === 41) {
+                    document.write(`41 是第 ${y * 1 + 1} 個字<br>`)
+                    // 找到就停止迴圈
+                    break
+                }
+            }
+
+            let odd = 0
+            let even = 0
+            for (const y in numbers) {
+                if (numbers[y] % 2 === 1) {
+                    odd++
+                } else {
+                    even++
+                }
+            }
+            document.write(`奇數: ${odd}, 偶數 ${even}`)
+
+            let min = numbers[0]
+            let max = numbers[0]
+            for (const number of numbers) {
+                if (number > max) {
+                    max = number
+                }
+                if (number < min) {
+                    min = number
+                }
+            }
+            document.write(`最大: ${max}，最小 ${min}`)
+        }
+    </script>
+</body>
+
+</html>

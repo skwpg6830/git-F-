@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+
+    body,
+    html {
+      height: 100%;
+    }
+
+    body {
+      background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.5) 100%);
+    }
+
+    div {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0, 0, 0, 0.3));
+    }
+
+    div span {
+      font-size: 3rem;
+      margin: 0 1rem;
+      display: inline-block;
+      text-shadow:
+        1px 1px 1px rgba(0, 0, 0, 0.5),
+        1px 1px 2px rgba(0, 0, 0, 0.3),
+        1px 1px 3px rgba(0, 0, 0, 0.1);
+      animation: jump 1s ease-in-out infinite;
+    }
+
+    div span:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    div span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    div span:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    div span:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+
+    div span:nth-child(5) {
+      animation-delay: 0.5s;
+    }
+
+    div span:nth-child(6) {
+      animation-delay: 0.6s;
+    }
+
+    div span:nth-child(7) {
+      animation-delay: 0.7s;
+    }
+
+    div span:nth-child(8) {
+      animation-delay: 0.8s;
+    }
+
+    @keyframes jump {
+      from {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-50px) rotate(360deg);
+      }
+
+      50.1% {
+        transform: translateY(-50px) rotate(0deg);
+      }
+
+      to {
+        transform: translateY(0px) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div>
+    <span>F</span>
+    <span>R</span>
+    <span>O</span>
+    <span>N</span>
+    <span>T</span>
+    <span>E</span>
+    <span>N</span>
+    <span>D</span>
+  </div>
+</body>
+
+</html>

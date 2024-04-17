@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 
+      第二種方式 用外部樣式表，link 起來 
+      1. 可以給其他文件使用，不需要在每個文件寫重複的樣式
+      2. html 檔案較小，維護較容易
+  -->
+  <link rel="stylesheet" href="./style1.css">
+  <style>
+    /* 第一種方式 用 style 標籤寫這份網頁的樣式 */
+    /*  
+      選擇器 {
+        屬性: 值;
+      }
+    */
+
+    /* 標籤選擇器 */
+    h1 {
+      color: red;
+      background: yellow;
+      font-size: 40px;
+    }
+
+    p {
+      color: blueviolet;
+    }
+
+    /* 群組選擇器，以逗點分開 */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: green;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 標籤選擇器 -->
+  <!-- 第三種方式 行內樣式，優先權最高(如果其他人沒有 !important) -->
+  <h1 style="color:brown;">Title1</h1>
+  <p>斗內至於生成長度，本公司激情，例如一款。</p>
+
+  <h1>Title2</h1>
+  <p>斗內至於生成長度，本公司激情，例如一款。</p>
+
+  <h1>Title3</h1>
+  <p>斗內至於生成長度，本公司激情，例如一款。</p>
+
+  <h1>Title4</h1>
+  <p>斗內至於生成長度，本公司激情，例如一款。</p>
+
+  <hr>
+
+  <!-- 群組選擇器 -->
+  <h1>Hello World</h1>
+  <h2>Hello World</h2>
+  <h3>Hello World</h3>
+  <h4>Hello World</h4>
+  <h5>Hello World</h5>
+  <h6>Hello World</h6>
+</body>
+
+</html>

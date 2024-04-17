@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 75%;
+            margin: 2rem auto;
+            background: #ccc;
+            padding: 1rem;
+            border-radius: 1rem;
+        }
+
+        .float_left {
+            /* float 會自動轉型成 block */
+            float: left;
+            margin: 1rem;
+        }
+
+        .clear-left {
+            clear: left;
+        }
+
+        .float_right {
+            /* float 會自動轉型成 block */
+            float: right;
+            margin: 1rem;
+        }
+
+        .clear-right {
+            clear: right;
+        }
+
+        .clear-both {
+            clear: both;
+        }
+
+        .menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background: black;
+            color: white;
+            overflow: hidden;
+        }
+
+        .menu-item {
+            /* width =>  可以包含 padding、border */
+            box-sizing: border-box;
+            width: 20%;
+            padding: 1rem;
+            border: 10px solid #333;
+
+            float: left;
+            text-align: center;
+            background: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 圖片是 inline -->
+    <div class="container">
+        <h2>float-left</h2>
+        <img class="float_left" src="https://picsum.photos/200/200/?random=10">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, rem!
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit fuga quo veniam assumenda ducimus animi
+            nam
+        </p>
+        <p class="clear-left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, quae.</p>
+    </div>
+    <div class="container">
+        <h2>float-right</h2>
+        <img class="float_right" src="https://picsum.photos/200/200/?random=10">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, rem!
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit fuga quo veniam assumenda ducimus animi
+            nam
+        </p>
+        <p class="clear-right">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, quae.</p>
+    </div>
+
+    <div class="container">
+        <h2>float-left 與 float-right</h2>
+        <img class="float-left" src="https://picsum.photos/200/200/?random=10"">
+        <img class=" float-right" src="https://picsum.photos/200/200/?random=10"">
+        <p class=" clear-both">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis sunt suscipit, numquam aut
+        nesciunt ullam ipsa cum ad eligendi asperiores praesentium voluptates similique, hic rem necessitatibus
+        repudiandae nobis, ipsam odit.
+        </p>
+    </div>
+
+    <div class="container">
+        <h2>浮動的特性</h2>
+        <ul>
+            <li>具有區塊化(block)特性，將元素轉型成 block。</li>
+            <li>會脫離正常流向獨立，會影響父元素無法包覆浮動元素，若父元素沒有內容或 padding，就會造成父元素高度崩塌消失。</li>
+            <li>父元素設定 overflow:hidden 可以讓浮動元素再次被包覆。</li>
+        </ul>
+    </div>
+
+    <div style="background:deepskyblue; overflow:hidden">
+        <span style="float:left;">我是 span，誕生時為 inline，float 後變成 block</span>
+        <button style="float:right">我是 button，誕生時為 inline-block，float 後變成 block</button>
+    </div>
+
+    <div class="container"></div>
+
+    <ul class="menu">
+        <li class="menu-item">item1</li>
+        <li class="menu-item">item2</li>
+        <li class="menu-item">item3</li>
+        <li class="menu-item">item4</li>
+        <li class="menu-item">item5</li>
+    </ul>
+</body>
+
+</html>

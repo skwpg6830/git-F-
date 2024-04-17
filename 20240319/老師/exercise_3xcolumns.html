@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 
+        使用 display 設計一個 960px 三欄水平置中的版型 
+        1. col => display: inline-block => 橫向排列
+        2. container => 960px 水平置中的版型
+    */
+    .container {
+      /* 區塊有寬度，設置 margin:auto 可以水平置中 */
+      width: 960px;
+      margin: auto;
+      background: #000;
+      color: white;
+      /* 處理幽靈空白 */
+      font-size: 0;
+    }
+
+    /* 960 / 3 = 320px */
+    .col {
+      /* 橫向排列 */
+      display: inline-block;
+      /* 計算盒子寬度 */
+      width: 300px;
+      margin: 5px;
+      padding: 5px;
+      /* 設回字型大小 */
+      font-size: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="col">
+      <img src="https://picsum.photos/300/300/?random=10">
+      <h2>title</h2>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error nisi expedita non consectetur, adipisci minima asperiores inventore culpa cupiditate deserunt, perspiciatis vitae explicabo facilis fugit quasi blanditiis reiciendis, placeat illo.</p>
+    </div>
+    <div class="col">
+      <img src="https://picsum.photos/300/300/?random=10">
+      <h2>title</h2>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error nisi expedita non consectetur, adipisci minima asperiores inventore culpa cupiditate deserunt, perspiciatis vitae explicabo facilis fugit quasi blanditiis reiciendis, placeat illo.</p>
+    </div>
+    <div class="col">
+      <img src="https://picsum.photos/300/300/?random=10">
+      <h2>title</h2>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error nisi expedita non consectetur, adipisci minima asperiores inventore culpa cupiditate deserunt, perspiciatis vitae explicabo facilis fugit quasi blanditiis reiciendis, placeat illo.</p>
+    </div>
+    <div class="col">
+      <img src="https://picsum.photos/300/300/?random=10">
+      <h2>title</h2>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error nisi expedita non consectetur, adipisci minima asperiores inventore culpa cupiditate deserunt, perspiciatis vitae explicabo facilis fugit quasi blanditiis reiciendis, placeat illo.</p>
+    </div>
+    <div class="col">
+      <img src="https://picsum.photos/300/300/?random=10">
+      <h2>title</h2>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error nisi expedita non consectetur, adipisci minima asperiores inventore culpa cupiditate deserunt, perspiciatis vitae explicabo facilis fugit quasi blanditiis reiciendis, placeat illo.</p>
+    </div>
+    <div class="col">
+      <img src="https://picsum.photos/300/300/?random=10">
+      <h2>title</h2>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error nisi expedita non consectetur, adipisci minima asperiores inventore culpa cupiditate deserunt, perspiciatis vitae explicabo facilis fugit quasi blanditiis reiciendis, placeat illo.</p>
+    </div>
+    <div class="col">
+      <img src="https://picsum.photos/300/300/?random=10">
+      <h2>title</h2>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error nisi expedita non consectetur, adipisci minima asperiores inventore culpa cupiditate deserunt, perspiciatis vitae explicabo facilis fugit quasi blanditiis reiciendis, placeat illo.</p>
+    </div>
+  </div>
+</body>
+
+</html>

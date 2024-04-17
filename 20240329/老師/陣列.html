@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const numbers = [1, 2, 3, 4, 5]
+
+    // numbers.forEach(function () {
+    // })
+
+    // const each = () => {}
+    // numbers.forEach(each)
+
+    // .forEach(function)
+    // 迴圈陣列，每個東西都執行提供的 function
+    // function 有三個參數
+    // value = 現在在執行 function 的東西值
+    // index = 現在在執行 function 的東西索引
+    // array = 陣列本身
+    numbers.forEach((value, index, array) => {
+      // console.log(value, index, array)
+
+      // 不能直接修改 value
+      // value *= 10
+
+      // 只能使用索引修改原陣列的值
+      array[index] *= 2
+      numbers[index] *= 2
+    })
+    console.log(numbers)
+
+    // .join(連接文字)
+    // 將陣列用連接文字串成文字
+    console.log(numbers.join('-'))
+
+    const fruits = ['蘋果', '香蕉', '西瓜']
+    // .push(資料)
+    // 把資料放進陣列後面
+    // fruits.push('草莓')
+    // fruits.push('芭樂', '柳丁')
+    const fruits2 = ['草莓', '芭樂', '柳丁']
+    fruits.push(...fruits2)
+    console.log(fruits)
+    // .unshift(資料)
+    // 把資料放進陣列前面
+    // fruits.unshift('橘子')
+    // fruits.unshift('葡萄', '藍莓')
+    const fruits3 = ['橘子', '葡萄', '藍莓']
+    fruits.unshift(...fruits3)
+    console.log(fruits)
+    
+    // .pop()
+    // 移除最後一個並回傳
+    const lastFruit = fruits.pop()
+    console.log(lastFruit, fruits)
+    // .shift()
+    // 移除第一個並回傳
+    const firstFruit = fruits.shift()
+    console.log(firstFruit, fruits)
+
+    const phones = ['Nothing', 'iPhone', 'Samsung']
+    // .splice(開始位置, 刪除數量, 插入資料1, 插入資料2...)
+    // phones.splice(1, 2, 'Google', 'Xiaomi')
+    const phones2 = ['Google', 'Xiaomi', 'SONY', 'Oppo', 'ASUS']
+    phones.splice(1, 2, ...phones2)
+    console.log(phones)
+
+    // .slice(開始位置, 結束位置)
+    // 陣列切割產生新陣列，不會修改到原始陣列
+    const newPhones = phones.slice(1, 5)
+    console.log(newPhones, phones)
+
+    // .concat(陣列)
+    // 連接陣列，不會修改到原始陣列
+    const array = phones.concat(fruits, numbers)
+    console.log(array, phones)
+
+    // .reverse()
+    // 顛倒陣列
+    array.reverse()
+    console.log(array)
+  </script>
+</body>
+</html>

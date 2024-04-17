@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 75%;
+      margin: 2rem auto;
+      background: #ccc;
+      padding: 1rem;
+      border-radius: 1rem;
+    }
+
+    .float-left {
+      /* float 會自動轉型成 block */
+      float: left;
+      margin: 1rem;
+    }
+
+    .clear-left {
+      clear: left;
+    }
+
+    .float-right {
+      /* float 會自動轉型成 block */
+      float: right;
+      margin: 1rem;
+    }
+
+    .clear-right {
+      clear: right;
+    }
+
+    .clear-both {
+      clear: both;
+    }
+
+    .menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      background: #000;
+      color: white;
+      overflow: hidden;
+    }
+
+    .menu-item {
+      /* width => 可以包含 padding、border */
+      box-sizing: border-box;
+      width: 20%;
+      padding: 1rem;
+      border: 10px solid #333;
+
+      float: left;
+      text-align: center;
+      background: #aaa;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 圖片是 inline -->
+  <!-- <img src="https://picsum.photos/100/100/?random=10"> -->
+  <!-- <img src="https://picsum.photos/100/100/?random=10"> -->
+  <!-- <img src="https://picsum.photos/100/100/?random=10"> -->
+
+  <div class="container">
+    <h2>float-left</h2>
+    <img class="float-left" src="https://picsum.photos/200/200/?random=10">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem quas culpa assumenda at sapiente dicta hic quisquam tempore corrupti dolores laborum molestias reprehenderit, dolorum ab aut voluptates ipsam sunt nisi magnam unde! In autem voluptas vitae tempora fugit modi corporis molestias cumque impedit voluptatem sis ab eum consectetur ipsum obcaecati iure voluptatem!
+    </p>
+    <p class="clear-left">金額如果你故事交易角度和他確實婦女結合到我國內外，左右時刻說明一切住宅給我們但他提示，女生解壓選手編輯有意一步，節省當時狀態生命青春網路交友營銷超級我不相比物品，背景寂寞中港路財產技巧台北，鬱悶每個日誌身材加入時間技巧交給本報群眾不要版權所有，開始記住風。</p>
+  </div>
+  <div class="container">
+    <h2>float-right</h2>
+    <img class="float-right" src="https://picsum.photos/200/200/?random=10">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem quas culpa assumenda at sapiente dicta hic quisquam tempore corrupti dolores laborum molestias reprehenderit, dolorum ab aut voluptates ipsam sunt nisi magnam unde! In autem voluptas vitae tempora fugit modi corporis molestias cumque impedit voluptatem sis ab eum consectetur ipsum obcaecati iure voluptatem!
+    </p>
+    <p class="clear-right">金額如果你故事交易角度和他確實婦女結合到我國內外，左右時刻說明一切住宅給我們但他提示，女生解壓選手編輯有意一步，節省當時狀態生命青春網路交友營銷超級我不相比物品，背景寂寞中港路財產技巧台北，鬱悶每個日誌身材加入時間技巧交給本報群眾不要版權所有，開始記住風。</p>
+  </div>
+
+  <div class="container">
+    <h2>float-left 與 float-right</h2>
+    <img class="float-left" src="https://picsum.photos/200/200/?random=10">
+    <img class="float-right" src="https://picsum.photos/200/200/?random=10">
+    <p class="clear-both">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est repudiandae libero impedit, natus praesentium deleniti saepe ab? Dolor iure suscipit itaque, quaerat illum, excepturi nobis consequatur repellendus, quia sapiente ut eius voluptatibus dolores quibusdam! Aspernatur consectetur, nulla eligendi obcaecati modi omnis? Numquam facere hic cumque veritatis dolorum, blanditiis aperiam ipsa.
+    </p>
+  </div>
+
+  <div class="container">
+    <h2>浮動的特性</h2>
+    <ul>
+      <li>具有區塊化(block)特性，將元素轉型成 block。</li>
+      <li>會脫離正常流向獨立，會影響父元素無法包覆浮動元素，若父元素沒有內容或 padding，就會造成父元素高度崩塌消失。</li>
+      <li>父元素設定 overflow:hidden 可以讓浮動元素再次被包覆。</li>
+    </ul>
+  </div>
+
+  <div style="background:deepskyblue; overflow:hidden">
+    <span style="float:left;">我是 span，誕生時為 inline，float 後變成 block</span>
+    <button style="float:right">我是 button，誕生時為 inline-block，float 後變成 block</button>
+  </div>
+
+  <div class="container">
+    <h2>float 選單</h2>
+    <ul class="menu">
+      <li class="menu-item">item1</li>
+      <li class="menu-item">item2</li>
+      <li class="menu-item">item3</li>
+      <li class="menu-item">item4</li>
+      <li class="menu-item">item5</li>
+    </ul>
+  </div>
+
+
+</body>
+
+</html>

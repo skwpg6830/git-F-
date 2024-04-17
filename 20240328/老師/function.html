@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // function GoodMorning () {
+    //   document.write('早上好，現在我有冰淇淋')
+    // }
+    // const GoodMorning = function () {
+    //   document.write('早上好，現在我有冰淇淋')
+    // }
+    // GoodMorning()
+
+    // function GoodMorning (time, item) {
+    //   document.write(`${time}好，現在我有${item}`)
+    // }
+    // GoodMorning('早上', '冰淇淋')
+    // document.write('<br>')
+    // GoodMorning('中午', '桂格超大便當')
+    // document.write('<br>')
+    // GoodMorning('晚上')
+
+    // function GoodMorning (time = '早上', item = '冰淇淋') {
+    //   console.log(arguments)
+    //   document.write(`${time}好，現在我有${item}`)
+    // }
+    // GoodMorning('早上', '冰淇淋')
+    // document.write('<br>')
+    // GoodMorning('中午', '桂格超大便當')
+    // document.write('<br>')
+    // GoodMorning('晚上')
+    // document.write('<br>')
+    // GoodMorning(undefined, '炸雞排')
+
+    // function GoodMorning (time = '早上', item = '冰淇淋') {
+    //   return `${time}好，現在我有${item}`
+    //   // return 後的東西都不會執行
+    //   console.log(123)
+    // }
+    const GoodMorning = (time = '早上', item = '冰淇淋') => {
+      // Uncaught ReferenceError: arguments is not defined
+      // console.log(arguments)
+      return `${time}好，現在我有${item}`
+      // return 後的東西都不會執行
+      console.log(123)
+    }
+    const text = GoodMorning()
+    console.log(text)
+    document.write(`<h1>${GoodMorning('中午', '桂格超大便當')}</h1>`)
+
+    // 當箭頭函式參數只有一個的時候，可以省略 ()
+    const isEven = number => {
+      return number % 2 === 0
+    }
+    // 如果 function 內只有一行 return，可以省略 {}
+    const isOdd = number => number % 2 === 1
+    // 如果省略 {} 但是要 return 物件的話，用 () 框起來
+    const obj = () => ({aaa:111, bbb: 222})
+    console.log(isOdd(2))
+    console.log(obj())
+  </script>
+</body>
+</html>

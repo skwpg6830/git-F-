@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const array = [1, 2, 3, 4]
+    // const one = array[0]
+    // const two = array[1]
+    // ... 代表剩下的分配給 others，一定要放最後，可以不放
+    // 陣列解構時的 one、two、others 可以自己命名
+    let [one, two, ...apple] = array
+    console.log(one)    // 1
+    console.log(two)    // 2
+    console.log(apple)  // [3, 4]
+    // 解構是看資料型態，陣列物件是 reference，其他是 value
+    one = 100
+    console.log('one', one)     // 100
+    console.log('array', array) // [1, 2, 3, 4]
+
+
+    const obj = { a: 1, b: 2, c: 3, d: 4 }
+    // const a = obj.a
+    // const bbb = obj.b
+    // 物件解構必須取跟 key 相同的名字，或是用 : 重新命名
+    // ...可以自己命名
+    const b = 23156498
+    let { a, b: bbb, ...banana } = obj
+    console.log(a)        // 1
+    console.log(bbb)      // 2
+    console.log(banana)   // { c: 3, d: 4 }
+
+    a = 100
+    console.log(a)        // 100
+    console.log(obj)      // {a: 1, b: 2, c: 3, d: 4}
+  </script>
+</body>
+</html>

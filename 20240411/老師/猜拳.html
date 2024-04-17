@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="剪刀">
+  <input type="button" value="石頭">
+  <input type="button" value="布">
+  <hr>
+  <p>
+    贏: <span id="win">0</span>
+    輸: <span id="lose">0</span>
+    平手: <span id="draw">0</span>
+  </p>
+  <ul id="list"></ul>
+  <script>
+    const buttons = document.querySelectorAll('input')
+    const win = document.getElementById('win')
+    const lose = document.getElementById('lose')
+    const draw = document.getElementById('draw')
+    const list = document.getElementById('list')
+
+    for (const el of buttons) {
+      el.addEventListener('click', () => {
+        const player = el.value
+
+        const options = ['剪刀', '石頭', '布']
+        const computer = options[Math.round(Math.random() * 2)]
+
+        let text = `你出${player}，電腦出${computer}，`
+
+        if (player === computer) {
+          text += '平手'
+          draw.innerText++
+        } else if (
+          (player === '剪刀' && computer === '布') ||
+          (player === '石頭' && computer === '剪刀') ||
+          (player === '布' && computer === '石頭')
+        ) {
+          text += '贏'
+          win.innerText++
+        } else {
+          text += '輸'
+          lose.innerText++
+        }
+
+        alert(text)
+        list.innerHTML += `<li>${text}</li>`
+      })
+    }
+  </script>
+</body>
+</html>

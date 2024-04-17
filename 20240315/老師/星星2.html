@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const input = prompt()
+    for (let i = 1; i <= input; i++) {
+      for (let j = 1; j <= input - i; j++) {
+        document.write('☆')
+      }
+      for (let j = 1; j <= 2 * i - 1; j++) {
+        document.write('★')
+      }
+      for (let j = 1; j <= input - i; j++) {
+        document.write('☆')
+      }
+      document.write('<br>')
+    }
+  </script>
+</body>
+</html>

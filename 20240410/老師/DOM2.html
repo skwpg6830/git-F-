@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .text-blue {
+      color: blue;
+    }
+    .border {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <div id="links">
+    <a href="https://x.com">X</a>
+    <a href="https://fb.com">FB</a>
+  </div>
+  <ul id="list1">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+  <ul id="list2">
+    <li class="text-blue">1</li>
+    <li class="border">2</li>
+    <li id="list2-li3">3</li>
+    <li class="border">4</li>
+    <li class="text-blue">5</li>
+  </ul>
+  <script>
+    // .children 下一層的所有元素
+    const links = document.getElementById('links').children
+    for (const element of links) {
+      // .屬性
+      console.log(element.href)
+      element.href = 'https://google.com'
+      element.target = '_blank'
+      element.innerText = 'Google'
+    }
+
+    const list1 = document.getElementById('list1')
+    // .firstElementChild 下一層的第一個
+    // .classList.add() 加上 class
+    list1.firstElementChild.classList.add('text-blue')
+    // .lastElementChild 下一層的最後一個
+    list1.lastElementChild.classList.add('text-blue', 'border')
+    const classes = ['text-blue', 'border']
+    list1.lastElementChild.classList.add(...classes)
+
+    console.log(list1.lastElementChild.className)
+    console.log(list1.lastElementChild.classList[0])
+    console.log(list1.lastElementChild.classList[1])
+    console.log(list1.lastElementChild.classList.length)
+    console.log(list1.lastElementChild.classList.value)
+
+    const list2li3 = document.getElementById('list2-li3')
+    // .previousElementSibling 同一層前一個
+    // .classList.remove() 移除 class
+    list2li3.previousElementSibling.classList.remove('border')
+    let el = list2li3
+    for (let i = 0; i < 2; i++) {
+      el = el.previousElementSibling
+    }
+    // .classList.toggle() 沒有就新增，有就移除
+    el.classList.toggle('text-blue')
+
+    // .nextElementSibling 同一層後一個
+    // .classList.replace(A, B) A 取代成 B
+    list2li3.nextElementSibling.classList.replace('border', 'text-blue')
+    let el2 = list2li3
+    for (let i = 0; i < 2; i++) {
+      el2 = el2.nextElementSibling
+    }
+    // .classList.contains() 是否包含
+    console.log(el2.classList.contains('border'))
+
+    // parentElement() 上一層
+    list2li3.parentElement.style.background = 'gray'
+  </script>
+</body>
+</html>

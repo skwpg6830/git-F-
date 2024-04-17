@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>威力彩號碼產生器</title>
+</head>
+
+<body>
+
+    <script>
+        function generatePowerLottery() {
+            const numbersA = [];
+            const numbersB = [];
+
+            // 生成 A 区的 6 个随机号码
+            while (numbersA.length < 6) {
+                const randomNum = Math.floor(Math.random() * 38) + 1; // 生成 1 到 38 之间的随机整数
+                if (!numbersA.includes(randomNum)) {
+                    numbersA.push(randomNum);
+                }
+            }
+
+            // 生成 B 区的 1 个随机号码
+            const numberB = Math.floor(Math.random() * 8) + 1; // 生成 1 到 8 之间的随机整数
+
+            // 将生成的号码显示在网页上
+            document.write("<h2>威力彩号码</h2>");
+            document.write("<p>A 区号码： " + numbersA.join(", ") + "</p>");
+            document.write("<p>B 区号码： " + numberB + "</p>");
+        }
+
+        // 调用函数生成号码
+        generatePowerLottery();
+    </script>
+
+</body>
+
+</html>

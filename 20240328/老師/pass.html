@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 直接給值時，就會分開變不同的東西
+    let person1 = { money: 100 }
+    let person2 = person1
+    console.log(person1, person2) // 100 100
+    person1 = { money: 1000 }
+    console.log(person1, person2) // 1000 100
+
+    // function 參數重新給值時，不會影響到外面傳入的原變數
+    const obj1 = { name: 'AAA' }
+    const test1 = (data) => {
+      data = { name: 'BBB' }
+      console.log(data) // BBB
+      console.log(obj1) // AAA
+    }
+    test1(obj1)
+    console.log(obj1)   // AAA
+
+    // function 參數修改內部內容時，會影響到外面傳入的原變數
+    const obj2 = { name: 'XXX' }
+    const test2 = (data) => {
+      data.name = 'OOO'
+      console.log(data) // OOO
+      console.log(obj2) // OOO
+    }
+    test2(obj2)
+    console.log(obj2)   // OOO
+  </script>
+</body>
+</html>

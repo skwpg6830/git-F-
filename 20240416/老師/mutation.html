@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="div"></div>
+  <script>
+    const div = document.getElementById('div')
+
+    const observer = new MutationObserver(mutations => {
+      for (const mutation of mutations) {
+        console.log(mutation)
+      }
+    })
+
+    observer.observe(div, {
+      // 是否觀察下一層元素
+      childList: true,
+      // 是否觀察所有內層
+      subtree: true,
+      // 是否觀察屬性變動
+      attributes: true,
+      // 是否觀察內容變動
+      characterData: true,
+      // 是否紀錄舊屬性
+      attributeOldValue: true,
+      // 是否紀錄舊內容
+      characterDataOldValue: true,
+      // 指定觀察的屬性名稱，沒設定就是全部
+      // attributeFilter: ['href']
+    })
+
+    div.style.width = '100px'
+    div.style.height = '100px'
+    div.style.background = 'black'
+    div.innerText = '123456'
+  </script>
+</body>
+</html>

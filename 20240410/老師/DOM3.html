@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <div id="div1">
+    <p>一塊還是關於一位具體希望機制多麼龍岡聯繫方式完全溫州和諧此外，漂亮石油只要當前當你永遠放在真實交換。</p>
+  </div>
+  <div id="div2">
+    <p>城市特殊，之中糖尿病保持出了普遍受到基金而言本報氣息，哪些演唱天天公主預防，經典種種好了，物流幾乎。</p>
+  </div>
+  <div id="div3">
+    <p>宣佈既然作用戰鬥是從中學統計身材一把轉貼對話主機，機場網上總結律師答案家長面積空中大小民國，長度是。</p>
+  </div>
+  <ul id="list1">
+    <li>西瓜</li>
+    <li>芒果</li>
+    <li>芭樂</li>
+  </ul>
+  <ul id="list2">
+    <li>香蕉</li>
+    <li>蘋果</li>
+    <li>葡萄</li>
+  </ul>
+  <script>
+    const div1 = document.getElementById('div1')
+    // .insertAdjacentHTML(位置, HTML)
+    div1.insertAdjacentHTML('beforebegin', '<p>beforebegin</p>')
+    div1.insertAdjacentHTML('afterbegin', '<p>afterbegin</p>')
+    div1.insertAdjacentHTML('beforeend', '<p>beforeend</p>')
+    div1.insertAdjacentHTML('afterend', '<p>afterend</p>')
+    
+    const div2 = document.getElementById('div2')
+    const p = document.createElement('p')
+    p.innerText = '123456'
+    p.style.color = 'red'
+    const a = document.createElement('a')
+    a.innerText = 'X'
+    a.href = 'https://x.com'
+    // .prepend() 下一層的前面
+    // .append()  下一層的後面
+    // 如果東西不在頁面上會放上 DOM，已經存在就移動位置，可以放多個元素
+    div2.prepend(p)
+    // div2.append(p, a)
+
+    // .prependChild() 
+    // .appendChild() 
+    // 同上，但只會處理第一個元素
+    div2.appendChild(p, a)
+
+    // div2.remove()
+
+    div2.removeChild(div2.firstElementChild)
+    // 等同於
+    // div2.firstElementChild.remove()
+
+    const div3 = document.getElementById('div3')
+    const img = document.createElement('img')
+    img.src = 'https://github.com/wdaweb.png'
+    img.width = 10
+    // .replaceChild(新, 舊)
+    // 用新的取代舊的
+    // 如果新不在頁面上會放上 DOM，已經存在就移動位置
+    // 舊一定要在指定的元素內
+    div3.replaceChild(img, div3.firstElementChild)
+
+    const list1 = document.getElementById('list1')
+    const list2 = document.getElementById('list2')
+    // .insertBefore(A, B)
+    // A 放到 B 前面，B 必須在指定的元素內
+    // 當 B 為 null 時，會放在最後面
+    list1.insertBefore(list2.firstElementChild, list1.lastElementChild)
+    // list1.insertBefore(list2.firstElementChild, null)
+  </script>
+</body>
+</html>

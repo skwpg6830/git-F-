@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const fruits = [
+      { name: 'apple', price: 50 },
+      { name: 'banana', price: 20 },
+      { name: 'orange', price: 40 },
+    ]
+    console.log(fruits)
+    console.table(fruits)
+
+    document.write('<ul>')
+    for (let i = 0; i < fruits.length; i++) {
+      document.write('<li>')
+      document.write(`第${i+1}個水果是${fruits[i].name}，價格是${fruits[i].price}`)
+      document.write('</li>')
+    }
+    document.write('</ul>')
+
+    const store = {
+      name: 'PCHome',
+      url: 'https://24h.pchome.com.tw/',
+      products: [
+        { name: 'Apple iPhone 15 Pro Max (512G)-藍色鈦金屬(MU7F3ZP/A)', price: 48900 },
+        { name: 'Nothing Phone(2) 12+256 深灰', price: 21900 }
+      ]
+    }
+    document.write('<table border="1">')
+    document.write('<caption>')
+    document.write(`<a href="${store.url}">${store.name}</a>`)
+    document.write('</caption>')
+    for (let i = 0; i < store.products.length; i++) {
+      document.write('<tr>')
+      document.write(`<td>${store.products[i].name}</td>`)
+      document.write(`<td>${store.products[i].price}</td>`)
+      document.write('</tr>')
+    }
+    document.write('</table>')
+  </script>
+</body>
+</html>

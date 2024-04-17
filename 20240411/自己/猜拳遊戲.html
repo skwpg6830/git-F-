@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>猜拳遊戲</title>
+</head>
+<body>
+
+<h2>猜拳遊戲</h2>
+<button id="scissors">剪刀</button>
+<button id="rock">石頭</button>
+<button id="paper">布</button>
+<ul id="results"></ul>
+
+<script>
+const buttons = document.querySelectorAll('button');
+const resultsList = document.getElementById('results');
+
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        const playerChoice = button.textContent;
+        const computerChoice = generateComputerChoice();
+        const result = determineWinner(playerChoice, computerChoice);
+        alert("電腦出" + computerChoice + "\n" + result);
+        const listItem = document.createElement('li');
+        listItem.textContent = result;
+        resultsList.appendChild(listItem);
+    });
+});
+
+function generateComputerChoice() {
+    const choices = ['剪刀', '石頭', '布'];
+    const randomIndex = Math.floor(Math.random() * choices.length);
+    return choices[randomIndex];
+}
+
+function determineWinner(playerChoice, computerChoice) {
+    if (
+        (playerChoice === '剪刀' && computerChoice === '布') ||
+        (playerChoice === '石頭' && computerChoice === '剪刀') ||
+        (playerChoice === '布' && computerChoice === '石頭')
+    ) {
+        return '你赢了！';
+    } else if (
+        (playerChoice === '剪刀' && computerChoice === '石頭') ||
+        (playerChoice === '石頭' && computerChoice === '布') ||
+        (playerChoice === '布' && computerChoice === '剪刀')
+    ) {
+        return '你輸了！';
+    } else {
+        return '平手！';
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,303 @@
+body {
+	font-family: 'Noto Sans TC', sans-serif;
+}
+
+/* 設定 html,body 抓到瀏覽器高度 */
+html,
+body {
+	height: 100%;
+}
+
+/* body{
+  height:100vh;
+} */
+
+/* 建立一個寬度一致且水平置中的容器，讓各區塊寬度一致 */
+.container {
+	width: 75%;
+	margin: auto;
+}
+
+.h-100 {
+	height: 100%;
+}
+
+/* 導覽列 ------------------------------------------------------ */
+#header {
+	width: 75%;
+	height: 60px;
+	position: fixed;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 1;
+	filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+}
+
+#header .menu {
+	position: absolute;
+	top: 25px;
+	width: 100%;
+	height: 60px;
+	text-align: center;
+	background: url('../images/nav-bg-full.jpg') repeat-x center;
+
+	font-size: 0;
+	z-index: -1;
+}
+
+#header .menu li {
+	display: inline-block;
+	font-size: 1rem;
+	padding: 1rem 0;
+}
+
+#header .menu li:nth-child(3) {
+	margin-right: 15%;
+}
+
+#header .menu a {
+	color: white;
+	text-decoration: none;
+	display: block;
+	padding: 0.5rem 1.5rem;
+	transition: 0.5s;
+	/* background: red; */
+}
+
+#header .menu a:hover {
+	background: rgba(255, 60, 0, 0.3);
+}
+
+#header .menu::before {
+	content: '';
+	width: 12px;
+	height: 60px;
+	background: url('../images/nav-bg-left.png') no-repeat left top/cover;
+	position: absolute;
+	left: -10px;
+}
+
+#header .menu::after {
+	content: '';
+	width: 12px;
+	height: 60px;
+	background: url('../images/nav-bg-right.png') no-repeat right top/cover;
+	position: absolute;
+	right: -10px;
+}
+
+/* logo */
+#header .logo {
+	width: 15%;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+#header .logo img {
+	width: 100%;
+}
+
+/* section01 回首頁 -------------------------------------------- */
+#section01 {
+	background: url('../images/section01-bg.jpg') no-repeat center/cover;
+	position: relative;
+}
+
+#section01 .main-news {
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	top: 75%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#section01 .main-news h1 {
+	font-size: 2.5rem;
+	font-style: italic;
+	color: yellow;
+	text-shadow: 0 0 5px rgba(0, 0, 0, 1), 0 0 10px rgba(0, 0, 0, 1), 0 0 15px rgba(0, 0, 0, 1);
+}
+
+/* section02 遊戲介紹 -------------------------------------------- */
+#section02 {
+	background: url('../images/section02-bg.jpg') no-repeat center/cover;
+}
+
+#section02 .container {
+	height: 100%;
+	position: relative;
+}
+
+#section02 .row {
+	font-size: 0;
+	/* background: gray; */
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+}
+
+#section02 .col {
+	width: 50%;
+	box-sizing: border-box;
+	padding: 5rem 1rem;
+	display: inline-block;
+	color: white;
+	font-size: 1rem;
+}
+
+#section02 h1 {
+	font-size: 2rem;
+	margin-bottom: 1rem;
+}
+
+#section02 p {
+	line-height: 1.5;
+	text-indent: 2rem;
+	letter-spacing: 1px;
+	margin-bottom: 1rem;
+}
+
+#section02 iframe {
+	width: 100%;
+	height: 300px;
+	border: 5px solid rgba(0, 0, 0, 0.5);
+	box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.8);
+}
+
+/* section03 角色列表 -------------------------------------------- */
+#section03 {
+	background: linear-gradient(45deg, #222 40%, #aaa 40%);
+}
+
+#section03 .col:nth-child(1) {
+	height: 65%;
+	/* background: lemonchiffon; */
+}
+#section03 .col:nth-child(2) {
+	height: 35%;
+	/* background: lightblue; */
+}
+/* 人物資料 */
+#section03 .role_info > div {
+	height: 100%;
+	display: none;
+}
+
+#section03 .role_info .role {
+	box-sizing: border-box;
+	width: 50%;
+	height: 100%;
+	padding: 5rem 1.5rem 0;
+	float: left;
+}
+
+#section03 .role_info .info {
+	box-sizing: border-box;
+	width: 50%;
+	height: 100%;
+	padding: 8rem 1rem 5rem;
+	float: right;
+}
+
+#section03 .role_info input {
+	display: none;
+}
+
+#section03 .role_info input:checked + div {
+	display: block;
+}
+
+#section03 .role img {
+	width: 100%;
+	height: 100%;
+}
+
+#section03 .info h1 {
+	font-size: 2rem;
+	margin-bottom: 0.5rem;
+}
+
+#section03 .info p {
+	padding: 0.5rem 0;
+	line-height: 1.2;
+}
+
+/* 第四個角色以後圖片變暗、滑鼠回復到 auto */
+#section03 .role_list label:nth-child(4) ~ label {
+	filter: brightness(0.5);
+	cursor: auto;
+}
+
+/* 角色選單 */
+#section03 .role_list {
+	font-size: 0;
+	text-align: center;
+}
+
+#section03 .role_list label {
+	width: 7%;
+	display: inline-block;
+	margin: 0 0 5px 0;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+#section03 .role_list img {
+	width: 100%;
+}
+
+#section03 .role_list label:hover {
+	filter: drop-shadow(0 0 5px rgb(255, 0, 0)) drop-shadow(0 0 5px rgb(255, 0, 1));
+}
+
+/* footer 頁尾 --------------------------------------------------- */
+#footer {
+	background: black;
+	color: white;
+	padding: 2rem 0;
+}
+
+#footer .row {
+	overflow: hidden;
+}
+
+#footer .col {
+	width: 25%;
+	float: left;
+}
+
+#footer .card {
+	box-sizing: border-box;
+	padding: 1rem;
+}
+
+/* fontawesome 的 icon 是文字，可以用文字屬性來修改 */
+#footer .card > i {
+	font-size: 1.5rem;
+	color: yellow;
+	/* transform: rotate(45deg); */
+	/* font-style: italic; */
+}
+
+#footer h1 {
+	font-size: 1.2rem;
+	margin-bottom: 1rem;
+}
+
+#footer li {
+	line-height: 1.4;
+	padding-left: 1.5rem;
+}
+
+#footer .card h3 {
+	margin: 1rem 0;
+}
+
+#footer .copyright {
+	text-align: center;
+	padding: 2rem 0 0;
+}

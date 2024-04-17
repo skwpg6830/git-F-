@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .taichi {
+      width: 600px;
+      height: 600px;
+      background: linear-gradient(90deg, white 50%, black 0%);
+      border-radius: 50%;
+      box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.5);
+      position: absolute;
+      /* left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%); */
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+    }
+
+    /* 大白圓 */
+    .taichi::before {
+      content: "";
+      width: 300px;
+      height: 300px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      margin: auto;
+    }
+
+    /* 大黑圓 */
+    .taichi::after {
+      content: "";
+      width: 300px;
+      height: 300px;
+      background: black;
+      border-radius: 50%;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin: auto;
+    }
+
+    .yinyang {
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      /* background: red; */
+    }
+
+    /* 小白圓 */
+    .yinyang::before {
+      content: "";
+      width: 75px;
+      height: 75px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      right: 0;
+      left: 0;
+      bottom: 25%;
+      margin: auto;
+      transform: translateY(50%);
+      z-index: 1;
+    }
+
+    /* 小黑圓 */
+    .yinyang::after {
+      content: "";
+      width: 75px;
+      height: 75px;
+      background: black;
+      border-radius: 50%;
+      position: absolute;
+      right: 0;
+      left: 0;
+      top: 25%;
+      margin: auto;
+      transform: translateY(-50%);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="taichi">
+    <div class="yinyang"></div>
+  </div>
+</body>
+
+</html>

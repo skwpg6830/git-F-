@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const arr = [1, 2, 3]
+    const obj = { a:1, b:2, c:3 }
+
+    arr[0] = 111
+    obj.a = 111
+
+    console.log(arr)
+    console.log(obj)
+
+    // Pass by reference 傳址
+    const a = [1, 2, 3]
+    const b = a
+    b[0] = 100
+    console.log(a)        // [100, 2, 3]
+    console.log(b)        // [100, 2, 3]
+    console.log(a === b)  // true
+
+    const obj1 = { a:1, b:2, c:3 }
+    const obj2 = obj1
+    obj1.a = 100
+    console.log(obj1)     // {a: 100, b: 2, c: 3}
+    console.log(obj2)     // {a: 100, b: 2, c: 3}
+
+    // Pass by value 傳值
+    let test1 = 1
+    let test2 = test1
+    test2 = 100
+    console.log(test1)    // 1
+    console.log(test2)    // 100
+
+    // 陣列物件指定位置的話是看資料型態，陣列物件是 reference，其他是 value
+    const c = [4, 5, 6]
+    let d = c[0]
+    d = 100
+    console.log(c)        // [4, 5, 6]
+    console.log(d)        // 100
+
+    const obj3 = { a:1, b:2, c:3 }
+    const obj4 = { a:obj3.a, b:obj3.b, c:obj3.c }
+    obj4.a = 100
+    console.log(obj3)     // {a: 1, b: 2, c: 3}
+    console.log(obj4)     // {a: 100, b: 2, c: 3}
+  </script>
+</body>
+</html>

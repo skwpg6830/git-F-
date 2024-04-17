@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+    </ul>
+    <ol>
+        <li>S</li>
+        <li>A</li>
+        <li>B</li>
+    </ol>
+    <button id="cut">剪刀</button>
+    <button id="rock">石頭</button>
+    <button id="bo">布</button>
+    <hr>
+    贏:<span id="win">0</span>
+    輸:<span id="lose">0</span>
+    平手:<span id="draw">0</span>
+    <script>
+        const buttons = document.querySelectorAll('button');
+        buttons.addEventListener('click', () => {
+            alert('cut')
+        })
+        buttons.addEventListener('click', () => {
+            alert('rock')
+        })
+        buttons.addEventListener('click', () => {
+            alert('bo')
+        })
+        
+
+    
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const user = {
+      name: 'AAA',
+      info: {
+        email: 'aaa@gmail.com'
+      }
+    }
+    console.log(user.name)                // AAA
+    console.log(user.info.email)          // aaa@gmail.com
+    console.log(user.info.address)        // undefined
+    // Uncaught TypeError: Cannot read properties of undefined (reading 'city')
+    // console.log(user.info.address.city) 
+    console.log(user.info.address?.city)            // undefined
+    console.log(user.info.address?.city?.postcode)  // undefined
+
+    const products = [
+      { name: 'iPhone 15', price: 48900 },
+      { 
+        name: 'Nothing Phone(2)',
+        price: 21900,
+        producer: {
+          name: 'Nothing',
+          url: 'https://tw.nothing.tech/'
+        }
+      },
+      { 
+        name: 'Nothing Phone(1)',
+        price: 14900,
+        producer: {
+          name: 'Nothing',
+          url: 'https://tw.nothing.tech/'
+        }
+      }
+    ]
+    for (let i = 0; i < products.length; i++) {
+      document.write(`
+        <p>
+          ${products[i].name}，價格為 ${products[i].price}
+          製造商為
+          <a href="${products[i].producer?.url || '#'}">${products[i].producer?.name || '不明'}</a>
+        </p>
+      `)
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #out {
+      width: 300px;
+      height: 300px;
+      background: blue;
+      display: table-cell;
+      vertical-align: middle;
+    }
+    #in {
+      width: 100px;
+      height: 100px;
+      background: skyblue;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <a href="https://x.com" id="link">X</a>
+  <div id="out">
+    <div id="in"></div>
+  </div>
+  <script>
+    const link = document.getElementById('link')
+    link.addEventListener('click', event => {
+      event.preventDefault()
+    })
+
+    const divOut = document.getElementById('out')
+    const divIn = document.getElementById('in')
+    divOut.addEventListener('click', (event) => {
+      console.log('out', event.target)
+    })
+    divIn.addEventListener('click', (event) => {
+      event.stopPropagation()
+      console.log('in', event.target)
+    })
+  </script>
+</body>
+</html>

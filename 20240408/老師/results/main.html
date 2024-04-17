@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+    /* 最新消息區 */
+    #news {
+      width: 280px;
+      height: 460px;
+      border: 1px solid #999;
+      float: left;
+    }
+
+    #news h1 {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    #news th {
+      background: #39f;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    #news td {
+      font-size: 12px;
+      line-height: 2;
+    }
+
+    #news tr:nth-child(even) {
+      background: #ffc;
+    }
+
+    #news tr:nth-child(odd) {
+      background: #ddd;
+    }
+
+    /* .odd {
+      background: #FFFFCC;
+    }
+
+    .even {
+      background: #DDDDDD;
+    } */
+
+    /* 圖片展示區 */
+    #photo {
+      width: 590px;
+      height: 460px;
+      border: 1px solid #999;
+      float: right;
+      font-size: 14px;
+      color: #ff0;
+      background: #333;
+      text-align: center;
+    }
+
+    #photo #big {
+      /* 紙本沒有說，尺寸要記一下 */
+      width: 570px;
+      height: 340px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="news">
+    <h1>最新消息</h1>
+    <table>
+      <tr>
+        <th>主題</th>
+        <th>發布日期</th>
+      </tr>
+      <tr class="odd">
+        <td><img src="../images/0201.png">公告全國技能競賽相關事宜</td>
+        <td>113/04/08</td>
+      </tr>
+      <tr class="even">
+        <td><img src="../images/0201.png">公告即測即評及發證相關事宜</td>
+        <td>113/04/08</td>
+      </tr>
+      <tr>
+        <td class="odd"><img src="../images/0201.png">公告網頁設計修題相關事宜</td>
+        <td>113/04/08</td>
+      </tr>
+      <tr class="even">
+        <td><img src="../images/0201.png">公告網路架設應檢相關事宜</td>
+        <td>113/04/08</td>
+      </tr>
+    </table>
+  </div>
+  <div id="photo">
+    <table>
+      <tr>
+        <td colspan="4">
+          <img id="big" src="../images/0202A.png">
+        </td>
+      </tr>
+      <tr>
+        <td><img class="small" src="../images/0202B.png"></td>
+        <td><img class="small" src="../images/0203B.png"></td>
+        <td><img class="small" src="../images/0204B.png"></td>
+        <td><img class="small" src="../images/0205B.png"></td>
+      </tr>
+      <tr>
+        <td>第30屆倫敦奧運</td>
+        <td>許淑淨奪舉重銀牌</td>
+        <td>第26屆深圳世大運</td>
+        <td>第27屆喀山世大運</td>
+      </tr>
+    </table>
+  </div>
+  <script src="../others/jquery-2.1.4.min.js"></script>
+  <script>
+    // document object model(DOM)
+    // 方法一，原生 JS
+    // 偽陣列，很像陣列，但不是陣列，不能用陣列的方法，可以打印出來看看它有甚麼方法給我們使用
+    // forEach 遍歷每個 img 元素，為每個 img 元素綁定點擊 click 事件
+    // 他們都做一件事情就是把自己的 src 屬性值賦值給大圖片
+    // [img, img, img, img]
+
+    const imgs = document.querySelectorAll('.small')
+    const big = document.querySelector('#big')
+    console.log(imgs)
+    imgs.forEach(function (img, index) {
+      img.onclick = function () {
+        big.src = `../images/020${index + 2}A.png`
+      }
+    })
+
+    // 方法二，jQuery
+    console.log($('.small'))
+    $('.small').each(function (index, img) {
+      // console.log(index, img)
+      $(img).on('click', function () {
+        $('#big').attr('src', `../images/020${index + 2}A.png`)
+      })
+    })
+
+    // getter
+    // $('#big').attr('src')
+
+    // setter
+    // $('#big').attr('src', `../images/020${index + 2}A.png`) 可以一行就解決抓人與設定的動作
+    //  const big = document.querySelector('#big') 抓到人
+    //  big.src = "../images/020${index + 2}A.png" 做設定的動作
+  </script>
+</body>
+
+</html>

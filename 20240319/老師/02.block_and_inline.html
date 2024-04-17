@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding-bottom: 300px;
+    }
+
+    hr {
+      width: 90%;
+      margin: 50px auto;
+      padding: 1px;
+      background: gray;
+    }
+
+    .menu {
+      /* background: red; */
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      /* 為了消除幽靈空白 */
+      font-size: 0;
+      border: 5px solid #333;
+      text-align: center;
+    }
+
+    .menu li {
+      background: deeppink;
+      /* block 轉成 inline-block，為了流向排版(橫向) */
+      display: inline-block;
+      width: 100px;
+    }
+
+    .menu a {
+      color: white;
+      background: black;
+      /* inline 轉成 block，可以佔據父元素空間 */
+      display: block;
+      padding: 1rem;
+      /* 消除幽靈空白後，字體要再設定回來 */
+      font-size: 1.5rem;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .menu a:hover {
+      background: lightcoral;
+      color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>區塊盒與行內盒</h1>
+
+  <h3>說明以下兩行的差異?</h3>
+  <div>Lorem ipsum dolor sit amet.</div>
+  <span>Lorem ipsum dolor sit amet.</span>
+
+  <hr>
+
+  <h3>設定他們背景顏色</h3>
+  <div style="background:gold">Lorem ipsum dolor sit amet.</div>
+  <span style="background:deepskyblue">Lorem ipsum dolor sit amet.</span>
+
+  <hr>
+
+  <h2>區塊元素</h2>
+  <p>例子: div、h1~h6、p、ul、li、table...</p>
+  <ul>
+    <li>預設情況，沒有設定寬度，會佔據父元素的空間</li>
+    <li>會前、後換行，無法與其他元素並排</li>
+    <li>可以正常使用盒模型屬性 width、height、margin、padding，其中 margin 對其他元素有實質的空間推移特性。</li>
+    <li>不能被 vertical-align 影響</li>
+  </ul>
+
+  <div style="background:gold;">Lorem ipsum dolor sit amet.</div>
+  <div style="background:gold;">Lorem ipsum dolor sit amet.</div>
+  <div style="background:gold; width:300px;">即使設定寬度，看起來有空間讓後方元素並排，不過依舊會佔據父元素的寬度，前後會換行</div>
+  <div style="background:gold; width:500px;">Lorem ipsum dolor sit amet.</div>
+
+  <h2>行內元素</h2>
+  <p>例子: span、a、em、strong、label...</p>
+  <ul>
+    <li>行內盒只能擁有屬於自己的內容空間。</li>
+    <li>前後不會斷行，本身內容多少寬度就有多少。</li>
+    <li>設定 width、height 都不會有作用。</li>
+    <li>可以被 vertical-align 影響。</li>
+  </ul>
+
+  <span style="background: deepskyblue;width:1000px;height:1000px;">Lorem ipsum dolor sit amet.</span>
+  <span style="background: deepskyblue;">Lorem ipsum dolor sit amet.</span>
+  <span style="background: deepskyblue;">Lorem ipsum dolor sit amet.</span>
+  <span style="background: deepskyblue;">Lorem ipsum dolor sit amet.</span>
+  <span style="background: deepskyblue;">Lorem ipsum dolor sit amet.</span>
+  <span style="background: deepskyblue;">Lorem ipsum dolor sit amet.</span>
+  <span style="background: deepskyblue;">Lorem ipsum dolor sit amet.</span>
+  <span style="background: deepskyblue;">Lorem ipsum dolor sit amet.</span>
+
+  <hr>
+
+  <h3>使用 display 設定其他類型的盒子，這稱為轉型，例如: display:inline-block</h3>
+  <p>使用 display:inline-block 製作橫向選單</p>
+  <p>inline-block，排版外在行為具有 inline 特性，內在行為具有 block 特性，因此可以正常使用盒模型</p>
+  <ul class="menu">
+    <li><a href="#">link</a></li>
+    <li><a href="#">link</a></li>
+    <li><a href="#">link</a></li>
+    <li><a href="#">link</a></li>
+    <li><a href="#">link</a></li>
+  </ul>
+</body>
+
+</html>

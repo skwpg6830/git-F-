@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+    let year = prompt('請輸入西元年')
+    let month = prompt('請輸入月份')
+    var day = parseInt(prompt('請輸入日期'))
+    var result = 0;
+    var arr=[0,31,28,31,30,31,30,31,31,30,31,30,31];
+    
+
+if ((year%4 == 0 && year%100 != 0) || year%400 == 0){
+    arr[2] = 29;
+}
+else{
+    arr[2] = 28;
+}
+
+for(var i=0;i<month;i++){
+    result+=arr[i];
+    }
+
+    result += day
+
+document.write(`${year}年${month}月${day}日是今年的第${result}天`)
+
+    </script>
+</body>
+</html>

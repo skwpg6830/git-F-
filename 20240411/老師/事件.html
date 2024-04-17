@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="按鈕" onclick="alert('ABCD')">
+  <input type="button" value="0" onclick="this.value++">
+  <input type="button" value="按鈕" onclick="onBtnClick()">
+  <input type="button" value="按鈕" onclick="onBtnClick2('清晰降低。')">
+  <input type="button" value="按鈕" onclick="onBtnClick3(this, '清晰降低。')">
+  <script>
+    const onBtnClick = () => {
+      alert('點了按鈕')
+    }
+    const onBtnClick2 = (text) => {
+      alert(text)
+    }
+    const onBtnClick3 = (el, text) => {
+      el.value = text
+      alert(text)
+    }
+  </script>
+</body>
+</html>

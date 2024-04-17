@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const gua = (array) => {
+            const guaNames = [
+                "乾", "兌", "離", "震", "巽", "坎", "艮", "坤"
+            ];
+            // 上卦: 將第一個數字除以8取餘數，如果餘數為0則使用7，否則餘數減去1
+            const a = array[0] % 8 === 0 ? 7 : array[0] % 8 - 1;
+            // 下卦: 將第一個數字除以8取餘數，如果餘數為0則使用7，否則餘數減去1
+            const b = array[1] % 8 === 0 ? 7 : array[1] % 8 - 1;
+            // 變卦: 將第一個數字除以8取餘數，如果餘數為0則使用7，否則餘數減去1
+            const c = array[2] % 6 === 0 ? 5 : array[2] % 6 - 1;
+
+            const a1 = guaNames[a];
+            const b1 = guaNames[b];
+            const c1 = c + 1;
+
+            return [a1, b1, c1];
+        }
+
+        // 根據從guaNames 取得對應的卦名，並返回包含上卦、下卦和變卦的數值
+        const number1 = parseInt(prompt('第一個數字'));
+        const number2 = parseInt(prompt('第二個數字'));
+        const number3 = parseInt(prompt('第三個數字'));
+        const numbers = [number1, number2, number3];
+        const result = gua(numbers);
+        console.log(result[0]); // 輸出 離
+        console.log(result[1]); // 輸出 震
+        console.log(result[2]); // 輸出 2
+
+    </script>
+</body>
+
+</html>

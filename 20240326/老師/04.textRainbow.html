@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "微軟正黑體";
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #222;
+    }
+
+    h2 span {
+      color: #555;
+      transition: 0.5s;
+    }
+
+    h2:hover span {
+      color: #0f0;
+      text-shadow:
+        0 0 5px #0f0,
+        0 0 15px #0f0,
+        0 0 30px #0f0;
+    }
+  </style>
+</head>
+
+<body>
+  <h2 class="text">如果安裝有限責任，免費版至今晚上很少名稱簡歷互相是有運用，新年重大，人事一笑加油害怕，屏幕不可人類名字機器一遍審核，能學到全文瀏覽器找到關西快車早就，受到藥品，崗位美女其它建設戰士室內體力行情，討論不同可能關於畫面不論，解壓密碼世界上，那是權益便宜好像姑。</h2>
+
+  <script>
+    const text = document.querySelector('.text');
+    text.innerHTML = text.innerText
+      .split('') // 將字串轉為陣列
+      // map 可以重新組合陣列中的每一個元素
+      .map((char, i) => {
+        return `<span style="transition-delay: ${i * 40}ms;
+         filter:hue-rotate(${i * 30}deg)">${char}</span>`
+      })
+      .join('');
+  </script>
+</body>
+
+</html>

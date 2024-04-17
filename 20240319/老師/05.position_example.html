@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .parent {
+      width: 500px;
+      height: 500px;
+      background: #333;
+      /* 這個相對定位是產生定位點讓絕對定位子元素在裡面 */
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      /* border-radius: 50%; */
+    }
+
+    .child1 {
+      width: 100px;
+      height: 100px;
+      background: red;
+      position: absolute;
+      left: 100px;
+      z-index: 4;
+    }
+
+    .child2 {
+      width: 100px;
+      height: 100px;
+      background: green;
+      position: absolute;
+      left: 150px;
+      top: 50px;
+      z-index: 3;
+    }
+
+    .child3 {
+      width: 100px;
+      height: 100px;
+      background: blue;
+      position: absolute;
+      left: 200px;
+      z-index: 10;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Z-index</h1>
+  <p style="background:lemonchiffon">當元素進入定位層時，可以使用 z-index 去調動誰遮蓋誰。z-index 數值越大在越上面。</p>
+  <div class="parent">
+    <div class="child1"></div>
+    <div class="child2"></div>
+    <div class="child3"></div>
+  </div>
+  <p style="background:lightblue">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda aut aperiam sunt fugit maxime alias esse, culpa atque quae corrupti dignissimos quam voluptatum reiciendis deserunt quos exercitationem voluptate voluptatem? Dolore.</p>
+</body>
+
+</html>

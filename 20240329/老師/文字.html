@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let text = '  Abc Def GHI Jkl   '
+    /*
+    console.log(text)
+    // .trim()
+    // 移除前後空白
+    text = text.trim()
+    console.log(text)
+    // .toUpperCase()
+    // 轉大寫
+    text = text.toUpperCase()
+    console.log(text)
+    // .toLowerCase()
+    // 轉小寫
+    text = text.toLowerCase()
+    console.log(text)
+    */
+    text = text.trim().toUpperCase().toLowerCase()
+    console.log(text)
+
+    let text2 = '外賣 咖哩拌飯 咖哩烏冬'
+    // .includes(尋找文字, 從第幾個字開始)
+    // 檢查是否有包含尋找文字，回傳 boolean
+    // 第二個參數是選填，預設是 0
+    // let includesCurry = text2.includes('咖哩')
+    let includesCurry = text2.includes('咖哩', 3)
+    console.log(includesCurry)
+    // .indexOf(尋找文字, 從第幾個字開始往後)
+    // 檢查是否有包含尋找文字，回傳第一個符合的索引，-1 代表找不到
+    // 第二個參數是選填，預設是 0
+    let indexCurry = text2.indexOf('咖哩')
+    console.log(indexCurry)
+    // .lastIndexOf(搜尋內容, 從第幾個字開始往前)
+    // 尋找陣列是否有東西符合搜尋內容，回傳最後一個符合的索引，-1 代表找不到
+    // 第二個參數是選填，預設是 string.length - 1
+    console.log(text2.lastIndexOf('咖哩'))
+    // .match(正則表達式Regex)
+    // 符合的結果用陣列回傳
+    // g = 尋找多個結果
+    // 沒找到回傳 null
+    let matchCurry = text2.match(/咖哩/g)
+    console.log(matchCurry)
+    // .matchAll(正則表達式Regex)
+    // 一定要使用 g
+    // 結果會是 RegExpStringIterator，只能用迴圈取資料
+    let matchAllCurry = text2.matchAll(/咖哩/g)
+    console.log(matchAllCurry)
+    for (const match of matchAllCurry) {
+      console.log(match)
+    }
+    // .replace(搜尋文字, 取代文字)
+    // 只會取代第一個符合的文字
+    let replaceCurry = text2.replace('咖哩', '三色豆')
+    console.log(replaceCurry)
+    // .replace(Regex, 取代文字)
+    // 如果 regex 有設定 g 就會全部取代
+    let replaceCurry2 = text2.replace(/咖哩/g, '三色豆')
+    console.log(replaceCurry2)
+
+    let email = 'aaaa@gmail.com'
+    let emailMatch = email.match(/^[0-9a-z]+@[0-9a-z]+\.[0-9a-z]+$/g)
+    console.log(emailMatch)
+
+    const emailRegexGroup = /^([0-9a-z]+)@([0-9a-z]+)\.([0-9a-z]+)$/g
+    let emailMatchAllGroup = email.matchAll(emailRegexGroup)
+    for (const match of emailMatchAllGroup) {
+      // 0: "aaaa@gmail.com"
+      // 1: "aaaa"
+      // 2: "gmail"
+      // 3: "com"
+      // groups: undefined
+      // index: 0
+      console.log(match)
+    }
+    // Regex () 群組找到的東西可以用 $數字 代表
+    let emailReplaceGroup = email.replace(emailRegexGroup, '帳號是 $1，網域是 $2.$3')
+    console.log(emailReplaceGroup)
+
+    const emailRegexGroup2 = /^(?<account>[0-9a-z]+)@(?<domain>[0-9a-z]+)\.(?<tld>[0-9a-z]+)$/g
+    let emailMatchAllGroup2 = email.matchAll(emailRegexGroup2)
+    for (const match of emailMatchAllGroup2) {
+      // 0: "aaaa@gmail.com"
+      // 1: "aaaa"
+      // 2: "gmail"
+      // 3: "com"
+      // groups: {
+      //   account: "aaa",
+      //   domain: "gmail",
+      //   tld: "com"
+      // }
+      // index: 0
+      console.log(match)
+    }
+    // Regex () 群組找到的東西可以用 $<群組名稱> 代表
+    let emailReplaceGroup2 = email.replace(emailRegexGroup2, '帳號是 $<account>，網域是 $<domain>.$<tld>')
+    console.log(emailReplaceGroup2)
+
+    let text3 = 'abcdefg'
+    //           0123456
+
+    // .substr(開始位置, 長度)
+    // 位置可以放負數，代表倒數，-1 是倒數第一個字
+    // 長度不寫會直接取到結尾
+    console.log(text3.substr(3, 1))     // d
+    console.log(text3.substr(3))        // defg
+    // text3.substr(-3, 2)
+    // text3.length = 7
+    // -3 => 7 - 3 => 4
+    // text3.substr(4, 2)
+    console.log(text3.substr(-3, 2))    // ef
+
+    // .substring(開始位置, 結束位置)
+    // 不包含結束位置
+    // 結束位置不寫會直接取到結尾
+    console.log(text3.substring(2, 6))  // cdef
+
+    // .slice(開始位置, 結束位置)
+    // 不包含結束位置
+    // 結束位置不寫會直接取到結尾
+    // 位置可以放負數
+    // text3.slice(-4, -2)
+    // text3.length = 7
+    // -4 => 7 - 4 => 3
+    // -2 => 7 - 2 => 5
+    // text3.slice(3, 5)
+    console.log(text3.slice(2, 6))      // cdef
+    console.log(text3.slice(-4, -2))    // de
+
+    const num1 = '123456.789'
+    // 無條件捨去轉整數
+    console.log(parseInt(num1))
+    // 轉成小數
+    console.log(parseFloat(num1))
+    // 用運算子轉成數字
+    console.log(num1 * 1)
+    // 用 Number 轉成數字
+    console.log(Number(num1))
+
+    const num2 = 'abcd'
+    console.log(parseInt(num2))
+    console.log(parseFloat(num2))
+    console.log(num2 * 1)
+    console.log(Number(num2))
+    console.log(num2 * 1 === NaN)       // false
+    console.log(isNaN(num2 * 1))        // true
+
+    let text4 = 'aaa,bbb,ccc'
+    // .split(文字)
+    // 以文字分割成陣列
+    console.log(text4.split(','))
+    let filename = 'asdlhasd.fsdkfjsdlfh.djfklgdjf..jpg'
+    let filenameArray = filename.split('.')
+    console.log(filenameArray)
+    console.log(filenameArray[filenameArray.length - 1])
+    console.log(filenameArray.at(-1))
+    console.log(filename.split('.').at(-1))
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const rain = false, wind = true
+    if (!rain && !wind) console.log('看電影')
+    else                console.log('在家發呆')
+
+    const dinner = '便當'
+    if (dinner === '炸雞' || dinner === '可樂') {
+      console.log('好耶')
+    }
+    else {
+      console.log('不好耶')
+    }
+
+    const coding = confirm('你會寫 code 嗎')
+    const game = confirm('你有玩原神嗎')
+    const player = confirm('你是可莉玩家嗎')
+    if ((game && player) || coding) {
+      console.log('酷欸')
+    } else {
+      console.log('加油')
+    }
+  </script>
+</body>
+</html>

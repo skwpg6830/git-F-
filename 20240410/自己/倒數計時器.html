@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #x {
+            color: blue; /* 初始顏色為藍色 */
+        }
+    </style>
+</head>
+<body>
+
+<div id="x"></div>
+
+<script>
+    function countdown(y) {
+        var xElement = document.getElementById("x");
+
+        var a = setInterval(function() {
+            xElement.textContent = "剩餘 " + y + " 秒";
+
+            if (y <= 0) {
+                clearInterval(a);
+                xElement.style.color = "red"; // 時間到，文字變红色
+                xElement.textContent = "時間到";
+            }
+
+            y--; // 每秒遞減
+        }, 1000); // 每隔1秒執行一次
+    }
+
+    var z = prompt("請輸入倒數計時的秒數：");
+    var seconds = parseInt(z);
+
+    countdown(seconds);
+</script>
+</body>
+</html>

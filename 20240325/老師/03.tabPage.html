@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #mytab {
+      display: flex;
+    }
+
+    label {
+      background: deeppink;
+      padding: 0.5rem 0.5rem;
+      text-align: center;
+      border: 1px solid #000;
+    }
+
+    .container {
+      width: 600px;
+      padding: 1rem;
+      border: 1px solid #333;
+    }
+
+    label:hover {
+      cursor: pointer;
+      background: #fff;
+    }
+
+    label+label {
+      margin-left: 5px;
+    }
+
+    input {
+      display: none;
+    }
+
+    .content1,
+    .content2,
+    .content3,
+    .content4 {
+      display: none;
+    }
+
+    /* 選擇誰要顯示 */
+    /* 藉由 radio 單一選項，當 radio 被勾選時，同層全體選擇器(~) 會找到對應的內容顯示 */
+    #tab1:checked~.content1 {
+      display: block;
+    }
+
+    #tab2:checked~.content2 {
+      display: block;
+    }
+
+    #tab3:checked~.content3 {
+      display: block;
+    }
+
+    #tab4:checked~.content4 {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="mytab">
+    <label for="tab1">tab01</label>
+    <label for="tab2">tab02</label>
+    <label for="tab3">tab03</label>
+    <label for="tab4">tab04</label>
+  </div>
+
+  <div class="container">
+    <!-- input 切換控制器 -->
+    <input id="tab1" type="radio" name="tabControll" checked>
+    <input id="tab2" type="radio" name="tabControll">
+    <input id="tab3" type="radio" name="tabControll">
+    <input id="tab4" type="radio" name="tabControll">
+    <div class="content1">
+      content1 本帖民間機器虛擬，包含創造是一種採購提前威望眼神自己搜尋每年互相多年五金，翻譯手機，今天有時運作加入方向兒童最後傳真不可以反映，長時間擴大在我人員下載次數投票服飾權利忍不住利用不得不，死了感受，你知。
+    </div>
+    <div class="content2">
+      content2 身體重要國內裝飾創新模型工藝存儲上面關鍵字，有的手段翻譯互相頻率成為五年發送暫時身份是個工商硬體交給一陣，指導做到倒是角度典型配置，你沒有平均，不好請點擊上下組合難以一生帝國十大重新，狀況對面要在家人小遊戲，全身這個需求由於隨着只能最大你知道明天能源，藝術走了印度物業能否，所在無法本報主流你不完了含有男子信箱降低，完美協助定義思路演唱會液晶，期限繼續一絲引導別人實用背後那個討論區熱門此刻理念，很。
+    </div>
+    <div class="content3">
+      content3 運行平台演出總經理有關一體專欄機械，歌曲開展美麗一定要沒事很多先進教育崇拜，這些草魚男孩想法內存那樣整理傢俱遭遇感到，說出工藝功能，看到繼續她的放棄出去性質很難消費本類缺乏歲月大師，一路手上，條款條例記住管理系統事情，緊張預防保持目前判斷能源鏡頭進步創建，這場結婚黃金財務電話允許區別未知證件，網際辦理模組壓縮快速釣魚採訪尤其專輯警方，提醒美容本科報告博士，大眾日常資源，總體廠家東京高中一系列非常創新興奮然後點這裡研究生極大採訪，一下相關內容因素本月規則微笑，開放財產一條見過原創威望資金給我們簽名語言，三星線上的話檢查感覺到你說二手條款職業是有，數量政府重大都不網易大陸人物藝術於是後面，通知條。
+    </div>
+    <div class="content4">
+      content4 還不登記鈴聲參數成本曝光得到上市歌曲哪裡定義才是速度頻道，全面車輛空中，大幅回答刺激上網你看卻是大連，很快之外未經鬱悶很少超級職工課程，不管適合難得結構，晚上主營讓人笑話，對於小說時代都要軍事例如抱著廠家，現代化見過等人團體，集團面議加上，僅僅傳說證書自身系統改造更新時間富岡飲食突然資訊網，之中連。
+    </div>
+  </div>
+</body>
+
+</html>

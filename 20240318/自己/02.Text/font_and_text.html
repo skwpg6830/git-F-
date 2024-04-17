@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 1.設定 google -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <style>
+        html {
+            font-size: 16px;
+        }
+
+        /* :root 可以選擇到 html */
+        :root {
+            font-size: 16px;
+        }
+
+        /* 為這份文件設定字型 */
+        body {
+            font-family: "微軟正黑體",
+                Impact,
+                Haettenschweiler,
+                'Arial Narrow Bold',
+                sans-serif;
+        }
+
+        .font-style {
+            /* 設定字型家族 */
+            /* 有順序，先使用 微軟正黑體，沒有的話再使用 Impact ... */
+            font-family: 'Arial Narrow Bold', sans-serif;
+            /* 字型大小、px、em、rem */
+            font-size: 30px;
+            /* 設定斜體*/
+            font-style: italic;
+            /* 設定粗體 */
+            font-weight: bold;
+            /* 設定字型變大寫，第一個字母較大(只是用英文)*/
+            font-variant: small-caps;
+            /* 縮寫 */
+            /* 30px / 40px => 字體大小 / 行高 (斜線不能省略 */
+            font: small-caps bold italic 30px/40px 'Arial Narrow Bold', sans-serif;
+        }
+
+        /* 1.先自訂義字型，需要字體檔案 */
+        @font-face {
+            font-family: "myfont";
+            src: url("./waltograph42.otf"), url("./Adine\ Kirnberg.ttf"), url("./Antro_Vectra_Bolder.otf"), url("Ace\ Records.ttf")
+        }
+
+        /* 2.使用自訂義的字體 */
+        .font-set {
+            font-family: "myfont";
+            font-size: 50px;
+        }
+
+
+        .google-font {
+            font-family: "Madimi One", sans-serif;
+        }
+
+        .text-style {
+            /* left、center、right */
+            text-align: left;
+            /* none、underline、overline、line-through */
+            text-decoration: underline;
+            /* 縮排 */
+            text-indent: 2rem;
+            /* 文字大小寫轉換*/
+            text-transform: uppercase;
+            /* 文字陰影
+              水平位移(右+、左-) 垂直位移(下+、上-) 陰影模糊半徑 顏色
+            */
+            text-shadow: 5px 5px 2px rgba(0, 0, 0, 0.5);
+            /* 英文字母的間隔*/
+            letter-spacing: 5px;
+            /* 字母間隔，必須要有空格才會有作用，中文很難有空格，比較適合英文 */
+            word-spacing: 1rem;
+            /*行高，可以用 px、em、rem */
+            font-size: 50px;
+            line-height: 36px;
+            /* 也可以用數字自，表示倍數*/
+            line-height: 2;
+        }
+
+        .multi-text-shadow {
+            font-size: 4rem;
+            text-shadow:
+                1px 1px 1px rgba(255, 255, 255, 1),
+                2px 2px 2px rgba(255, 255, 0, 1),
+                3px 3px 3px rgba(255, 150, 0, 1),
+                4px 4px 4px rgba(255, 0, 0, 1);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>1. Font 樣式設定</h1>
+    <p class="font-style">
+        親愛精誠，一路，服從
+        Lorem ipsum dolor sit amet.
+    </p>
+
+    <p>Lorem ipsum dolor sit amet.</p>
+
+    <hr>
+
+    <h2>自訂字型</h2>
+    <p class="font-set">Lorem ipsum dolor sit amet.</p>
+
+    <hr>
+
+    <h2>Google Fonts</h2>
+    <p class="google-font">Lorem ipsum dolor sit amet.g</p>
+
+    <hr>
+
+    <h1>2.Text 樣式設定</h1>
+    <p class="text-style">
+        すみません、ごめんなさい
+        Lorem ipsum dolor sit amet.</p>
+
+    <h2>多成文字陰影</h2>
+    <p class="multi-text-shadow">Lorem ipsum dolor sit amet.</p>
+
+    <h1>3.rem 與 em 差異</h1>
+    <ul>
+        <li>文字預設字體大小為 16px，也就是 1rem</li>
+        <li>root 指根元素html、 :root</li>
+    </ul>
+    <h2>REM</h2>
+    <div style="font-size:1rem"></div>
+    font
+    <div style="font-size:2rem">
+        font
+        <div style="font-size:3rem">font</div>
+    </div>
+    </div>
+
+    <h2>EM</h2>
+    <p>em 可能為父層或祖先層 font-size 的倍數
+        父層有設定字體大小以它為基準，若沒有會繼續往外找，如果有就用，沒有就會一直找到根元素 html，也就是 16px。
+    </p>
+    <div style="font-size:1em">
+        font
+        <div style="font-size:2em">
+            font
+            <div style="font-size:3em">font</div>
+        </div>
+    </div>
+</body>
+
+</html>

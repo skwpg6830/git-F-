@@ -1,0 +1,10 @@
+{
+	"editor.wordWrapColumn": 170,
+	"editor.wordWrap": "wordWrapColumn",
+	"html.format.wrapLineLength": 0,
+	"html.format.wrapAttributes": "aligned-multiple",
+	"editor.defaultFormatter": "esbenp.prettier-vscode", // 設置各種文件排版所使用的格式器
+	"[html]": {
+		"editor.defaultFormatter": "vscode.html-language-features"
+	}
+}

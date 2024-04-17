@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 75%;
+      margin: auto;
+      border: 1px solid #000;
+      padding: 0 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .box1,
+    .box2,
+    .box3,
+    .box4 {
+      padding: 1rem;
+    }
+
+    .box1 {
+      background: pink;
+    }
+
+    .box2 {
+      background: palegreen;
+    }
+
+    .box3 {
+      background: paleturquoise;
+    }
+
+    .box4 {
+      background: blanchedalmond;
+    }
+
+    .relative {
+      position: relative;
+    }
+
+    .absolute {
+      position: absolute;
+    }
+
+    .left {
+      /* left: 100px; */
+    }
+
+    .top {
+      /* top: 100px; */
+    }
+
+    /* .right {
+      right: 0;
+    }
+
+    .bottom {
+      bottom: 0;
+    } */
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>position: relavtive</h1>
+    <h2>當元素為相對定位時</h2>
+    <ul>
+      <li>使用位移屬性(top、right、bottom、left)，會以自己原來的位置做位移，保留自身原來的空間，不會被其他元素佔據。</li>
+      <li>沒有任何位移屬性，只有設定 position:relative，會留在原地不動，relative 元素常作為 absolute 子元素位移目標依據。</li>
+      <li>進入定位層，可以設定 z-index。</li>
+    </ul>
+    <div class="box1">
+      <h1>box1</h1>
+      <p>尷尬日前些什麼所在政府注重失去清晰可能紛紛，帝國經銷商地圖說到先進性家電，面積當前位置，當前位置記者重大計劃訂單，經營許可證本論壇標誌法院公共，期限是以，就是電子商務造成種子監控死了第二章當前位置，就業優化，難以網站可見是我數學也就，號碼親愛的購買站長決。</p>
+    </div>
+    <div class="box2 relative left top right bottom">
+      <h1>box2</h1>
+      <p>尷尬日前些什麼所在政府注重失去清晰可能紛紛，帝國經銷商地圖說到先進性家電，面積當前位置，當前位置記者重大計劃訂單，經營許可證本論壇標誌法院公共，期限是以，就是電子商務造成種子監控死了第二章當前位置，就業優化，難以網站可見是我數學也就，號碼親愛的購買站長決。</p>
+    </div>
+    <div class="box3">
+      <h1>box3</h1>
+      <p>尷尬日前些什麼所在政府注重失去清晰可能紛紛，帝國經銷商地圖說到先進性家電，面積當前位置，當前位置記者重大計劃訂單，經營許可證本論壇標誌法院公共，期限是以，就是電子商務造成種子監控死了第二章當前位置，就業優化，難以網站可見是我數學也就，號碼親愛的購買站長決。</p>
+    </div>
+    <div class="box4">
+      <h1>box4</h1>
+      <p>尷尬日前些什麼所在政府注重失去清晰可能紛紛，帝國經銷商地圖說到先進性家電，面積當前位置，當前位置記者重大計劃訂單，經營許可證本論壇標誌法院公共，期限是以，就是電子商務造成種子監控死了第二章當前位置，就業優化，難以網站可見是我數學也就，號碼親愛的購買站長決。</p>
+    </div>
+  </div>
+
+  <div class="container relative">
+    <h1>position: absolute</h1>
+    <h2>當元素為絕對定位時</h2>
+    <ul>
+      <li>沒有任何位移屬性，該元素脫離正常流向，進入定位層，後方元素會流動置絕對定位元素的下方(被遮住)。</li>
+      <li>若祖先元素找不到定位點(absolute、relative、fixed)，最後會以 html 根元素作為位移目標。</li>
+    </ul>
+    <div class="box1">
+      <h1>box1</h1>
+      <p>尷尬日前些什麼所在政府注重失去清晰可能紛紛，帝國經銷商地圖說到先進性家電，面積當前位置，當前位置記者重大計劃訂單，經營許可證本論壇標誌法院公共，期限是以，就是電子商務造成種子監控死了第二章當前位置，就業優化，難以網站可見是我數學也就，號碼親愛的購買站長決。</p>
+    </div>
+    <div class="box2 absolute left top">
+      <h1>box2</h1>
+      <p>尷尬日前些什麼所在政府注重失去清晰可能紛紛，帝國經銷商地圖說到先進性家電，面積當前位置，當前位置記者重大計劃訂單，經營許可證本論壇標誌法院公共，期限是以，就是電子商務造成種子監控死了第二章當前位置，就業優化，難以網站可見是我數學也就，號碼親愛的購買站長決。</p>
+    </div>
+    <div class="box3">
+      <h1>box3</h1>
+      <p>尷尬日前些什麼所在政府注重失去清晰可能紛紛，帝國經銷商地圖說到先進性家電，面積當前位置，當前位置記者重大計劃訂單，經營許可證本論壇標誌法院公共，期限是以，就是電子商務造成種子監控死了第二章當前位置，就業優化，難以網站可見是我數學也就，號碼親愛的購買站長決。</p>
+    </div>
+    <div class="box4">
+      <h1>box4</h1>
+      <p>尷尬日前些什麼所在政府注重失去清晰可能紛紛，帝國經銷商地圖說到先進性家電，面積當前位置，當前位置記者重大計劃訂單，經營許可證本論壇標誌法院公共，期限是以，就是電子商務造成種子監控死了第二章當前位置，就業優化，難以網站可見是我數學也就，號碼親愛的購買站長決。</p>
+    </div>
+  </div>
+</body>
+
+</html>
