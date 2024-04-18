@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      margin: auto;
+      border-collapse: collapse;
+      text-align: center;
+      background: #ff9;
+    }
+
+    td {
+      border: 1px solid #333;
+      width: 400px;
+    }
+
+    img {
+      height: 150px;
+      /* 消除圖片底部會產生的空白 */
+      vertical-align: middle;
+    }
+
+    tr:nth-child(odd) {
+      height: 100px;
+    }
+
+    tr:nth-child(even) {
+      height: 150px;
+    }
+
+    p {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <form>
+    <table>
+      <tr>
+        <td>真皮皮包</td>
+        <td>真皮短夾</td>
+      </tr>
+      <tr>
+        <td><img src="../images/0403.jpg"></td>
+        <td><img src="../images/0404.jpg"></td>
+      </tr>
+      <tr>
+        <td>
+          <input type="radio" name="r1" value="購買" checked>購買
+          <input type="radio" name="r1" value="不購買">不購買
+          <input type="radio" name="r1" value="考慮中">考慮中
+        </td>
+        <td>
+          <input type="radio" name="r2" value="購買">購買
+          <input type="radio" name="r2" value="不購買">不購買
+          <input type="radio" name="r2" value="考慮中" checked>考慮中
+        </td>
+      </tr>
+    </table>
+    <p>
+      <input type="submit" value="送出" onclick="showMsg(form.r1.value, form.r2.value)">
+      <input type="reset" value="重置">
+    </p>
+  </form>
+
+  <script>
+    function showMsg(value1, value2) {
+      alert(`
+        流行皮件選購確認：
+
+        ●真皮皮包：${value1}
+        ●真皮短夾：${value2}
+      `)
+    }
+  </script>
+</body>
+
+</html>
