@@ -43,6 +43,13 @@
         }
 
         /* 圖片展示區 */
+
+        #big1:checked ~ #big-img img:nth-child(1),
+        #big2:checked ~ #big-img img:nth-child(2),
+        #big3:checked ~ #big-img img:nth-child(3),
+        #big4:checked ~ #big-img img:nth-child(4) {
+            display: block;
+        }
         #photo{
             width: 590px;
             height: 460px;
@@ -54,11 +61,21 @@
             text-align: center;
         }
 
-        /* #photo #big{
-             紙本沒有說，尺寸要記一下 
+        input{
+            display: none;
+        }
+
+        .img{
+            width: 125px;
+            height: 80px;
+        }
+
+        #big-img img {
+            display: none;
             width: 570px;
             height: 340px;
-        } */
+            margin:5px 0px 5px 8px;
+        }
     </style>
 </head>
 <body>
@@ -91,15 +108,23 @@
         <table>
             <tr>
                 <td colspan="4">
-                    <img id="big" src="../images/0202A.png" width="570px" height="340px">
+                    <input type="radio" name="b" id="big1" checked>
+                <input type="radio" name="b" id="big2">
+                <input type="radio" name="b" id="big3">
+                <input type="radio" name="b" id="big4">
+                <div id="big-img">
+                    <img src="../images/0202A.png">
+                    <img src="../images/0203A.png">
+                    <img src="../images/0204A.png">
+                    <img src="../images/0205A.png">
                 </td>
                 
             </tr>
             <tr>
-                <td><img class="small" src="../images/0202B.png"></td>
-                <td><img class="small" src="../images/0203B.png"></td>
-                <td><img class="small" src="../images/0204B.png"></td>
-                <td><img class="small" src="../images/0205B.png"></td>
+            <td><input type="radio" name="s" id="small1" checked><label for="big1"><img class="img" src="../images/0202B.png"></label></td>
+            <td><input type="radio" name="s" id="small2"><label for="big2"><img class="img" src="../images/0203B.png"></label></td>
+            <td><input type="radio" name="s" id="small3"><label for="big3"><img class="img" src="../images/0204B.png"></label></td>
+            <td><input type="radio" name="s" id="small4"><label for="big4"><img class="img" src="../images/0205B.png"></label></td>
             </tr>
             <tr>
                 <td>第30屆倫敦奧運</td>
@@ -128,12 +153,12 @@
 
     // 方法二，jQuery
     // console.log($('.small'))
-    $('.small').each(function(index, img) {
+    //$('.small').each(function(index, img) {
         // cosole.log(index, img)
-        $(img).on('click', function(){
-            $('#big').attr('src',  `../images/020${index + 2}A.png`)
-        })
-    })
+        //$(img).on('click', function(){
+           // $('#big').attr('src',  `../images/020${index + 2}A.png`)
+        //})
+   // })
 
     // getter
     // $('#big').attr('src')

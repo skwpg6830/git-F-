@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+            background: #ffffcc;
+        }
+        
+        h1 {
+            font-size: 20px;
+            font-family: 標楷體;
+            font-weight: bolder;
+            color: #00f;
+            text-decoration: underline;
+        }
+
+        table {
+            margin: auto;
+        }
+
+        input{
+            display: none;
+        }
+
+        .img {
+            width: 60px;
+            height: 45px;
+            border: medium solid #00f;
+            cursor: pointer;
+        }
+
+        .img:hover {
+            border: medium solid #0ff;
+        }
+
+        #big1:checked ~ #big-img img:nth-child(1),
+        #big2:checked ~ #big-img img:nth-child(2),
+        #big3:checked ~ #big-img img:nth-child(3),
+        #big4:checked ~ #big-img img:nth-child(4),
+        #big5:checked ~ #big-img img:nth-child(5) {
+            display: block;
+        }
+
+        #big-img img {
+            display: none;
+            width: 400px;
+            height: 300px;
+            border: 5px solid #00f;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>蘭嶼賞魚去</h1>
+    <table>
+        <tr>
+            <td colspan="5">
+                <input type="radio" name="b" id="big1" checked>
+                <input type="radio" name="b" id="big2">
+                <input type="radio" name="b" id="big3">
+                <input type="radio" name="b" id="big4">
+                <input type="radio" name="b" id="big5">
+                <div id="big-img">
+                    <img src="../images/0551.jpg">
+                    <img src="../images/0552.jpg">
+                    <img src="../images/0553.jpg">
+                    <img src="../images/0554.jpg">
+                    <img src="../images/0555.jpg">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><br></td>
+            <td><br></td>
+            <td><br></td>
+            <td><br></td>
+            <td><br></td>
+        </tr>
+        <tr>
+            <td><input type="radio" name="s" id="small1" checked><label for="big1"><img class="img" src="../images/0551.jpg"></label></td>
+            <td><input type="radio" name="s" id="small2"><label for="big2"><img class="img" src="../images/0552.jpg"></label></td>
+            <td><input type="radio" name="s" id="small3"><label for="big3"><img class="img" src="../images/0553.jpg"></label></td>
+            <td><input type="radio" name="s" id="small4"><label for="big4"><img class="img" src="../images/0554.jpg"></label></td>
+            <td><input type="radio" name="s" id="small5"><label for="big5"><img class="img" src="../images/0555.jpg"></label></td>
+        </tr>
+    </table>
+</body>
+</html>
