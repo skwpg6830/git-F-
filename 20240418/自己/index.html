@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>網路行銷購物網</title>
+    <style>
+        #main{
+            width: 1024px;
+            height: 768px;
+            margin: auto;
+        }
+
+        #top {
+            width: 1024px;
+            height: 120px;
+            background: url(./images/0401.jpg);
+            text-align: center;
+        }
+
+        #top a{
+            display: block;
+            text-decoration: none;
+            color: #ffffff;
+            text-shadow: 10px 10px 15px #333333;
+            line-height: 120px;
+            font-size: 52px;
+            font-family: 標楷體;
+        }
+
+        #marquee{
+            width: 1024px;
+            height: 30px;
+            font-family: 標楷體;
+            color: #0000ff;
+            font-size: 19px;
+            background: url(./images/0402.jpg);
+        }
+
+        #content{
+            width: 1024px;
+            height: 540px;
+        }
+
+        iframe{
+            width: 1024px;
+            height: 540px;
+        }
+
+        #footer{
+            width: 1024px;
+            height: 78px;
+            background: #666600;
+            color: #ffffff;
+            font-family: 標楷體;
+            line-height: 2;
+            text-align: left;
+        }
+
+        #footer a{
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        #footer a:visited{
+            color: #FF9999;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 有播放音樂 -->
+    <audio src="./music/0401.mp3" autoplay></audio>
+    <div id="main">
+        <div id="top"><a href="./index.html">流行精品購物網站</a></div>
+        <div id="marquee"><marquee>大家來購物網！精品商品特價大拍賣！要買要快！</marquee></div>
+        <div id="content">
+            <iframe src="./main.html" frameborder="0" name="iframe"></iframe>
+        </div>
+        <div id="footer"><span><a href="./results/message.html" target="iframe">訪客留言版</a></span>
+            <br>
+            <span>網頁設計及維護：15張建仁、最近更新日期：2024/04/18</span></div>
+    </div>
+</body>
+</html>
