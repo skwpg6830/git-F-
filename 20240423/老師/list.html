@@ -1,0 +1,43 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form id="form">
+    <input type="text" name="aaa" id="input-text">
+    <input type="submit" value="新增">
+  </form>
+  <ul id="list"></ul>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==' crossorigin='anonymous'></script>
+  <script>
+    $('#form').submit(function (event) {
+      // 停止表單送出跳頁
+      event.preventDefault()
+
+      // 取輸入欄位的值
+      const value = $('#input-text').val()
+
+      // 如果值是空的，不執行
+      if (value.length === 0) return
+
+      // 新增項目
+      $('#list').append(`
+        <li>
+          ${ value }
+          <input type="button" value="x" class="btn-del">
+        </li>
+      `)
+
+      // 輸入欄位清空
+      $('#input-text').val('')
+    })
+
+    $('#list').on('click', '.btn-del', function () {
+      $(this).parent().remove()
+    })
+  </script>
+</body>
+</html>

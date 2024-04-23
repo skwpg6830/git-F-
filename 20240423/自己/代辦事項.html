@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js' 
+    integrity='sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==
+    ' crossorigin='anonymous'></script>
+    
+</head>
+<body>
+
+<div>
+    <input type="text" id="todoInput">
+    <button id="addBtn">新增</button>
+</div>
+
+<ul id="todoList">
+    
+</ul>
+
+<script>
+    
+        // 新增任務
+        $("#addBtn").on("click", function(){
+            var task = $("#todoInput").val().trim();
+            if(task !== "") {
+                var listItem = $("<li>").text(task);
+                var deleteBtn = $("<button>").text("x");
+                deleteBtn.addClass("deleteBtn");
+                listItem.append(deleteBtn);
+                $("#todoList").append(listItem);
+                $("#todoInput").val(""); // 清空輸入欄位
+                $(document).on("click", ".deleteBtn", function(){
+            $(this).parent().remove();
+        });
+            }
+        });
+
+        // 刪除任務
+        
+    
+</script>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .text-red {
+      color: red;
+    }
+    .text-center {
+      text-align: center;
+    }
+    .bg-gray {
+      background: gray;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="title">111aaa</h1>
+  <p class="text">111</p>
+  <p class="text">222</p>
+  <div id="div">
+    <p>浪漫能夠技術結婚地。</p>
+  </div>
+  <ul id="list1">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ul>
+  <ul id="list2">
+    <li id="list2li1">1</li>
+    <li id="list2li2">2</li>
+    <li id="list2li3">3</li>
+    <li id="list2li4">4</li>
+    <li id="list2li5">5</li>
+  </ul>
+  <a href="https://google.com" class="link">Google</a>
+  <a href="https://fb.com" class="link">Facebook</a>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==' crossorigin='anonymous'></script>
+  <script>
+    // .text() = .innerText
+    // () 有東西就是修改，沒有就是取值
+    console.log($('#title').text())
+    $('#title').text('aaaa')
+
+    // 如果有取到多個
+    // 取文字會全部連在一起回傳
+    // 改文字會全部一起改
+    console.log($('.text').text())
+    $('.text').text('123456')
+
+    // .html() = .innerHTML
+    // () 有東西就是修改，沒有就是取值
+    console.log($('#div').html())
+    $('#div').html('<a href="https://x.com">X</a>')
+
+    // 如果用 [] 指定的話，後面不能用 jQ 語法
+    $('.link')[0].target = '_blank'
+    // .eq() 指定第幾個
+    // .length 取總共幾個
+    console.log($('.link').length)
+    // .attr(屬性, 值) 修改一個屬性
+    // .attr(屬性) 取屬性
+    console.log($('.link').eq(0).attr('href'))
+    $('.link').eq(0).attr('target', '_blank')
+    // .attr({屬性: 值, 屬性: 值}) 修改多個屬性
+    $('.link').eq(1).attr({ target: '_blank', href: 'https://github.com'})
+    $('.link').eq(1).text('GitHub')
+
+    // .first() = .eq(0)
+    // .last() = 最後一個
+    // .css(樣式, 值) 修改一個樣式
+    // .css(樣式) 取一個樣式值
+    // .css({樣式: 值, 樣式: 值}) 修改多個樣式
+    $('#list1 li').first().css('color', 'red')
+    console.log( $('#list1 li').first().css('color') )
+    $('#list1 li').last().css({ textAlign: 'center', color: 'red', 'background-color': 'gray'})
+
+    // .filter(選擇器) 在目前的結果中過濾符合的
+    // .not(選擇器) 在目前的結果中過濾不符合的
+    // .addClass() 新增 class，用空白分隔
+    // .removeClass() 移除 class，用空白分隔
+    // .hasClass() 判斷有沒有 class，用空白分隔
+    // .toggleClass() 開關 class，用空白分隔
+    $('#list2 li').filter('#list2li1').addClass('text-red text-center bg-gray')
+    $('#list2 li').filter('#list2li1').removeClass('text-red')
+    console.log($('#list2 li').filter('#list2li1').hasClass('text-red bg-gray'))
+    $('#list2 li').not('#list2li1').toggleClass('bg-gray')
+  </script>
+</body>
+</html>

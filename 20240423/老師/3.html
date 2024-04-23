@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="按鈕" id="btn">
+  <br>
+  <input type="text" name="" id="input-text">
+  <input type="button" value="解除" id="btn-off">
+  <p id="text"></p>
+  <input type="button" value="新增" id="btn-add">
+  <div id="target">
+    <p>123456789</p>
+  </div>
+  <p id="move">AAAAA</p>
+  <div id="btns">
+    <p>asdasd</p>
+    <input type="button" value="按鈕" class="btn">
+    <input type="button" value="按鈕" class="btn">
+    <input type="button" value="按鈕" class="btn">
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==' crossorigin='anonymous'></script>
+  <script>
+    // .click(function) 綁定事件
+    // .click() 觸發事件 = addEventListener('click')
+    // .on('事件名稱', function) 綁定事件 = addEventListener
+    // .one('事件名稱', function) 綁定事件，只執行一次
+    // .off('事件名稱', function) 解除綁定 = removeEventListener，沒有指定 function 就是全部解除
+    $('#btn').click(function (event) {
+      console.log(event.offsetX)
+      // this 代表觸發事件的東西
+      // .val() 輸入欄位的 value
+      // () 有東西就是修改，沒有就是取值
+      $(this).val('點過了')
+    })
+
+    function test () {
+      console.log(123)
+    }
+    $('#input-text').on('input', function () {
+      $('#text').text( $(this).val() )
+    })
+    $('#input-text').on('input', test)
+
+    $('#btn-off').on('click', function () {
+      // $('#input-text').off('input')
+      $('#input-text').off('input', test)
+    })
+
+    $('#btn-add').click(function () {
+      // .append() 裡面的後面
+      // .prepend() 裡面的前面
+      // .insertAfter() 同一層後面
+      // .insertBefore() 同一層前面
+      // HTML 文字是新增，現有東西是移動
+      $('#target').append('<p>append</p>')
+      $('#target').prepend('<p>prepend</p>')
+      $('#target').prepend( $('#move') )
+      $('<p>insertAfter</p>').insertAfter('#target')
+      $('<p>insertBefore</p>').insertBefore('#target')
+    })
+
+    // 只會綁到頁面載入時的三個，新增的不會有反應
+    // $('.btn').click(function () {
+    //   $('#btns').append(`<input type="button" value="按鈕" class="btn">`)
+    // })
+
+    // 點到 #btns 後檢查是不是點到 .btn，點到才執行
+    // $('#btns').on('click', '.btn', function () {
+    //   $('#btns').append(`<input type="button" value="按鈕" class="btn">`)
+    // })
+
+    function add () {
+      const newBtn = $(`<input type="button" value="按鈕" class="btn">`)
+      $(newBtn).click(add)
+      $('#btns').append(newBtn)
+    }
+    $('.btn').click(add)
+
+    // return false = preventDefault 不執行事件
+    $(document).on('contextmenu', function (e) {
+      e.preventDefault()
+      return false
+    })
+  </script>
+</body>
+</html>
