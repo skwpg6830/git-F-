@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #imgs{
+            height: 200px;
+            overflow: hidden;
+        }
+        #imgs > img {
+            margin-top: 100px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="imgs">
+        <img src="https://picsum.photos/200/?random=1">
+        <img src="https://picsum.photos/200/?random=2">
+        <img src="https://picsum.photos/200/?random=3">
+        <img src="https://picsum.photos/200/?random=4">
+        <img src="https://picsum.photos/200/?random=5">
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js' 
+    integrity='sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==' 
+    crossorigin='anonymous'></script>
+    <script>
+        // .mouseenter() .on('mouseenter')
+        // .mouseout()   .on('mouseout')
+        // .hover(滑鼠進入, 滑鼠離開)
+        $('#imgs > img').hover(function () {
+            $(this).stop().animate({ marginTop: 0})
+            $(this).prev().stop().animate({ marginTop: 50})
+            $(this).next().stop().animate({ marginTop: 50})
+        }, function () {
+            $(this).stop().animate({ marginTop: 100})
+            $(this).prev().stop().animate({ marginTop: 100})
+            $(this).next().stop().animate({ marginTop: 100})
+        })
+    </script>
+</body>
+</html>

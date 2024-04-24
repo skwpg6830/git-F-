@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #img {
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <input type="button" value="變小" id="btn1">
+  <input type="button" value="往右" id="btn2">
+  <input type="button" value="往右往下" id="btn3">
+  <input type="button" value="停止" id="btn4">
+  <input type="button" value="淡出" id="btn5">
+  <input type="button" value="淡入" id="btn6">
+  <input type="button" value="半透明" id="btn7">
+  <input type="button" value="淡入淡出" id="btn8">
+  <input type="button" value="滑入" id="btn9">
+  <input type="button" value="滑出" id="btn10">
+  <input type="button" value="滑入滑出" id="btn11">
+  <hr>
+  <img src="https://github.com/wdaweb.png" id="img">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==' crossorigin='anonymous'></script>
+  <script>
+    $('#btn1').click(function () {
+      // .animate({ 樣式: 值 }, 動畫時間, linear, 動畫播完的function)
+      // 動畫時間預設 400ms，可填 ms 或是 fast(200) slow(600)
+      // linear 不填預設是 ease
+      $('#img').animate({
+        width: '100px',
+        height: '100px'
+      }, function () {
+        console.log('變小了')
+      })
+    })
+
+    $('#btn2').click(function () {
+      $('#img').animate({
+        left: '+=50px'
+      }, 'fast', function () {
+        console.log('往右了')
+      })
+    })
+
+    $('#btn3').click(function () {
+      $('#img')
+        .animate({
+          left: '+=50px'
+        }, 2000, 'linear', function () {
+          console.log('往右了')
+        })
+        .animate({
+          top: '+=50px'
+        }, 2000, 'linear', function () {
+          console.log('往下了')
+        })
+    })
+
+    $('#btn4').click(function () {
+      // .stop(是否停止之後的動畫, 是否跳到目前動畫結束)
+      // 如果第二個參數是 true，第一個就必須是 true
+      // 預設都是 false
+      // $('#img').stop(true, false)   // 原地停下
+      // $('#img').stop(true, true)    // 跳到目前結尾
+      $('#img').stop(false, false)    // 直接開始播下一個動畫
+    })
+
+    $('#btn5').click(function () {
+      // .fadeOut(長度, 'linear', function)
+      $('#img').fadeOut()
+    })
+
+    $('#btn6').click(function () {
+      // .fadeIn(長度, 'linear', function)
+      $('#img').fadeIn()
+    })
+
+    $('#btn7').click(function () {
+      // .fadeIn(長度, 不透明度, 'linear', function)
+      // 長度, 不透明度必填
+      $('#img').fadeTo(1000, 0)
+    })
+
+    $('#btn8').click(function () {
+      // .fadeToggle(長度, 'linear', function)
+      $('#img').fadeToggle()
+    })
+
+    $('#btn9').click(function () {
+      // .slideDown(長度, 'linear', function)
+      $('#img').slideDown(2000)
+    })
+
+    $('#btn10').click(function () {
+      // .slideUp(長度, 'linear', function)
+      $('#img').slideUp(2000)
+    })
+
+    $('#btn11').click(function () {
+      // .slideToggle(長度, 'linear', function)
+      $('#img').slideToggle(2000)
+    })
+  </script>
+</body>
+</html>
