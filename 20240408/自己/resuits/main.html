@@ -134,36 +134,5 @@
             </tr>
         </table>
     </div>
-    <script src="../others/jquery-2.1.4.min.js"></script>
-    <script>
-    // document object model(DOM)
-    // 方法一，原生 JS
-    // 偽陣列，很像陣列，但不像陣列，不能用陣列的方法，可以打印出來看看它有甚麼方法給我們使用
-    // [img,img,img,img]
-    // const imgs = document.querySelectorAll('.small');
-    // const big = document.querySelector('#big');
-    // console.log=(imgs)
-    // // forEach 遍歷每個 img 元素，為每個 img 元素綁定點擊 click 事件
-    // // 他們都做一件事情就是把自己的 src 屬性值賦值給大圖片
-    // imgs.forEach(function(img, index){
-    //     img.onclick=function(){
-    //         big.src = `../images/020${index + 2}A.png`
-    //     }
-    // })
-
-    // 方法二，jQuery
-    // console.log($('.small'))
-    //$('.small').each(function(index, img) {
-        // cosole.log(index, img)
-        //$(img).on('click', function(){
-           // $('#big').attr('src',  `../images/020${index + 2}A.png`)
-        //})
-   // })
-
-    // getter
-    // $('#big').attr('src')
-    // setter
-    // $('#big').attr('src',  `../images/020${index + 2}A.png`)
-    </script>
 </body>
 </html>
