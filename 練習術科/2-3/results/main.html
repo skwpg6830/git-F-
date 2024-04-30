@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: 14px;
+            color: #000000;
+            padding: 20px;
+        }
+
+        #t1{
+            border: 1px solid black;
+            line-height: 2;
+            border-collapse: collapse;
+            width: 270px;
+            height: 460px;
+            float: left;
+        }
+
+        #t1 tr:nth-child(even){
+            background: #FFFFCC;
+        }
+
+        #odd{
+            background: #DDDDDD;
+        }
+
+        #t1 tr:nth-child(1){
+            background: #3399FF;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        #photo{
+            width: 590px;
+            height: 460px;
+            float: right;
+            border: 1px solid black;
+            background: #333333;
+            font-size: 14px;
+            color: #ffff00;
+            text-align: center;
+        }
+
+        #s1:checked ~ #b1,
+        #s2:checked ~ #b2,
+        #s3:checked ~ #b3,
+        #s4:checked ~ #b4{
+            display: block;
+        }
+
+        input{
+            display: none;
+        }
+
+        #b1,
+        #b2,
+        #b3,
+        #b4{
+            width: 590px;
+            height: 330px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+        <div id="t1">
+        <h3>最新消息</h3>
+        <table>
+        <tr>
+            <td>主題</td>
+            <td>發布日期</td>
+        </tr>
+        <tr>
+            <td><img src="../images/0201.png">公告全國技能競賽相關事宜</td>
+            <td>2024/04/30</td>
+        </tr>
+        <tr id="odd">
+            <td><img src="../images/0201.png">公告即測即評及發證相關事宜</td>
+            <td>2024/04/30</td>
+        </tr>
+        <tr>
+            <td><img src="../images/0201.png">公告網頁設計修題相關事宜</td>
+            <td>2024/04/30</td>
+        </tr>
+        <tr id="odd">
+            <td><img src="../images/0201.png">公告網路架設應檢相關事宜</td>
+            <td>2024/04/30</td>
+        </tr>
+    </table>
+    </div>
+    <div>
+        <table id="photo">
+            <tr>
+                <td colspan="4">
+                    <input type="radio" name="a" id="s1" checked><img id="b1" src="../images/0202A.png">
+                    <input type="radio" name="a" id="s2"><img id="b2" src="../images/0203A.png">
+                    <input type="radio" name="a" id="s3"><img id="b3" src="../images/0204A.png">
+                    <input type="radio" name="a" id="s4"><img id="b4" src="../images/0205A.png">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="s1"><img src="../images/0202B.png"></label></td>
+                <td><label for="s2"><img src="../images/0203B.png"></label></td>
+                <td><label for="s3"><img src="../images/0204B.png"></label></td>
+                <td><label for="s4"><img src="../images/0205B.png"></label></td>
+            </tr>
+            <tr>
+                <td>第30屆倫敦奧運</td>
+                <td>許淑淨奪舉重銀牌</td>
+                <td>第26屆深圳世大運</td>
+                <td>第27屆喀山世大運</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
