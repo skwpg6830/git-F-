@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            background: #ffff99;
+            width: 800px;
+            height: 350px;
+            margin: auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        td{
+            border: 1px solid black;
+            
+        }
+
+        img{
+            width: auto;
+            height: 150px;
+        }
+
+        tr{
+            width: 400px;
+            height: 100px;
+        }
+
+        tr:nth-child(2){
+            height: 150px;
+        }
+
+        p{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form>
+    <table>
+        <tr>
+            <td>真皮皮包</td>
+            <td>真皮短夾</td>
+        </tr>
+        <tr>
+            <td><img src="../images/0403.jpg"></td>
+            <td><img src="../images/0404.jpg"></td>
+        </tr>
+        <tr>
+            <td><input type="radio" name="a" value="購買" checked>購買
+                <input type="radio" name="a" value="不購買" >不購買
+                <input type="radio" name="a" value="考慮中" >考慮中
+            </td>
+            <td>
+                <input type="radio" name="b" value="購買" >購買
+                <input type="radio" name="b" value="不購買" >不購買
+                <input type="radio" name="b" value="考慮中" checked>考慮中
+            </td>
+        </tr>
+    </table>
+    <p>
+        <input type="submit" value="送出" onclick="show(form.a.value,form.b.value)">
+        <input type="reset" value="重置">
+    </p>
+</form>
+<script>
+    function show(a, b) {
+        alert(`
+        流行皮件選購確認:
+
+        ●真皮皮包:${a}
+        ●真皮短夾:${b}
+        `)
+    }
+</script>
+</body>
+</html>
