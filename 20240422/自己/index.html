@@ -29,9 +29,9 @@
             text-align: center;
         }
 
-        /* #left .img:hover{
+        #left .img:hover{
             filter: hue-rotate(120deg);
-        } */
+        }
 
         .a{
             font-size: 12px;
@@ -56,6 +56,7 @@
             color: #ff0000;
             line-height: 50px;
             text-align: center;
+            display: block;
         }
 
         #content{
@@ -70,6 +71,7 @@
             width: 838px;
             height: 682px;
         }
+
     </style>
 </head>
 <body>
@@ -113,7 +115,7 @@
                     <td><br></td>
                 </tr>
                 <tr>
-                    <td><a href="./index.html"><img class="img" src="./images/0506b.gif" alt="回首頁" title="回首頁"></a></td>
+                    <td><a href="./index.html"><img src="./images/0506a.gif" alt="回首頁"><img class="img" src="./images/0506.gif" alt="回首頁" title="回首頁"><img src="./images/0506a.gif" alt="回首頁"></a></td>
                 </tr>
             </table>
         </div>
@@ -124,36 +126,6 @@
             </div>
         </div>
     </div>
-    <script src="./jquery-2.1.4.min.js"></script>
-    <script>
-        $('.img').each(function (index, img) {
-            // 兩個函式分別是滑鼠移入與移出的事件函式
-            // img 也可以用 this 代替，但是不能用箭頭函式，因為箭頭函式的 this 會指向外層
-            $(img).hover(function (){
-                // attributes => attr
-                $(img).attr('src',`./images/050${index+1}r.gif`)
-            },function (){
-                $(img).attr('src',`./images/050${index+1}b.gif`)
-            })
-        })
-
-        var name = '旻旻'
-        const person = {
-            name: "書曼",
-            sayName1: function () {
-                console.log(this.name)
-            },
-            sayName2: () => {
-                console.log(this.name)
-            },
-            sayName3() {
-                console.log(this.name)
-            }
-        }
-
-        person.sayName1()
-        person.sayName2()
-        person.sayName3()
-    </script>
+    
 </body>
 </html>

@@ -20,6 +20,7 @@
 
         table {
             margin: auto;
+            height: 400px;
         }
 
         input{
@@ -37,15 +38,19 @@
             border: medium solid #0ff;
         }
 
-        #big1:checked ~ #big-img img:nth-child(1),
-        #big2:checked ~ #big-img img:nth-child(2),
-        #big3:checked ~ #big-img img:nth-child(3),
-        #big4:checked ~ #big-img img:nth-child(4),
-        #big5:checked ~ #big-img img:nth-child(5) {
+        #b1:checked ~ #c1,
+        #b2:checked ~ #c2,
+        #b3:checked ~ #c3,
+        #b4:checked ~ #c4,
+        #b5:checked ~ #c5 {
             display: block;
         }
 
-        #big-img img {
+        #c1,
+        #c2,
+        #c3,
+        #c4,
+        #c5{
             display: none;
             width: 400px;
             height: 300px;
@@ -59,33 +64,20 @@
     <table>
         <tr>
             <td colspan="5">
-                <input type="radio" name="b" id="big1" checked>
-                <input type="radio" name="b" id="big2">
-                <input type="radio" name="b" id="big3">
-                <input type="radio" name="b" id="big4">
-                <input type="radio" name="b" id="big5">
-                <div id="big-img">
-                    <img src="../images/0551.jpg">
-                    <img src="../images/0552.jpg">
-                    <img src="../images/0553.jpg">
-                    <img src="../images/0554.jpg">
-                    <img src="../images/0555.jpg">
-                </div>
+                <input type="radio" name="b" id="b1" checked><img id="c1" src="../images/0551.jpg">
+                <input type="radio" name="b" id="b2"><img id="c2" src="../images/0552.jpg">
+                <input type="radio" name="b" id="b3"><img id="c3" src="../images/0553.jpg">
+                <input type="radio" name="b" id="b4"><img id="c4" src="../images/0554.jpg">
+                <input type="radio" name="b" id="b5"><img id="c5" src="../images/0555.jpg">
             </td>
         </tr>
+
         <tr>
-            <td><br></td>
-            <td><br></td>
-            <td><br></td>
-            <td><br></td>
-            <td><br></td>
-        </tr>
-        <tr>
-            <td><input type="radio" name="s" id="small1" checked><label for="big1"><img class="img" src="../images/0551.jpg"></label></td>
-            <td><input type="radio" name="s" id="small2"><label for="big2"><img class="img" src="../images/0552.jpg"></label></td>
-            <td><input type="radio" name="s" id="small3"><label for="big3"><img class="img" src="../images/0553.jpg"></label></td>
-            <td><input type="radio" name="s" id="small4"><label for="big4"><img class="img" src="../images/0554.jpg"></label></td>
-            <td><input type="radio" name="s" id="small5"><label for="big5"><img class="img" src="../images/0555.jpg"></label></td>
+            <td><label for="b1"><img class="img" src="../images/0551.jpg"></label></td>
+            <td><label for="b2"><img class="img" src="../images/0552.jpg"></label></td>
+            <td><label for="b3"><img class="img" src="../images/0553.jpg"></label></td>
+            <td><label for="b4"><img class="img" src="../images/0554.jpg"></label></td>
+            <td><label for="b5"><img class="img" src="../images/0555.jpg"></label></td>
         </tr>
     </table>
 </body>
