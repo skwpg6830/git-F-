@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>書曼的旅遊相簿</title>
+    <style>
+        body{
+            background: #333333;
+        }
+
+        #main{
+            width: 1024px;
+            height: 768px;
+            margin: auto;
+            background: #FFFFCC;
+        }
+
+         #marquee{
+            width: 874px;
+            height: 50px;
+            float: right;
+            background: #FFFFCC;
+            font-size: 24px;
+            font-family: 標楷體;
+            font-weight: bolder;
+            color: #ff0000;
+            text-align: center;
+            line-height: 50px;
+        } 
+
+        #left{
+            width: 150px;
+            height: 768px;
+            float: left;
+            background: #FFFFCC;
+            font-size: 12px;
+            font-weight: bolder;
+            font-family: 新細明體;
+            color: #ff0000;
+            text-align: center;
+        }
+
+        #home{
+            width: 120px;
+            height: 30px;
+            background: url(./images/0506b.gif);
+        }
+
+        #home:hover{
+            background: url(./images/0506r.gif);
+        }
+
+        #f:hover{
+            filter: hue-rotate(120deg);
+        }
+
+        #right{
+            width: 874px;
+            height: 718px;
+            float: right;
+            background: #FFFFCC;
+        }
+
+        iframe{
+            width: 874px;
+            height: 718px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+    <div id="marquee">
+        <marquee>歡迎來到書曼的旅遊相簿，本網站有我的旅遊影像紀錄介紹耶！</marquee>
+    </div>
+    <div id="left">
+        <table>
+            <tr>
+                <td><img src="./images/0508.gif" alt="書曼的旅遊相簿" title="書曼的旅遊相簿"></td>
+            </tr>
+            <tr>
+                <td><img src="./images/0507.jpg" alt="書曼" title="書曼"></td>
+            </tr>
+            <tr>
+                <td><br></td>
+            </tr>
+            <tr>
+                <td><img id="f" src="./images/0501b.gif" alt="金門逍遙遊" title="金門逍遙遊"></td>
+            </tr>
+            <tr>
+                <td><img id="f" src="./images/0502b.gif" alt="卡蹓到馬祖" title="卡蹓到馬祖"></td>
+            </tr>
+            <tr>
+                <td><img id="f" src="./images/0503b.gif" alt="踏浪澎湖行" title="踏浪澎湖行"></td>
+            </tr>
+            <tr>
+                <td><img id="f" src="./images/0504b.gif" alt="綠島唱夜曲" title="綠島唱夜曲"></td>
+            </tr>
+            <tr>
+                <td><a href="./album.html" target="iframe"><img id="f" src="./images/0505b.gif" alt="蘭嶼賞魚去" title="蘭嶼賞魚去"></a></td>
+            </tr>
+            <tr>
+                <td><br></td>
+            </tr>
+            <tr>
+                <td>日期:2024/05/06<br>
+                    維護:15張建仁</td>
+            </tr>
+            <tr>
+                <td><br></td>
+            </tr>
+            <tr>
+                <td><a href="./index.html"><div id="home"></div></a></td>
+            </tr>
+        </table>
+    </div>
+    <div id="right">
+        <iframe src="./main.html" frameborder="0" name="iframe"></iframe>
+    </div>
+</div>
+</body>
+</html>
