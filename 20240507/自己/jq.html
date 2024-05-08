@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js' 
+    integrity='sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==' 
+    crossorigin='anonymous'></script>
+    <script>
+        // $.get(url, 成功的 function, 回來的資料型態)
+        $.get('https://kktix.com/events.json', function (data) {
+            console.log(data.title)
+        }, 'json')
+
+        $.ajax({
+            url:'https://kktix.com/events.json',
+            method: 'get',
+            dataType: 'json',
+            success:function (data) {
+                console.log(data.title)
+            },
+            error (xhr, textStatus, error) {
+                // jQ 包裝的 xhr，不是 XMLHttpRequest
+                console.log(xhr)
+                // 錯誤狀態，error、timeout、abort
+                console.log(textStatus)
+                // 錯誤
+                console.log(error)
+            },
+            complete () {
+                console.log('完成')
+            }
+        })
+
+        $.post('https://jsonplaceholder.typicode.com/posts', {
+            title: 'aaa',
+            body: 'bbb'
+        }, function (data) {
+            
+        })
+    </script>
+</body>
+</html>

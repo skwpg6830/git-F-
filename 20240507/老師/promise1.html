@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const pass = true
+
+    const getMoney = new Promise((resolve, reject) => {
+      if (pass) {
+        resolve('恭喜')
+      } else {
+        reject(new Error('QQ'))
+      }
+    })
+
+    getMoney
+      // Promise resolve 時執行 .then()
+      // result 會是 resolve() 內的東西
+      .then(result => {
+        console.log(result)
+      })
+      // Promise reject 時執行 .catch()
+      // result 會是 reject() 內的東西
+      .catch(error => {
+        console.log(error)
+      })
+      // 不管成功失敗都執行
+      .finally(() => {
+        console.log('結束')
+      })
+  </script>
+</body>
+</html>

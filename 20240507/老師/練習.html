@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <table id="table" border="1">
+    <tr>
+      <th>title</th>
+      <th>summary</th>
+      <th>content</th>
+      <th>author</th>
+      <th>published</th>
+    </tr>
+  </table>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js' integrity='sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg==' crossorigin='anonymous'></script>
+  <script>
+    const table = document.getElementById('table')
+    const main = async () => {
+      try {
+        const { data } = await axios.get('https://kktix.com/events.json')
+        for (const event of data.entry) {
+          const html = `<tr>
+            <td>${event.title}</td>
+            <td>${event.summary}</td>
+            <td>${event.content}</td>
+            <td>
+              <a href="${event.author.uri}" target="_blank">${event.author.name}</a>
+            </td>
+            <td>${new Date(event.published).toLocaleString()}</td>
+          </tr>`
+          table.insertAdjacentHTML('beforeend', html)
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    main()
+  </script>
+</body>
+</html>

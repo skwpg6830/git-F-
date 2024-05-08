@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.js' 
+    integrity='sha512-pmaEGtUAy7E5gRmwjLqQAD/QWw0dL4Z59b6b+2HQkqQwQ+HcPLLb9/KbUNo5zr10WuXmbivK9nYVZOyDkMgZMg==' 
+    crossorigin='anonymous'></script>
+    <script>
+        axios.get('https://kktix.com/events.json')
+        .then(Response => {
+            console.log(Response)
+            console.log(Response.data.title)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+
+        const main = async () => {
+            try {
+                // const response = await axios.get('https://kktix.com/events.json')
+                // console.log(response.data.title)
+                const { data } = await axios.get('https://kktix.com/events.json')
+                console.log(data.title)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        main()
+    </script>
+</body>
+</html>
