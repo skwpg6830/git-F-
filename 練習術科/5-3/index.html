@@ -13,32 +13,35 @@
             width: 1024px;
             height: 768px;
             margin: auto;
-            background: #FFFFCC;
+            background: #ffffcc;
         }
 
-         #marquee{
+        #marquee{
             width: 874px;
             height: 50px;
             float: right;
-            background: #FFFFCC;
             font-size: 24px;
             font-family: 標楷體;
-            font-weight: bolder;
+            font-weight: bold;
             color: #ff0000;
-            text-align: center;
             line-height: 50px;
-        } 
+            /* background: palegreen; */
+        }
 
         #left{
             width: 150px;
             height: 768px;
             float: left;
-            background: #FFFFCC;
+            text-align: center;
             font-size: 12px;
-            font-weight: bolder;
+            font-weight: bold;
             font-family: 新細明體;
             color: #ff0000;
-            text-align: center;
+            /* background: paleturquoise; */
+        }
+
+        #f:hover{
+            filter: hue-rotate(120deg);
         }
 
         #home{
@@ -51,15 +54,11 @@
             background: url(./images/0506r.gif);
         }
 
-        #f:hover{
-            filter: hue-rotate(120deg);
-        }
-
         #right{
             width: 874px;
             height: 718px;
             float: right;
-            background: #FFFFCC;
+            /* background: palevioletred; */
         }
 
         iframe{
@@ -71,11 +70,10 @@
 <body>
     <audio src="./music/0501.mp3" autoplay></audio>
     <div id="main">
-    <div id="marquee">
-        <marquee>歡迎來到書曼的旅遊相簿，本網站有我的旅遊影像紀錄介紹耶！</marquee>
-    </div>
-    <div id="left">
-        <table>
+        <div id="marquee">
+            <marquee>歡迎來到書曼的旅遊相簿，本網站有我的旅遊影像紀錄介紹耶！</marquee>
+        </div>
+        <div id="left"><table>
             <tr>
                 <td><img src="./images/0508.gif" alt="書曼的旅遊相簿" title="書曼的旅遊相簿"></td>
             </tr>
@@ -98,13 +96,13 @@
                 <td><img id="f" src="./images/0504b.gif" alt="綠島唱夜曲" title="綠島唱夜曲"></td>
             </tr>
             <tr>
-                <td><a href="./album.html" target="iframe"><img id="f" src="./images/0505b.gif" alt="蘭嶼賞魚去" title="蘭嶼賞魚去"></a></td>
+                <td><a href="./album5/album5.html" target="iframe"><img id="f" src="./images/0505b.gif" alt="蘭嶼賞魚去" title="蘭嶼賞魚去"></a></td>
             </tr>
             <tr>
                 <td><br></td>
             </tr>
             <tr>
-                <td>日期:2024/05/06<br>
+                <td>日期:2024/05/13<br>
                     維護:15張建仁</td>
             </tr>
             <tr>
@@ -113,11 +111,10 @@
             <tr>
                 <td><a href="./index.html"><div id="home"></div></a></td>
             </tr>
-        </table>
+        </table></div>
+        <div id="right">
+            <iframe src="./main.html" frameborder="0" name="iframe"></iframe>
+        </div>
     </div>
-    <div id="right">
-        <iframe src="./main.html" frameborder="0" name="iframe"></iframe>
-    </div>
-</div>
 </body>
 </html>
