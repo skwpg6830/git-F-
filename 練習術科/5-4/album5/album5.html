@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: #ffffcc;
+            text-align: center;
+        }
+
+        #a1:checked ~ #b1,
+        #a2:checked ~ #b2,
+        #a3:checked ~ #b3,
+        #a4:checked ~ #b4,
+        #a5:checked ~ #b5{
+            display: block;
+        }
+
+        table{
+            margin: auto;
+            height: 400px;
+        }
+
+        #b1,#b2,#b3,#b4,#b5{
+            display: none;
+            border: 5px solid #0000ff;
+        }
+
+        input{
+            display: none;
+        }
+
+        #b{
+            width: 60px;
+            height: 45px;
+            border: medium solid #0000ff;
+        }
+
+        #b:hover{
+            border: medium solid #00ffff;
+            cursor: pointer;
+        }
+
+        h1{
+            font-size: 20px;
+            font-family: 標楷體;
+            font-weight: bold;
+            text-decoration: underline;
+            color: #0000ff;
+        }
+    </style>
+</head>
+<body>
+    <h1>蘭嶼賞魚去</h1>
+    <table>
+        <tr>
+            <td colspan="5">
+                <input type="radio" name="a" id="a1" checked><img id="b1" src="../images/0551.jpg">
+                <input type="radio" name="a" id="a2"><img id="b2" src="../images/0552.jpg">
+                <input type="radio" name="a" id="a3"><img id="b3" src="../images/0553.jpg">
+                <input type="radio" name="a" id="a4"><img id="b4" src="../images/0554.jpg">
+                <input type="radio" name="a" id="a5"><img id="b5" src="../images/0555.jpg">
+            </td>
+        </tr>
+        <tr>
+            <td><label for="a1"><img id="b" src="../images/0551.jpg"></td>
+            <td><label for="a2"><img id="b" src="../images/0552.jpg"></td>
+            <td><label for="a3"><img id="b" src="../images/0553.jpg"></td>
+            <td><label for="a4"><img id="b" src="../images/0554.jpg"></td>
+            <td><label for="a5"><img id="b" src="../images/0555.jpg"></td>
+        </tr>
+    </table>
+</body>
+</html>
