@@ -28,7 +28,7 @@ export default async event => {
         t.body.contents[0].text = d.LL_Title
         t.body.contents[1].text = d.LL_Highlights
         t.body.contents[2].contents[0].contents[1].text = d.LL_Country + d.LL_Area + d.LL_Address
-        t.body.contents[2].contents[1].contents[1].text = ''
+        t.body.contents[2].contents[1].contents[1].text = d.LL_OpeningData
         t.body.contents[2].contents[2].contents[1].text = d.LL_OpeningTime
         t.footer.contents[0].action.uri = `https://www.google.com/maps/search/?api=1&query=${d.L_MapY},${d.L_MapX}`
         t.footer.contents[1].action.uri = `https://taiwangods.moi.gov.tw/html/landscape/1_0011.aspx?i=${d.L_ID}`
