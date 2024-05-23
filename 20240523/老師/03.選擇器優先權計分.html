@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.css />
+  <style>
+    /*
+      選擇器的權重(以大老二撲克牌的花色來比喻)
+      1. inline style (黑桃)：1,0,0,0
+      2. id 選擇器(愛心)：0,1,0,0
+      3. class 選擇器、屬性選擇器[]、偽類 (方塊)：0,0,1,0
+      4. 標籤、偽元素 (梅花)：0,0,0,1
+
+      ＰＳ：連接符號例如 空白（後代選擇器），>（子選擇器），+（相鄰選擇器），~（通用兄弟選擇器）、*(通用選擇器)、:not() 不影響權重
+           他們的權重都是 0,0,0,0，:not(.title) 括號內部的參數會計算權重，例如 .title 會算權重
+    */
+
+    /* 第一組 */
+    /* 0 1 0 1 */
+    #box1 p {
+      color: green;
+      font-size: 1.5rem;
+    }
+
+    /* 0 0 1 1 */
+    .box p {
+      color: red;
+      font-size: 10rem;
+    }
+
+    /* 第二組 */
+    /*
+      這組的權重是 0,1,1,2
+      因為有 inline 權重是 1,0,0,0 ，所以這組會以 inline 的樣式為主
+    */
+    #box2 .box2 h1+p {
+      /* 因為 !important 搶回了權重 */
+      color: yellow !important;
+    }
+
+    /*
+      例子:
+      * => 0,0,0,0
+      ul > li => 0,0,0,2
+      a:hover => 0,0,1,1
+      #foo .bar p => 0,1,1,1
+    */
+
+    /*
+      !important 打破權重規則，會以這個為主，但不建議經常使用
+    */
+
+    /*
+      用哪個?
+      第一組
+      #section01 .container .row .col .card a:hover => 0,1,5,1
+
+      第二組 用 id 開始選，這樣可以保證是該區塊的樣式
+      #section01 .card a:hover => 0,1,2,1
+
+      第三組
+      .card a:hover => 0,0,2,1
+    */
+  </style>
+</head>
+
+<body>
+  <h1>階層權重-替選擇器打分數</h1>
+  <div id="box1">
+    <div class="box">
+      <h1>標題</h1>
+      <p>Lorem ipsum dolor sit amet <a href="#"><em>星期四</em></a> adipisicing elit. Facilis distinctio earum dolores voluptates voluptatibus quis, incidunt, est, illo hic doloribus totam error voluptate itaque sequi. Sit nisi quis saepe dolorem?</p>
+    </div>
+  </div>
+
+  <div id="box2">
+    <div class="box2">
+      <h1>標題</h1>
+      <p style="color:purple">Lorem ipsum dolor sit amet <a href="#"><em>星期四</em></a> adipisicing elit. Facilis distinctio earum dolores voluptates voluptatibus quis, incidunt, est, illo hic doloribus totam error voluptate itaque sequi. Sit nisi quis saepe dolorem?</p>
+    </div>
+  </div>
+</body>
+
+</html>

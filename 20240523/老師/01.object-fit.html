@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .box {
+      width: 600px;
+      height: 600px;
+      border: 1rem solid #ffee90;
+    }
+
+    .bg {
+      background-image: url('./images/01.jpg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .object-fit {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* 第一個數值是水平，第二數值是垂直，沒寫是 center(50%) */
+      object-position: 75%;
+      /* 與上面是相同的 */
+      object-position: 75% 50%;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>背景圖片 background-size</h1>
+  <p>調整背景與容器一樣大小。</p>
+  <div class="box bg"></div>
+
+  <h1>圖片 object-fit</h1>
+  <p>將圖片放入一個容器，圖片與容器尺寸不一致時，可以用它來填滿空間。</p>
+  <p>object-fit 使用條件:</p>
+  <p>1. 設定圖片 width、height 100% 佔滿容器，可能圖片與容器的尺寸比例不對，會造成圖片變形。</p>
+  <p>2. 對圖片使用 object-fit:cover，再使用 object-position 調整位置。</p>
+  <div class="box">
+    <img class="object-fit" src="./images/03.jpg">
+  </div>
+</body>
+
+</html>
