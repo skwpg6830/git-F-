@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+    <!-- 1. 引入 Bootstrap CSS，網格系統、通用類別、元件的樣式 -->
+    <link rel="stylesheet" href="./css/bootstrap.css">
+</head>
+<body>
+    <div class="container">
+    <h1>容器</h1>
+</div>
+    <div class="container bg-primary text-white">固定寬度容器</div>
+    <div class="container-fluid bg-success text-white">滿版寬度容器</div>
+    <hr>
+
+    <div class="container">
+        <h1>網格</h1>
+        <div class="row">
+            <div class="col-md bg-primary">1</div>
+            <div class="col-md bg-info">2</div>
+            <div class="col-md bg-warning">3</div>
+        </div>
+
+        <br>
+
+        <h2>12 欄位(等份)系統，一列只能有 12 欄，超過 12 會換行</h2>
+        <div class="row bg-danger">
+            <div class="col-7 bg-dark text-white border border-white">1</div>
+            <div class="col-7 bg-dark text-white border border-white">2</div>
+            <div class="col-7 bg-dark text-white border border-white">3</div>
+            <div class="col-7 bg-dark text-white border border-white">4</div>
+            <div class="col-7 bg-dark text-white border border-white">5</div>
+            <div class="col-7 bg-dark text-white border border-white">6</div>
+        </div>
+
+        <br>
+
+        <p>超過 12 換行</p>
+        <div class="row">
+            <div class="col-1">1</div>
+            <div class="col-1">2</div>
+            <div class="col-1">3</div>
+            <div class="col-1">4</div>
+            <div class="col-1">5</div>
+            <div class="col-1">6</div>
+            <div class="col-1">7</div>
+            <div class="col-1">8</div>
+            <div class="col-1">9</div>
+            <div class="col-1">10</div>
+            <div class="col-1">11</div>
+            <div class="col-1">12</div>
+            <div class="col-1">13</div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="container">
+        <h1>各尺寸的欄位分布狀況</h1>
+        <p>xs => 1 欄，可以不寫 .col-12，表示一般 div 垂直往下排列</p>
+        <p>md => 2 欄</p>
+        <p>lg => 3 欄</p>
+        <p>xl => 4 欄</p>
+        <p>xxl => 6 欄</p>
+
+
+        <div class="row">
+            <div class="col-md-6 col-lg-4 col-xl-3 col-xxl-2 bg-dark text-white border border-white">1</div>
+            <div class="col-md-6 col-lg-4 col-xl-3 col-xxl-2 bg-primary text-white border border-white">2</div>
+            <div class="col-md-6 col-lg-4 col-xl-3 col-xxl-2 bg-info text-white border border-white">3</div>
+            <div class="col-md-6 col-lg-4 col-xl-3 col-xxl-2 bg-success text-white border border-white">4</div>
+            <div class="col-md-6 col-lg-4 col-xl-3 col-xxl-2 bg-warning text-white border border-white">5</div>
+            <div class="col-md-6 col-lg-4 col-xl-3 col-xxl-2 bg-danger text-white border border-white">6</div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="container">
+        <p>xs => 1、3 欄平均分配空間，但是 2 欄是一般 div 佔滿容器寬度，會將 1、3 切開，呈現由上而下垂直排列。</p>
+        <p>md => 1、3 欄平均分配空間，2 欄會是內容文字的寬度，在 lg 尺寸之前 1、3 欄都會維持 .col 平均分配空間，所以剩餘的空間會平均分配給 1、3 欄。</p>
+        <p>lg => 1、3 各分 2 等份，2 欄依舊維持內容寬度，會有剩餘空間，由於 .row 它本身是彈性盒，可以將三欄(彈性項目)對其主軸的 center(justify-content-md-center)</p>
+        <div class="row justify-content-md-center">
+          <div class="col col-lg-2 bg-primary">
+            1 of 3
+          </div>
+          <div class="col-md-auto bg-info">
+            Variable width content
+          </div>
+          <div class="col col-lg-2 bg-success">
+            3 of 3
+          </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+          <div class="col bg-primary">
+            1 of 3
+          </div>
+          <div class="col-md-auto bg-success">
+            Variable width content
+          </div>
+          <div class="col col-lg-2 bg-danger">
+            3 of 3
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 bg-primary">.col-md-8</div>
+          <div class="col-6 col-md-4 bg-success">.col-6 .col-md-4</div>
+        </div>
+      
+        <br>
+
+        <div class="row">
+          <div class="col-6 col-md-4 bg-primary">.col-6 .col-md-4</div>
+          <div class="col-6 col-md-4 bg-danger">.col-6 .col-md-4</div>
+          <div class="col-6 col-md-4 bg-info">.col-6 .col-md-4</div>
+        </div>
+      
+        <br>
+
+        <div class="row">
+          <div class="col-6 bg-primary">.col-6</div>
+          <div class="col-6 bg-warning">.col-6</div>
+        </div>
+      </div>
+      
+      <div class="container">
+        <h1>.row-cols-xx-xx</h1>
+        <p>在某個斷點尺寸，每一列要平均分配幾個欄位</p>
+        <p>範例: xs => 1 欄位，sm => 2個欄位，md => 4 個欄位</p>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 text-white">
+          <div class="col bg-dark">Column</div>
+          <div class="col bg-primary">Column</div>
+          <div class="col bg-success">Column</div>
+          <div class="col bg-danger">Column</div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="container">
+        <h1>巢狀</h1>
+        <div class="row">
+          <div class="col-sm-3" style="color: aqua; background: black;">
+            Level 1: .col-sm-3
+          </div>
+          <div class="col-sm-9" style="color: aqua; background: black;">
+            <div class="row">
+              <div class="col-8 col-sm-6 bg-success">
+                Level 2: .col-8 .col-sm-6
+              </div>
+              <div class="col-4 col-sm-6 bg-danger">
+                Level 2: .col-4 .col-sm-6
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <h1>Column breaks</h1>
+        <div class="row">
+          <div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
+          <div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
+      
+          <!-- .w-100 會一直存在 -->
+          <!-- <div class="w-100"></div> -->
+      
+          <div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
+          <div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row bg-dark text-white">
+          <div class="col-6 col-sm-4 bg-danger">.col-6 .col-sm-4</div>
+          <div class="col-6 col-sm-4 bg-primary">.col-6 .col-sm-4</div>
+      
+          <!-- xs => 該 div 消失的，上下的欄位是合併來看
+                md => 該 div display:block 才會出現，這時上方會是一組關係，下方會是一組關係 -->
+          <div class="w-100 d-none d-md-block"></div>
+      
+          <div class="col-6 col-sm-4 bg-danger">.col-6 .col-sm-4</div>
+          <div class="col-6 col-sm-4 bg-primary">.col-6 .col-sm-4</div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="container">
+        <h1>order 順序</h1>
+        <p>提供 .order-1 ~ .order6 的順序，還有 .order-first、.order-last</p>
+        <p>支援斷點綴詞(sm、md、lg、xl、xxl)</p>
+        <div class="row">
+          <div class="col">
+            1
+          </div>
+          <div class="col order-5 order-lg-1">
+            2
+          </div>
+          <div class="col order-1 order-lg-5">
+            3
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="container">
+        <h1>.offset-尺寸-欄位等份</h1>
+        <p>用 margin 去做推擠空間</p>
+        <div class="row">
+          <div class="col-md-4 bg-primary">1</div>
+          <div class="col-md-4 offset-md-4 bg-success">2</div>
+        </div>
+        <div class="row">
+          <div class="col-md-1 offset-md-11 bg-primary">1</div>
+        </div>
+
+        <h2>欄位置中三種寫法</h2>
+        <div class="row justify-content-center bg-dark">
+          <div class="col-md-1 bg-secondary">1</div>
+        </div>
+
+        <br>
+
+        <h2>第二種必須欄位是偶數等份，例如2、4、6、8、10，才能用 offset 去置中。</h2>
+        <div class="row bg-dark">
+          <div class="col-md-2 offset-md-5 bg-secondary">1</div>
+        </div>
+
+        <br>
+
+        <div class="row bg-dark">
+          <div class="col-md-1 bg-info mx-auto">3</div>
+        </div>
+      </div>
+
+      <div class="container">
+        <h1>margin-right 與 margin-left</h1>
+        <p>BS5 的 left、right 有做修正</p>
+        <p>對應的 class 如下:</p>
+        <p>margin-left:auto => .ms-auto，BS4 是 .ml-auto</p>
+        <p>margin-right:auto => .me-auto，BS4 是 .mr-auto</p>
+      </div>
+
+      <div class="container">
+        <h1>logo 左側，導覽列選單右側的擺法</h1>
+        <div class="row bg-dark">
+          <div class="col-auto bg-info">logo</div>
+          <div class="col-auto ms-auto bg-success">
+            <a href="#">link1</a>
+            <a href="#">link1</a>
+            <a href="#">link1</a>
+            <a href="#">link1</a>
+            <a href="#">link1</a>
+          </div>
+        </div>
+      
+        <div class="row bg-dark">
+          <div class="col-auto me-auto bg-info">logo</div>
+          <div class="col-auto bg-success">
+            <a href="#">link1</a>
+            <a href="#">link1</a>
+            <a href="#">link1</a>
+            <a href="#">link1</a>
+            <a href="#">link1</a>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <h1>Gutter 1</h1>
+      <div class="container overflow-hidden">
+        <div class="row gy-5 bg-dark">
+          <div class="col">
+           <div class="p-3 border bg-light">Custom column padding</div>
+          </div>
+          <div class="col">
+            <div class="p-3 border bg-light">Custom column padding</div>
+          </div>
+        </div>
+
+        <br>
+
+        <h1>Gutter 2</h1>
+
+        <div class="container overflow-hidden bg-primary">
+          <div class="row gy-5 bg-dark">
+            <div class="col-6">
+             <div class="p-3 border bg-light">Custom column padding</div>
+            </div>
+            <div class="col-6">
+              <div class="p-3 border bg-light">Custom column padding</div>
+            </div>
+            <div class="col-6">
+              <div class="p-3 border bg-light">Custom column padding</div>
+             </div>
+             <div class="col-6">
+               <div class="p-3 border bg-light">Custom column padding</div>
+             </div>
+          </div>
+      </div>
+
+      <br>
+
+      <h1>Gutter 3</h1>
+
+      <div class="container bg-dark">
+        <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+          <div class="col">
+            <div class="p-3 border bg-light">Row column</div>
+          </div>
+          <div class="col">
+            <div class="p-3 border bg-light">Row column</div>
+          </div>
+          <div class="col">
+            <div class="p-3 border bg-light">Row column</div>
+          </div>
+          <div class="col">
+            <div class="p-3 border bg-light">Row column</div>
+          </div>
+          <div class="col">
+            <div class="p-3 border bg-light">Row column</div>
+          </div>
+          <div class="col">
+            <div class="p-3 border bg-light">Row column</div>
+          </div>
+          <div class="col">
+            <div class="p-3 border bg-light">Row column</div>
+          </div>
+          <div class="col">
+            <div class="p-3 border bg-light">Row column</div>
+          </div>
+          <div class="col">
+            <div class="p-3 border bg-light">Row column</div>
+          </div>
+          <div class="col">
+            <div class="p-3 border bg-light">Row column</div>
+          </div>
+        </div>
+      </div>
+    <!-- 2. 引入 Bootstrap JS 用於元件的互動 -->
+    <script src="./js/bootstrap.bundle.js"></script>
+    
+</body>
+</html>
