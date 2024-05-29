@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./bootstrap.css">
+  <style>
+    .animate {
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      /* pointer-events: none; */
+    }
+
+    .animate img {
+      position: absolute;
+      left: 500px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 絕對定位在正常文件的流向的上方會遮住下方的內容，導致無法點擊連結，使用 pointer-events: none 可以穿透這個透明 div 點擊連結 -->
+  <div class="animate pe-none">
+    <img src="https://picsum.photos/100/100/?random=10">
+  </div>
+  <a href="#">Link</a>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js'></script>
+</body>
+
+</html>

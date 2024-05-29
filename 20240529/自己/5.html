@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <input type="button" :value="num" @click="num++">
+    <br>
+    姓: <input type="text" v-model="lastName">
+    <br>
+    名: <input type="text" v-model="firstName">
+    <br>
+    全名: {{ fullName }} {{ fullNameMethod() }} {{ lastName + firstName }}
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.27/vue.global.min.js' integrity='sha512-jDpwxJN+g4BhXLdba5Z1rn2MpR9L5Wp3WVf2dJt5A0mkPHnHLZHZerpyX4JC9bM0pkCL7RmAR8FwOm02h7RKFg==' crossorigin='anonymous'></script>
+  <script>
+    Vue.createApp({
+      data () {
+        return {
+          firstName: '',
+          lastName: '',
+          num: 0
+        }
+      },
+      computed: {
+        fullName () {
+          console.log('computed 更新')
+          return this.lastName + this.firstName
+        }
+      },
+      methods: {
+        fullNameMethod () {
+          console.log('methods 更新')
+          return this.lastName + this.firstName
+        }
+      },
+      watch: {
+        firstName (newValue, oldValue) {
+          console.log(`firstName: ${oldValue} --> ${newValue}`)
+        },
+        lastName: {
+          handler (newValue, oldValue) {
+            console.log(`lastName: ${oldValue} --> ${newValue}`)
+          },
+          once: true
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>

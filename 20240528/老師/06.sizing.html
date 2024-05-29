@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./bootstrap.css">
+</head>
+
+<body>
+  <!-- 
+      .min-vh-100 至少要 100vh，
+      設定 50vh 還是會以 100vh 為主 
+      height 超過 100vh，例如 150vh，會以 150vh 為主
+  -->
+  <!-- <div class="min-vh-100 bg-dark" style="height:50vh;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem delectus quam iste beatae pariatur, veritatis dolores eaque magnam doloremque possimus qui dolor in dolore sit fugiat, veniam dicta quibusdam error?</div> -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-6 border">
+        <img class="w-100" src="https://picsum.photos/1000/1000/?random=10">
+      </div>
+      <!-- 圖片大小超過容器大小時 mw-100 才會有作用，300x300 太小了，不會有作用 -->
+      <div class="col-6 border">
+        <img class="mw-100" src="https://picsum.photos/300/300/?random=10">
+      </div>
+    </div>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js'></script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- v-model 綁定使用者輸入的值 -->
+    <!-- .trim   自動移除前後空白 -->
+    <!-- .lazy   在 change 時才更新 -->
+    <!-- .number 轉成數字 -->
+    <input type="text" v-model.trim.lazy="form.text">
+    <p>{{ form.text }}</p>
+    <input type="text" v-model.number="form.num">
+    <hr>
+    <!-- 
+      radio 和 checkbox 用 v-model 分組
+      v-model -> 使用者輸入的值
+      value   -> 欄位本身的值
+      value 沒有用 v-bind 的資料型態都是文字
+    -->
+    <input type="radio" v-model="form.radio" value="1">
+    <input type="radio" v-model="form.radio" value="2">
+    <input type="radio" v-model="form.radio" value="3">
+    <br>
+    <input type="radio" v-model="form.radio2" :value="1">
+    <input type="radio" v-model="form.radio2" :value="2">
+    <input type="radio" v-model="form.radio2" :value="3">
+    <br>
+    <template v-for="(option, index) in checkOptions">
+      <label :for="'check-' + index">{{ option.label }}</label>
+      <input type="checkbox" :id="'check-' + index" :value="option.value" v-model="form.check">
+    </template>
+    <select v-model="form.select">
+      <option v-for="option in selectOptions" :value="option.value">{{ option.label }}</option>
+    </select>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.27/vue.global.min.js' integrity='sha512-jDpwxJN+g4BhXLdba5Z1rn2MpR9L5Wp3WVf2dJt5A0mkPHnHLZHZerpyX4JC9bM0pkCL7RmAR8FwOm02h7RKFg==' crossorigin='anonymous'></script>
+  <script>
+    Vue.createApp({
+      data () {
+        return {
+          form: {
+            text: '',
+            num: 0,
+            radio: undefined,
+            radio2: undefined,
+            check: ['50'],
+            select: ''
+          },
+          checkOptions: [
+            { value: 'KBK', label: '可不可' },
+            { value: '50', label: '50嵐' },
+            { value: 'comebuy', label: 'Come Buy' }
+          ],
+          selectOptions: [
+            { value: 'v', label: 'Vue' },
+            { value: 'a', label: 'Angular' },
+            { value: 'r', label: 'React' }
+          ]
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>

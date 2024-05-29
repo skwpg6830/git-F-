@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <form @submit.prevent="addItem">
+      <input type="text" v-model="input" :style="{ border: inputBorder }">
+      <input type="submit" value="新增">
+    </form>
+    <hr>
+    <input type="text" v-model="search">
+    <hr>
+    <ul>
+      <li v-for="(item, i) in filteredItems">
+        <!-- <input type="checkbox" @input="item.done = !item.done" :checked="item.done"> -->
+        <input type="checkbox" v-model="item.done">
+        <del v-if="item.done">{{ item.text }}</del>
+        <span v-else>{{ item.text }}</span>
+        <input type="button" value="x" @click="delItem(item.id)">
+      </li>
+    </ul>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.27/vue.global.min.js' integrity='sha512-jDpwxJN+g4BhXLdba5Z1rn2MpR9L5Wp3WVf2dJt5A0mkPHnHLZHZerpyX4JC9bM0pkCL7RmAR8FwOm02h7RKFg==' crossorigin='anonymous'></script>
+  <script>
+    Vue.createApp({
+      data () {
+        return {
+          items: [],
+          input: '',
+          search: '',
+          id: 1
+        }
+      },
+      computed: {
+        inputBorder () {
+          if (this.input.length === 0)  return '5px solid black'
+          else if (this.input.length < 2)  return '5px solid red'
+          else return '5px solid green'
+        },
+        filteredItems () {
+          return this.items.filter(item => {
+            return item.text.includes(this.search)
+          })
+        }
+      },
+      methods: {
+        addItem () {
+          if (this.input.length < 2)  return
+          this.items.push({ done: false, text: this.input, id: this.id++ })
+          this.input = ''
+        },
+        delItem (id) {
+          const i = this.items.findIndex(item => {
+            return item.id === id
+          })
+          this.items.splice(i, 1)
+        }
+      },
+      watch: {
+        items: {
+          handler (newValue, oldValue) {
+            // 設定 deep true 的時候，new 和 old 都一樣
+            console.log(newValue, oldValue)
+            localStorage.vueTodo = JSON.stringify(newValue)
+          },
+          // 陣列或物件的深層監聽
+          deep: true
+        }
+      },
+      mounted () {
+        const items = JSON.parse(localStorage.vueTodo || '[]')
+        this.items = items
+        if (this.items.length > 0) {
+          this.id = this.items[this.items.length - 1].id + 1
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>

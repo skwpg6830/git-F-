@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <input type="button" value="notify" v-on:click="notify">
+
+    <input type="button" value="notify" @click="notify">
+    <input type="button" value="notify2('456')" @click="notify2('456')">
+    <input type="button" value="notify3('789')" @click="notify3('789', $event)">
+
+    <input type="button" value="event => notify(event)" @click="event => notify(event)">
+    <input type="button" value="() => notify2('456')" @click="() => notify2('456')">
+    <input type="button" value="event => notify3('789', event)" @click="event => notify3('789', event)">
+
+    <!-- .once 只能觸發一次 -->
+    <input type="button" value="notify (once)" @click.once="notify">
+    <!-- .left .right .middle 指定滑鼠按鍵 -->
+    <input type="button" value="notify (right once)" @click.right.once="notify">
+    <!-- 
+      .prevent -> event.prevent()
+      .stop -> event.stopPropagation()
+    -->
+    <a href="https://x.com" @click.prevent="notify">X</a>
+    <hr>
+    <input type="text" v-model="input" @keydown.enter="add">
+    <ul>
+      <li v-for="item in list">{{ item }}</li>
+    </ul>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.27/vue.global.min.js' integrity='sha512-jDpwxJN+g4BhXLdba5Z1rn2MpR9L5Wp3WVf2dJt5A0mkPHnHLZHZerpyX4JC9bM0pkCL7RmAR8FwOm02h7RKFg==' crossorigin='anonymous'></script>
+  <script>
+    Vue.createApp({
+      data () {
+        return {
+          input: '',
+          list: []
+        }
+      },
+      methods: {
+        notify (event) {
+          console.log(event)
+          alert('123')
+        },
+        notify2 (text) {
+          alert(text)
+        },
+        notify3 (text, event) {
+          console.log(event)
+          alert(text)
+        },
+        add () {
+          if (this.input.length === 0)  return
+
+          this.list.push(this.input)
+          this.notify2(this.input)
+          this.input = ''
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>

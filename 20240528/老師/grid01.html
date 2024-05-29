@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    * {
+      margin: 0;
+    }
+
+    .wrap {
+      width: 100vw;
+      height: 100vh;
+      display: grid;
+      grid-template-rows: repeat(4, 1fr);
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-areas:
+        "b3 b3 b1 b1"
+        "b3 b3 b1 b1"
+        "b3 b3 b1 b1"
+        "b2 b2 b2 b2";
+      gap: 10px;
+    }
+
+    .b1 {
+      grid-area: b1;
+      background: red;
+    }
+
+    .b2 {
+      grid-area: b2;
+      background: green;
+    }
+
+    .b3 {
+      grid-area: b3;
+      background: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="b1"></div>
+    <div class="b2"></div>
+    <div class="b3"></div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- v-text {{}} 顯示文字 -->
+    <h1>{{ text }}</h1>
+    <h1 v-text="text"></h1>
+    <!-- v-html 顯示 HTML-->
+    <h1>{{ img }}</h1>
+    <h1 v-text="img"></h1>
+    <div v-html="img"></div>
+    <!-- 判斷式，符合才出現在 DOM -->
+    <p v-if="num === 10">數字 10 (v-if)</p>
+    <p v-else-if="num < 10">數字小於10 (v-else-if)</p>
+    <p v-else>數字大於10 (v-else)</p>
+    <!-- 判斷式，不符合時 display: none -->
+    <p v-show="num === 10">數字 10 (v-show)</p>
+    <ul>
+      <!-- v-for="值 in 陣列" -->
+      <li v-for="value in phones">{{ value }}</li>
+    </ul>
+    <ul>
+      <!-- v-for="(值, 索引) in 陣列" -->
+      <li v-for="(value, index) in phones">{{ index + 1 }}: {{ value }}</li>
+    </ul>
+    <ul>
+      <!-- 
+        v-for 和 v-if 不能同時在一個標籤上
+        所以需要使用 template 分開
+      -->
+      <template v-for="value in phones">
+        <li v-if="value === 'Nothing'">{{ value }}</li>
+      </template>
+    </ul>
+    <ul>
+      <!-- 
+        v-for 和 v-if 不能同時在一個標籤上
+        所以需要使用 template 分開
+      -->
+      <template v-if="num === 10">
+        <li v-for="value in phones">{{ value }}</li>
+      </template>
+    </ul>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.27/vue.global.min.js' integrity='sha512-jDpwxJN+g4BhXLdba5Z1rn2MpR9L5Wp3WVf2dJt5A0mkPHnHLZHZerpyX4JC9bM0pkCL7RmAR8FwOm02h7RKFg==' crossorigin='anonymous'></script>
+  <script>
+    Vue.createApp({
+      data () {
+        return {
+          text: 'abc',
+          num: 10,
+          img: '<img src="https://picsum.photos/id/684/300/200" alt="">',
+          phones: ['Nothing', 'iPhone', 'Samsung']
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>

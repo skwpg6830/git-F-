@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h1 id="title" ref="title">{{ text }}</h1>
+    <input type="button" :value="num" @click="plus" ref="btn">
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.27/vue.global.min.js' integrity='sha512-jDpwxJN+g4BhXLdba5Z1rn2MpR9L5Wp3WVf2dJt5A0mkPHnHLZHZerpyX4JC9bM0pkCL7RmAR8FwOm02h7RKFg==' crossorigin='anonymous'></script>
+  <script>
+    Vue.createApp({
+      data () {
+        return {
+          text: 'aaa',
+          num: 0
+        }
+      },
+      methods: {
+        async plus () {
+          this.num++
+          // Vue 資料更新後不會立刻重新渲染，所以還是舊的值
+          console.log(this.$refs.btn.value)
+          // 等待下一次渲染完畢
+          await this.$nextTick()
+          // 才會是新的值
+          console.log(this.$refs.btn.value)
+        }
+      },
+      // Vue 的 JS 部分初始化完成，還沒有把 HTML 渲染在 DOM，所以沒有辦法抓到元素
+      created () {
+        console.log('created', document.getElementById('title'))
+      },
+      // Vue 的 JS 和 HTML 部分初始化完成，才可以抓到元素
+      mounted () {
+        console.log('mounted', document.getElementById('title'))
+        // this.$refs.標籤上的ref 取得元素
+        console.log(this.$refs.title.innerText)
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>
