@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 當偵測到 apple 事件發生時，修改數字 -->
+    <Plus :number="num" @apple="onPlusApple"></Plus>
+    <!-- 
+      HTML 環境不支援這種寫法
+      <PlusNew v-model:number="num"></PlusNew> 
+    -->
+    <plus-new v-model:number="num2"></plus-new>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.27/vue.global.min.js' integrity='sha512-jDpwxJN+g4BhXLdba5Z1rn2MpR9L5Wp3WVf2dJt5A0mkPHnHLZHZerpyX4JC9bM0pkCL7RmAR8FwOm02h7RKFg==' crossorigin='anonymous'></script>
+  <script type="text/x-template" id="plus">
+    <input type="button" :value="number" @click="change">
+  </script>
+  <script type="text/x-template" id="plus-new">
+    <input type="button" :value="n" @click="change">
+  </script>
+  <script>
+    const { ref, computed } = Vue
+
+    Vue.createApp({
+      setup () {
+        const num = ref(100)
+        const num2 = ref(100)
+        const onPlusApple = (value) => {
+          num.value += value
+        }
+        return { num, num2, onPlusApple }
+      }
+    })
+      .component('Plus', {
+        template: '#plus',
+        props: ['number'],
+        setup (props, { emit }) {
+          const change = () => {
+            // props 是 readonly，不能直接修改
+            // props.number += 100
+            // emit 觸發一個自訂的事件，將一個資料傳出去，告訴外面要修改資料
+            emit('apple', 100)
+          }
+          return { change }
+        },
+        // methods: {
+        //   change () {
+        //     this.$emit('apple', 100)
+        //   }
+        // }
+      })
+      .component('PlusNew', {
+        template: '#plus-new',
+        props: ['number'],
+        setup (props, { emit }) {
+          const n = computed({
+            // 資料如何產生
+            get () {
+              return props.number
+            },
+            // 修改值的時候怎麼處理
+            set (value) {
+              // 固定格式，一定要配合 v-model
+              // emit('update:props名', 值)
+              emit('update:number', value)
+            }
+          })
+          const change = () => {
+            n.value += 100
+          }
+          return { n, change }
+        }
+        // computed: {
+        //   n: {
+        //     get () {
+        //       return this.number
+        //     },
+        //     set (value) {
+        //       this.$emit('update:number', value)
+        //     }
+        //   }
+        // },
+        // methods: {
+        //   change () {
+        //     this.n += 100
+        //   }
+        // }
+      })
+      .mount('#app')
+  </script>
+</body>
+</html>

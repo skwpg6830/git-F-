@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!--
+      用標籤屬性將資料傳入元件
+      price="1000"  -> 資料型態是文字
+      :price="1000" -> 資料型態是數字
+      布林值只要寫名字就好，有寫就是 true，沒寫就是 false
+    -->
+    <input type="button" value="漲價" @click="changePrice">
+    <Card title="Vue" img="https://github.com/vuejs.png" :price="1000" sell></Card>
+    <Card 
+      v-for="product in products"
+      :img="product.img"
+      :title="product.title"
+      :price="product.price"
+      :sell="product.sell"
+    ></Card>
+    <!-- 當資料物件的 key 和元件的 props 名稱相同時，可以使用 v-bind 一次綁定 -->
+    <Card 
+      v-for="product in products"
+      v-bind="product"
+    ></Card>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.27/vue.global.min.js' integrity='sha512-jDpwxJN+g4BhXLdba5Z1rn2MpR9L5Wp3WVf2dJt5A0mkPHnHLZHZerpyX4JC9bM0pkCL7RmAR8FwOm02h7RKFg==' crossorigin='anonymous'></script>
+  <script type="text/x-template" id="card">
+    <div class="card">
+      <img :src="img" height="100">
+      <h1>{{ title }}</h1>
+      <p>{{ price }}</p>
+      <p v-if="!sell">已下架</p>
+      <input type="button" value="看資訊" @click="info">
+    </div>
+  </script>
+  <script>
+    const { reactive, toRef, toRefs } = Vue
+
+    Vue.createApp({
+      setup () {
+        const products = reactive([
+          { img: 'https://github.com/twbs.png', title: 'Boostrap', price: 1000, sell: true },
+          { img: 'https://github.com/wdaweb.png', title: 'Wdaweb', price: 2000, sell: false }
+        ])
+        const changePrice = () => {
+          for (const product of products) {
+            product.price *= 2
+          }
+        }
+        return { products, changePrice }
+      }
+    })
+      .component('Card', {
+        template: '#card',
+        // 定義元件接收的資料名稱
+        // props: ['img', 'title', 'price', 'sell']
+        props: {
+          // 指定型態
+          sell: Boolean,
+          price: {
+            type: Number
+          },
+          // 指定必填
+          img: {
+            type: String,
+            required: true
+          },
+          // 指定預設值、自訂驗證
+          title: {
+            type: String,
+            default () {
+              return '商品'
+            },
+            validator (value) {
+              return value.length > 2
+            }
+          }
+        },
+        // 選項式用 this.props名
+        // methods: {
+        //   info () {
+        //     console.log(this.price)
+        //   }
+        // }
+        setup (props) {
+          // 直接解構 props 會失去響應性
+          const { price } = props
+          // 解構需要 toRef 或 toRefs 維持響應性
+          // 轉成 ref 後使用需加 .value
+          const { price: priceRefs } = toRefs(props)
+          const priceRef = toRef(props, 'price')
+
+          const info = () => {
+            console.log('props.price', props.price)
+            console.log('price', price)
+            console.log('priceRefs', priceRefs.value)
+            console.log('priceRef', priceRef.value)
+          }
+          return { info }
+        }
+      })
+      .mount('#app')
+  </script>
+</body>
+</html>

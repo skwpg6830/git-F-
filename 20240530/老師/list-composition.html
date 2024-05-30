@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <form @submit.prevent="addItem">
+      <input type="text" v-model="input" :style="{ border: inputBorder }">
+      <input type="submit" value="新增">
+    </form>
+    <hr>
+    <input type="text" v-model="search">
+    <hr>
+    <ul>
+      <li v-for="item in filteredItems">
+        <input type="checkbox" v-model="item.done">
+        <del v-if="item.done">{{ item.text }}</del>
+        <span v-else>{{ item.text }}</span>
+        <input type="button" value="x" @click="delItem(item.id)">
+      </li>
+    </ul>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.27/vue.global.min.js' integrity='sha512-jDpwxJN+g4BhXLdba5Z1rn2MpR9L5Wp3WVf2dJt5A0mkPHnHLZHZerpyX4JC9bM0pkCL7RmAR8FwOm02h7RKFg==' crossorigin='anonymous'></script>
+  <script>
+    const { ref, reactive, computed, watch, onMounted, createApp } = Vue
+    createApp({
+      setup () {
+        // ref: 所有資料型態都能用，使用時加 .value，不會深層監聽陣列物件
+        // reactive: 只有陣列物件可以用，不用加 .value，可以深層監聽
+        const input = ref('')
+        const items = reactive([])
+        const search = ref('')
+        // 上方 HTML 不會用到，所以不需要響應式，也不需要 return
+        let id = 1
+
+        const inputBorder = computed(() => {
+          if (input.value.length === 0)     return '5px solid black'
+          else if (input.value.length < 2)  return '5px solid red'
+          else                              return '5px solid green'
+        })
+
+        const filteredItems = computed(() => {
+          return items.filter(item => {
+            return item.text.includes(search.value)
+          })
+        })
+
+        const addItem = () => {
+          if (input.value.length < 2) return
+          items.push({ done: false, text: input.value, id: id++ })
+          input.value = ''
+        }
+
+        const delItem = (id) => {
+          const i = items.findIndex(item => {
+            return item.id === id
+          })
+          items.splice(i, 1)
+        }
+
+        onMounted(() => {
+          const itemsJson = JSON.parse(localStorage.vueTodo || '[]')
+          // 不能這樣寫，因為 items 是 const
+          // items = itemsJson
+
+          // 陣列.splice(目標索引, 刪除數量, 插入項目一, 插入項目二...)
+          // items.splice(0, 0, ...itemsJson)
+
+          // Object.assign(A, B)
+          // 物件合併，將 B 合併進 A
+          Object.assign(items, itemsJson)
+
+          if (items.length > 0) {
+            id = items[items.length - 1].id + 1
+          }
+        })
+
+        watch(items, (newValue) => {
+          localStorage.vueTodo = JSON.stringify(newValue)
+        })
+
+        // 上方 HTML 會用到的必須 return 出去
+        return {
+          input,
+          items,
+          search,
+          inputBorder,
+          filteredItems,
+          addItem,
+          delItem
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>
