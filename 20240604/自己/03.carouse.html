@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            max-width: 300px;
+        }
+    </style>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.css' integrity='sha512-VcyUgkobcyhqQl74HS1TcTMnLEfdfX6BbjhH8ZBjFU9YTwHwtoRtWSGzhpDVEJqtMlvLM2z3JIixUOu63PNCYQ==' crossorigin='anonymous'/>
+</head>
+<body>
+    <!-- 
+        更換 id 注意要將指示器、上、下一頁的 data-bs-target 改成對應的 #id
+        data-bs-interval 為播放下一張的時間，單位為毫秒
+        .carousel-fade 淡入淡出效果
+        .carousel-dark 深色文字
+     -->
+    <div id="carouselExampleCaptions" class="carousel slide carousel-fade carousel-dark" data-bs-ride="carousel">
+        <!-- 下方的指示器 -->
+  <div class="carousel-indicators">
+    <!-- 指示器的 .active 與輪播單位的 .active 位置要一致 -->
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"></button>
+  </div>
+  <!-- 放置輪播圖片的位置
+        .carousel-item 為一個輪播單位
+        .active 表示從這張開始播放 -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="./images/01.png" class="d-block w-100">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>千倉靜留</h5>
+        <p>主角四人中的領導者，無所畏懼、有話直說的少女，但對自己的未來前程捉摸不定，為了去池袋尋找失蹤兩年最好朋友葉香，花了一個晚上學習駕駛火車，帶領三個朋友踏上尋找葉香的鐵道旅程。
+            對朋友重情重義，成為葉香轉學過來時結交的第一個朋友，對身體能力有自信，從祖父身上學到柔術（吾野柔術二段）。然而有時不經深思熟慮就說出自己內心的想法，也是因此導致自己與葉香不歡而散。兩年期間從未想過自己有錯，直到鐵道旅程期間的所見所聞，才讓她認清自己確實有錯在先。</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="./images/02.jpg" class="d-block w-100">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>星撫子</h5>
+        <p>主角四人中的協調者，性格溫柔，不喜歡吵架。父母在她兒時離婚，在沒有父親的陪伴下成長。平時擅長化解玲實和晶之間的衝突，玩遊戲則意外有著好戰性強的一面。有學習弓道，擅長飛行工具。</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="./images/03.png" class="d-block w-100">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>東雲晶</h5>
+        <p>主角四人中的智囊，知識淵博，喜歡讀難懂的書，對雜學也相當了解。經常吐槽玲實並和她吵架，以前曾有目擊過命案現場，卻因為膽怯而見死不救的經歷。
+            在飯能站折返時被玲實發現屁股長出金針菇，強制拔除後大腦受影響，在善治郎提供的關鍵字下使三人來到稻荷山公園站找醫生治療，後來在吃了幾顆蘑菇以及由玲實強迫吃下撕下來的幾頁小說後恢復正常。</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+        <img src="./images/04.jpg" class="d-block w-100">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>久賀玲實</h5>
+          <p>主角四人中的氣氛製造者，性格直爽，認為可愛和浪漫的東西是最重要的。對大都市有著追星族一樣的憧憬，同時喜歡動畫《練馬之國的愛麗絲》，以前曾有過用鏟子打死一隻獾的經歷。</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="./images/05.png" class="d-block w-100">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>中富葉香</h5>
+          <p>主角四人的尋找目標，靜留的兒時玩伴，也是主角四人的小學同學，也是從外地轉學至靜留班上的轉校生。曾有探索宇宙的夢想，但因一日晚上遛狗時因靜留無心說出風涼話，使她內心受挫、不告而別並前往池袋。
+            兩年前碰巧被選中為開通7G系統活動的第77777名乘客，但按下按鈕直接讓世界發生異變且自此失蹤。直到兩年後，靜留四人從包裝盆栽用的一個月前舊報紙，得知她最後露面的身影，促使靜留四人踏上前往池袋的鐵道之旅。
+            7G異變過後遭到嘭太郎囚禁、洗腦並加以控制，由於擁有操縱各種異變的能力，兩年期間在記憶模糊的情況下受嘭太郎擺佈，成為眾所周知、統治池袋的「魔女王」。</p>
+        </div>
+      </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.js' integrity='sha512-sSOeacod972lTNk0ePyxrSSI6yoqvGRm7bbqtwqsY1r7TcdYiQn/a+KvaYQ0iacHBYE/MSEVjTNa2dglSz74vA==' crossorigin='anonymous'></script>
+</body>
+</html>

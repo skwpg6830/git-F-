@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* :root = html，宣告在此的原生變數為全域變數，整份文件任意地方都可以使用 */
+        :root {
+            --bs-coffee-rgb: 60, 40, 0;
+        }
+        
+        .bg-coffee {
+            --bs-bg-opacity: 1;
+            background-color: rgba(var( --bs-coffee-rgb), var(--bs-bg-opacity)) !important;
+        }
+    </style>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.css' integrity='sha512-VcyUgkobcyhqQl74HS1TcTMnLEfdfX6BbjhH8ZBjFU9YTwHwtoRtWSGzhpDVEJqtMlvLM2z3JIixUOu63PNCYQ==' crossorigin='anonymous'/>
+</head>
+<body>
+    <!-- 
+        .navbar-expand-*: 關鍵字，代表當螢幕寬度小於 *(sm、md、lg、xl、xxl) 時，navbar 會自動展開
+        .fixed-top 固定在上方還有 .fixed-bottom 固定在下方
+        .navbar-dark 文字顏色是白色，用於背景是深色
+        .navbar-light 文字顏色是黑色，用於背景是淺色
+        對調 logo 文字與漢堡按鈕的結構位置，在摺疊狀態會互換位置
+     -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-coffee">
+        <!-- .container-fluid => 滿版，.container => 固定寬度 -->
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <!-- 
+            data-bs-* 是 BS5 的 data 屬性，用來啟動 BS5 的 JavaScript 功能
+            data-bs-toggle="collapse" 啟動摺疊功能
+            data-bs-target="#navbarSupportedContent" 需要 # 字號，不要忘記，摺疊的目標是 id="navbarSupportedContent" 的元素 
+            .navbar-toggler 是漢堡按鈕
+           -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <div class="container">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim id eum omnis distinctio 
+        laboriosam beatae obcaecati qui doloremque sint accusamus modi iste, facilis aliquid 
+        explicabo minima voluptatibus animi nesciunt corrupti neque eius aliquam optio. Iure 
+        impedit reiciendis nisi ratione deserunt esse doloribus ipsam facere qui delectus alias 
+        consectetur tempore eos rem reprehenderit quas quidem illum sequi voluptatibus, similique 
+        veniam inventore. Eveniet minus voluptatibus ratione. Facilis cumque rem dicta eaque quae 
+        fugiat autem accusantium repudiandae officia laborum aliquid consequatur magni dignissimos 
+        debitis et qui, obcaecati eum sed voluptatum quis, delectus corrupti officiis tenetur minima. 
+        Accusantium, deserunt labore! Dolor aut autem dolorum nam natus velit cumque quo, officiis at 
+        cupiditate eaque fuga culpa expedita labore ipsa dicta deserunt sapiente magnam explicabo nemo 
+        minus. Iusto repellat deleniti cumque inventore quam mollitia nulla ipsa placeat perspiciatis 
+        cum dicta obcaecati sunt similique voluptas molestias iure, nostrum fugiat laboriosam numquam 
+        suscipit minus? Repellendus repudiandae vel repellat aspernatur aperiam quos, aliquid laboriosam 
+        fugit alias, dolor tenetur. Beatae, nulla consequatur voluptatibus placeat temporibus eaque illo 
+        sapiente nemo inventore quisquam debitis et eum architecto, aut nobis quidem error mollitia atque 
+        enim obcaecati totam quos corporis iusto tempora. Porro quisquam earum facere ullam magnam expedita 
+        possimus aspernatur, eligendi, voluptatem itaque fuga illo? Amet cum, minima molestiae, tempora 
+        quisquam maxime porro veritatis animi, doloremque odit distinctio esse quae voluptates blanditiis 
+        deserunt ipsum expedita sint placeat illo hic quam ducimus asperiores aperiam! Sint voluptatibus 
+        animi culpa ipsam ab nobis vel nam voluptatem similique excepturi quidem nihil aperiam molestiae 
+        dicta, hic distinctio cum! Vero quos molestias eum doloremque rem sint tempore, quo officia odio 
+        unde accusantium consectetur nesciunt dolores autem qui quidem distinctio sed adipisci similique! 
+        Cumque illo dolores unde dolor repellat enim nostrum aliquid sed tenetur esse hic porro voluptate 
+        voluptatem ipsam, temporibus doloribus quidem! Ipsum laborum vitae eum earum eligendi quam?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim id eum omnis distinctio 
+        laboriosam beatae obcaecati qui doloremque sint accusamus modi iste, facilis aliquid 
+        explicabo minima voluptatibus animi nesciunt corrupti neque eius aliquam optio. Iure 
+        impedit reiciendis nisi ratione deserunt esse doloribus ipsam facere qui delectus alias 
+        consectetur tempore eos rem reprehenderit quas quidem illum sequi voluptatibus, similique 
+        veniam inventore. Eveniet minus voluptatibus ratione. Facilis cumque rem dicta eaque quae 
+        fugiat autem accusantium repudiandae officia laborum aliquid consequatur magni dignissimos 
+        debitis et qui, obcaecati eum sed voluptatum quis, delectus corrupti officiis tenetur minima. 
+        Accusantium, deserunt labore! Dolor aut autem dolorum nam natus velit cumque quo, officiis at 
+        cupiditate eaque fuga culpa expedita labore ipsa dicta deserunt sapiente magnam explicabo nemo 
+        minus. Iusto repellat deleniti cumque inventore quam mollitia nulla ipsa placeat perspiciatis 
+        cum dicta obcaecati sunt similique voluptas molestias iure, nostrum fugiat laboriosam numquam 
+        suscipit minus? Repellendus repudiandae vel repellat aspernatur aperiam quos, aliquid laboriosam 
+        fugit alias, dolor tenetur. Beatae, nulla consequatur voluptatibus placeat temporibus eaque illo 
+        sapiente nemo inventore quisquam debitis et eum architecto, aut nobis quidem error mollitia atque 
+        enim obcaecati totam quos corporis iusto tempora. Porro quisquam earum facere ullam magnam expedita 
+        possimus aspernatur, eligendi, voluptatem itaque fuga illo? Amet cum, minima molestiae, tempora 
+        quisquam maxime porro veritatis animi, doloremque odit distinctio esse quae voluptates blanditiis 
+        deserunt ipsum expedita sint placeat illo hic quam ducimus asperiores aperiam! Sint voluptatibus 
+        animi culpa ipsam ab nobis vel nam voluptatem similique excepturi quidem nihil aperiam molestiae 
+        dicta, hic distinctio cum! Vero quos molestias eum doloremque rem sint tempore, quo officia odio 
+        unde accusantium consectetur nesciunt dolores autem qui quidem distinctio sed adipisci similique! 
+        Cumque illo dolores unde dolor repellat enim nostrum aliquid sed tenetur esse hic porro voluptate 
+        voluptatem ipsam, temporibus doloribus quidem! Ipsum laborum vitae eum earum eligendi quam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim id eum omnis distinctio 
+        laboriosam beatae obcaecati qui doloremque sint accusamus modi iste, facilis aliquid 
+        explicabo minima voluptatibus animi nesciunt corrupti neque eius aliquam optio. Iure 
+        impedit reiciendis nisi ratione deserunt esse doloribus ipsam facere qui delectus alias 
+        consectetur tempore eos rem reprehenderit quas quidem illum sequi voluptatibus, similique 
+        veniam inventore. Eveniet minus voluptatibus ratione. Facilis cumque rem dicta eaque quae 
+        fugiat autem accusantium repudiandae officia laborum aliquid consequatur magni dignissimos 
+        debitis et qui, obcaecati eum sed voluptatum quis, delectus corrupti officiis tenetur minima. 
+        Accusantium, deserunt labore! Dolor aut autem dolorum nam natus velit cumque quo, officiis at 
+        cupiditate eaque fuga culpa expedita labore ipsa dicta deserunt sapiente magnam explicabo nemo 
+        minus. Iusto repellat deleniti cumque inventore quam mollitia nulla ipsa placeat perspiciatis 
+        cum dicta obcaecati sunt similique voluptas molestias iure, nostrum fugiat laboriosam numquam 
+        suscipit minus? Repellendus repudiandae vel repellat aspernatur aperiam quos, aliquid laboriosam 
+        fugit alias, dolor tenetur. Beatae, nulla consequatur voluptatibus placeat temporibus eaque illo 
+        sapiente nemo inventore quisquam debitis et eum architecto, aut nobis quidem error mollitia atque 
+        enim obcaecati totam quos corporis iusto tempora. Porro quisquam earum facere ullam magnam expedita 
+        possimus aspernatur, eligendi, voluptatem itaque fuga illo? Amet cum, minima molestiae, tempora 
+        quisquam maxime porro veritatis animi, doloremque odit distinctio esse quae voluptates blanditiis 
+        deserunt ipsum expedita sint placeat illo hic quam ducimus asperiores aperiam! Sint voluptatibus 
+        animi culpa ipsam ab nobis vel nam voluptatem similique excepturi quidem nihil aperiam molestiae 
+        dicta, hic distinctio cum! Vero quos molestias eum doloremque rem sint tempore, quo officia odio 
+        unde accusantium consectetur nesciunt dolores autem qui quidem distinctio sed adipisci similique! 
+        Cumque illo dolores unde dolor repellat enim nostrum aliquid sed tenetur esse hic porro voluptate 
+        voluptatem ipsam, temporibus doloribus quidem! Ipsum laborum vitae eum earum eligendi quam?
+      </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.js' integrity='sha512-sSOeacod972lTNk0ePyxrSSI6yoqvGRm7bbqtwqsY1r7TcdYiQn/a+KvaYQ0iacHBYE/MSEVjTNa2dglSz74vA==' crossorigin='anonymous'></script>
+</body>
+</html>

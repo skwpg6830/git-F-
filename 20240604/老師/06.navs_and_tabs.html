@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="./bootstrap.css" />
+	</head>
+
+	<body>
+		<div class="container">
+			<h1>導覽與頁籤</h1>
+			<div class="row">
+				<div class="col">
+					<ul class="nav">
+						<li class="nav-item">
+							<a class="nav-link" href="#">Active</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Link</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Link</a>
+						</li>
+						<!-- .disabled 禁用連結功能 -->
+						<li class="nav-item">
+							<a class="nav-link disabled" href="#">Disabled</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="row mt-3">
+				<p>新增 .nav-tabs 後，.active 就會有作用，表示該項目被選擇</p>
+				<div class="col">
+					<h1>分頁標籤(.nav-tabs)</h1>
+					<ul class="nav nav-tabs">
+						<li class="nav-item">
+							<a class="nav-link active bg-dark text-white" href="#">Active</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Link</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Link</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link disabled">Disabled</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col">
+					<h1>膠囊狀(.nav-pills)</h1>
+					<ul class="nav nav-pills">
+						<li class="nav-item">
+							<a class="nav-link active bg-dark text-white" href="#">Active</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Link</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Link</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link disabled">Disabled</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="row mt-3">
+				<h1>填充與對齊</h1>
+				<p>.nav-fill 是 flex:1 1 auto，.nav-item 會隨著內容寬度變寬，沒有辦法讓 .nav-item 寬度均分。</p>
+				<p>.nav-justified 才是等寬均分。</p>
+				<div class="col-12">
+					<h1>.nav-fill</h1>
+					<ul class="nav nav-pills nav-fill">
+						<li class="nav-item">
+							<a class="nav-link active" href="#">Active</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active bg-dark" href="#">Much longer nav link Lorem, ipsum dolor.</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="#">Link</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active">Disabled</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-12 mt-3">
+					<h1>.nav-justified</h1>
+					<ul class="nav nav-pills nav-justified">
+						<li class="nav-item">
+							<a class="nav-link active bg-danger" aria-current="page" href="#">Active</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active bg-info" href="#">Much longer nav link</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active bg-success" href="#">Link</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active bg-warning">Disabled</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="container mt-5">
+			<h1>使用 JavaScript 切換導覽</h1>
+			<h2>data-bs-toggle="pill"</h2>
+			<ul class="nav nav-pills">
+				<li class="nav-item">
+					<button class="nav-link active" data-bs-toggle="pill" data-bs-target="#home" type="button">Home</button>
+				</li>
+				<li class="nav-item">
+					<button class="nav-link" data-bs-toggle="pill" data-bs-target="#profile" type="button">Profile</button>
+				</li>
+				<li class="nav-item">
+					<button class="nav-link" data-bs-toggle="pill" data-bs-target="#contact" type="button">Contact</button>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div id="home" class="tab-pane fade show active">
+					性感大部分是他那是成立懂得都有斑竹不用，財經良好還是你的力量，號碼曝光彷彿那位個性筆記本也想龍岡交流購物共有思路成績背景，所有人你看主機保持，幾乎令人逐步恐怖我很舉辦推廣廠商走了，具有知道內心圖書館宅宅光碟比較之後市政府，標準程式電力便利商店據說動物，藍。
+				</div>
+				<div id="profile" class="tab-pane fade">
+					尤其留言板站內化學協調不錯房地產停止出售什麼樣，信號賺錢，標準唯一，權限部門簡體屏幕想想房屋公開距離生態他對個性鮮花團結這個需求，當然給予檢查就有意義一片參與一片蒐集推進每次世界上，定位每月互動首頁歡迎幾年期待我都執行環境在他於是媽媽樣子年輕人，種種彼此。
+				</div>
+				<div id="contact" class="tab-pane fade">
+					及時台北最大不可以大家記錄，先生軍事關心大廈你在印度完全幹什麼上升一週同一預期一大別的，是從開通讓他那時遇到，西安二級每個記憶壓縮長期有一些失敗報紙一遍很容易聰明，也就是陷入眼睛預期，方式不限下去制度更新網頁，從事聯繫創建網頁程式醫療報價大門眼中手冊本科。
+				</div>
+			</div>
+
+			<h2>data-bs-toggle="tab"</h2>
+			<ul class="nav nav-tabs">
+				<li class="nav-item">
+					<button class="nav-link active" data-bs-toggle="tab" data-bs-target="#home2" type="button">Home</button>
+				</li>
+				<li class="nav-item">
+					<button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile2" type="button">Profile</button>
+				</li>
+				<li class="nav-item">
+					<button class="nav-link" data-bs-toggle="tab" data-bs-target="#contact2" type="button">Contact</button>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div id="home2" class="tab-pane fade show active">
+					性感大部分是他那是成立懂得都有斑竹不用，財經良好還是你的力量，號碼曝光彷彿那位個性筆記本也想龍岡交流購物共有思路成績背景，所有人你看主機保持，幾乎令人逐步恐怖我很舉辦推廣廠商走了，具有知道內心圖書館宅宅光碟比較之後市政府，標準程式電力便利商店據說動物，藍。
+				</div>
+				<div id="profile2" class="tab-pane fade">
+					尤其留言板站內化學協調不錯房地產停止出售什麼樣，信號賺錢，標準唯一，權限部門簡體屏幕想想房屋公開距離生態他對個性鮮花團結這個需求，當然給予檢查就有意義一片參與一片蒐集推進每次世界上，定位每月互動首頁歡迎幾年期待我都執行環境在他於是媽媽樣子年輕人，種種彼此。
+				</div>
+				<div id="contact2" class="tab-pane fade">
+					及時台北最大不可以大家記錄，先生軍事關心大廈你在印度完全幹什麼上升一週同一預期一大別的，是從開通讓他那時遇到，西安二級每個記憶壓縮長期有一些失敗報紙一遍很容易聰明，也就是陷入眼睛預期，方式不限下去制度更新網頁，從事聯繫創建網頁程式醫療報價大門眼中手冊本科。
+				</div>
+			</div>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+	</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./bootstrap.css">
+</head>
+
+<body>
+  <img src="">
+  <div class="container">
+    <h1>卡片</h1>
+    <div class="row">
+      <div class="col-4">
+        <div class="card">
+          <img src="https://picsum.photos/800/600/?random=10" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-primary">CLICK</button>
+          </div>
+        </div>
+      </div>
+      <!-- 沒有圓角的卡片，加上 rounded-0 -->
+      <div class="col-4">
+        <div class="card rounded-0">
+          <!-- 把 .card-img-top 拿掉 -->
+          <img src="https://picsum.photos/800/600/?random=10">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card" style="width: 18rem;">
+          <img src="https://picsum.photos/800/600/?random=10">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">An item</li>
+            <li class="list-group-item">A second item</li>
+            <li class="list-group-item">A third item</li>
+          </ul>
+          <div class="card-footer bg-transparent">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <h1>圖片 overlay</h1>
+      <div class="col-6">
+        <div class="card bg-dark text-white h-100">
+          <img src="https://picsum.photos/800/600/?random=10" class="card-img" style="height:100%;width:100%;object-fit: cover;">
+          <!--
+            .card-img-overlay
+              在沒有設定 width、height 的情況下，以下動作會自動填滿父容器的寬高(也就是卡片的寬高)
+              position: absolute;
+              top:0
+              right:0
+              bottom:0
+              left:0
+          -->
+          <div class="card-img-overlay h-100">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text">Last updated 3 mins ago</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="card bg-dark text-white h-100">
+          <div class="card-body" style="background: url('https://picsum.photos/800/600/?random=10') no-repeat center/cover">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text">Last updated 3 mins ago</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="container">
+    <h1>水平卡片</h1>
+    <div class="row">
+      <div class="col-6">
+        <div class="card flex-row">
+          <img src="https://picsum.photos/800/600/?random=10" class="w-50 card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="card flex-row">
+          <img src="https://picsum.photos/800/600/?random=10" class="w-50 card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js'></script>
+</body>
+
+</html>

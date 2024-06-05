@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.css' integrity='sha512-VcyUgkobcyhqQl74HS1TcTMnLEfdfX6BbjhH8ZBjFU9YTwHwtoRtWSGzhpDVEJqtMlvLM2z3JIixUOu63PNCYQ==' crossorigin='anonymous'/>
+</head>
+<body>
+    <div class="container">
+        <h1>互動視窗(modal)</h1>
+        <h2>觸發可以使用 button 或 a 兩種標籤</h2>
+
+        <ul class="list-group my-3">
+            <li class="list-group-item">使用 data-bs-toggle="modal" 去觸發互動視窗功能</li>
+            <li class="list-group-item">兩者需要對應 modal 主軸的 id</li>
+            <li class="list-group-item">button 要在 data-bs-target 設定 #id</li>
+            <li class="list-group-item">a 要設定 href="#id"</li>
+          </ul>
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#abc">
+                    使用 button 觸發 modal
+                  </button>
+                  <a href="#abc" class="btn btn-primary" data-bs-toggle="modal">使用 a 觸發 modal</a>
+            </div>
+        </div>
+    </div>
+
+  <!-- Modal -->
+  <!-- 
+    data-bs-backdrop="static" 可鎖定背景，點擊背景時不自動關閉 modal
+   -->
+  <div class="modal fade" id="abc" data-bs-backdrop="static">
+    <!-- 
+        調整視窗大小 .modal-sm(300px) .modal-lg(800px) .modal-xl(1140px)，沒寫 500px
+        可將視窗垂直置中 .modal-dialog-centered
+        可讓互動視窗捲動 .modal-dialog-scrollable
+     -->
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">你已經死了</h5>
+          <!-- data-bs-dismiss="modal" 關閉互動視窗 -->
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>哪尼</p>
+          <div class="row">
+            <div class="col-6">
+                <img class="img-fluid h-100 w-100" src="https://memeprod.ap-south-1.linodeobjects.com/user-template/9800b66daa2669ea1c46b5a53e746886.png">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">忍痛復活</button>
+          <button type="button" class="btn btn-primary">已經死了</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.js' integrity='sha512-sSOeacod972lTNk0ePyxrSSI6yoqvGRm7bbqtwqsY1r7TcdYiQn/a+KvaYQ0iacHBYE/MSEVjTNa2dglSz74vA==' crossorigin='anonymous'></script>
+</body>
+</html>
