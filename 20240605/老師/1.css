@@ -1,0 +1,16 @@
+#header {
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+#header #title {
+  color: blue;
+}
+#header #title:hover {
+  color: red;
+}
+#header #title > .title-text {
+  color: yellow;
+}
+
+/*# sourceMappingURL=1.css.map */
