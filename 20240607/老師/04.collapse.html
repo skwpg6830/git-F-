@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./bootstrap.css">
+</head>
+
+<body>
+  <div class="container">
+    <p>
+      <a class="btn btn-primary" data-bs-toggle="collapse" href="#kaifu" role="button">
+        Link with href
+      </a>
+      <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#kaifu">
+        Button with data-bs-target
+      </button>
+    </p>
+    <!-- 加上 .collapse-horizontal 水平 -->
+    <div style="min-height: 120px;">
+      <div class="collapse collapse-horizontal" id="kaifu">
+        <div class="card card-body" style="width: 300px;">
+          This is some placeholder content for a horizontal collapse. It's hidden by default and shown when triggered.
+        </div>
+      </div>
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js'></script>
+</body>
+
+</html>

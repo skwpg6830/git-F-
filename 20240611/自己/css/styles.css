@@ -1,0 +1,403 @@
+@charset "UTF-8";
+.a {
+  width: 100px;
+  color: red;
+}
+
+.container {
+  width: 75%;
+  padding: 0 15px;
+  margin: auto;
+}
+
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 20px 0 20px;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+section {
+  margin-bottom: 2rem !important;
+}
+
+:root {
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+}
+
+/* 多行註解會被編譯出去 */
+.foo {
+  width: 100px;
+}
+
+/* 符合 CSS 規範的值都可以當作變數的值 */
+h1 {
+  background: -webkit-gradient(linear, left bottom, left top, from(rgb(0, 0, 50)), color-stop(50%, rgb(0, 50, 200)), to(rgb(0, 0, 255)));
+  background: linear-gradient(0deg, rgb(0, 0, 50) 0%, rgb(0, 50, 200) 50%, rgb(0, 0, 255) 100%);
+  color: #fff;
+  border: 5px solid #fff;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.5rem;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+  margin-bottom: 1rem;
+}
+
+/* 流程控制 -------------------------------------- */
+.mybox {
+  width: 300px;
+  height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: blue;
+  color: white;
+  font-size: 3rem;
+  background-color: yellow;
+  /* 使用 not 來表示 !  */
+  border: 10px dashed darkblue;
+  /* 用 if() 函式表示三元運算子，因為是函式 if 沒有 @ */
+  outline: 10px solid green;
+}
+
+/* through 包含 end，這裡是 1、2、3 */
+/* 插值語法 變數 或 運算式 */
+.through-1 {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background-color: #999;
+}
+
+/* 插值語法 變數 或 運算式 */
+.through-2 {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  background-color: #999;
+}
+
+/* 插值語法 變數 或 運算式 */
+.through-3 {
+  width: 150px;
+  height: 150px;
+  display: inline-block;
+  background-color: #999;
+}
+
+/* to 不包含 end，這裡只有 1 與 2，沒有 3 */
+.to-1 {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background-color: #999;
+}
+
+.to-2 {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  background-color: #999;
+}
+
+/* 嵌套巢狀，它就像俄羅斯娃娃一層又一層 */
+#section04 h2 {
+  color: red;
+}
+#section04 p {
+  border-bottom: 1px solid #000;
+}
+#section04 .menu {
+  margin-top: 2rem;
+  padding: 0;
+  font-size: 0;
+}
+#section04 .menu li {
+  display: inline-block;
+  font-size: 1rem;
+  width: 100px;
+  text-align: center;
+}
+#section04 .menu li a {
+  display: block;
+  background: black;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem;
+}
+#section04 .menu li a:hover {
+  color: yellow;
+  background-color: darkorchid;
+}
+#section04 .menu li + li {
+  border-left: 1px solid yellow;
+}
+#section04 .menu li + li {
+  border-left: 1px solid #fff;
+}
+
+#exercise .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+#exercise .col {
+  width: 31.333333%;
+  margin: 1%;
+  background-color: #fff;
+  border: 1px solid #333;
+  padding: 1rem;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  position: relative;
+  top: 0;
+}
+#exercise .col:hover {
+  -webkit-transform: translateY(-20px);
+          transform: translateY(-20px);
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+#exercise img {
+  max-width: 100%;
+}
+#exercise a {
+  text-decoration: none;
+  color: black;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+#exercise a:hover {
+  text-decoration: underline;
+  color: green;
+}
+
+/* extend ------------------------------------------ */
+.box3, .box2, .box1 {
+  width: 50px;
+  height: 50px;
+  float: left;
+}
+
+.myExtend {
+  width: 50px;
+  height: 50px;
+  float: left;
+}
+
+.box1 {
+  background: red;
+}
+
+.box2 {
+  background: green;
+}
+
+.box3 {
+  background: blue;
+}
+
+/* 計算 ------------------------------------------------------- */
+.box4 {
+  background: #000;
+  /* 加法 */
+  width: 100px;
+  width: 100px;
+  height: 100px;
+  /* 減法 */
+  width: 50px;
+  width: 50px;
+  height: 50px;
+  /* 乘法 */
+  width: 100px;
+  height: 100px;
+  /* 除法 */
+  width: 50px;
+  /* 除法但使用變數，不需要括號 */
+  height: 50px;
+  /* 餘數 mod */
+  margin-top: 20px;
+}
+
+/* Function ----------------------------------------------- */
+/* 定義函式 */
+.funcbox {
+  width: 100px;
+  height: 100px;
+  color: white;
+  /* 呼叫函式 */
+  font-size: 40px;
+  /* 傳參數 */
+  width: 200px;
+  height: 100px;
+  background: #000;
+}
+
+.rem {
+  font-size: 1rem;
+  padding: 3rem;
+}
+
+#section07 .container p {
+  font-size: 18px;
+}
+#section07 .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+#section07 .row .col {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #333;
+  width: 33.3333333333%;
+  padding: 1%;
+  margin: 1% 0;
+  color: gray;
+}
+
+/* Mixins ----------------------------------- */
+.testMixin {
+  width: 100px;
+  height: 100px;
+  background: #333;
+}
+
+.boxflex {
+  width: 100px;
+  height: 100px;
+  background: #eee;
+  border: 5px solid #000;
+  outline: 10px dashed pink;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.btn {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  line-height: 1.5;
+  padding: 0.3rem;
+  margin: 0 5px;
+  border-radius: 0.5rem;
+}
+
+.btn-dark {
+  -webkit-box-shadow: 0 0 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
+  background-color: #000;
+}
+.btn-dark:hover {
+  background-color: #333333;
+}
+
+.btn-primary {
+  -webkit-box-shadow: 0 0 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
+  background-color: #007bff;
+}
+.btn-primary:hover {
+  background-color: #0062cc;
+}
+
+.btn-success {
+  -webkit-box-shadow: 0 0 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
+  background-color: #28a745;
+}
+.btn-success:hover {
+  background-color: #1e7e34;
+}
+
+.btn-danger {
+  -webkit-box-shadow: 0 0 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
+  background-color: #dc3545;
+}
+.btn-danger:hover {
+  background-color: #bd2130;
+}
+
+#section09 .container {
+  width: 100%;
+}
+#section09 .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+#section09 .col {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #333;
+}
+#section09 .col + .col {
+  margin-top: 20px;
+}
+@media (min-width: 576px) {
+  #section09 .container {
+    width: 75%;
+  }
+  #section09 .col {
+    width: 50%;
+  }
+  #section09 .col + .col {
+    margin-top: 0;
+  }
+}
+@media (min-width: 768px) {
+  #section09 .col {
+    width: 33.333333%;
+  }
+}
+@media (min-width: 992px) {
+  #section09 .col {
+    width: 25%;
+  }
+}
+@media (min-width: 1200px) {
+  #section09 .col {
+    width: 20%;
+  }
+}
+@media (min-width: 1400px) {
+  #section09 .col {
+    width: 10%;
+  }
+}

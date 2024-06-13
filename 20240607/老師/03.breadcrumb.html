@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./bootstrap.css">
+
+  <style>
+    .divider-1 {
+      --bs-breadcrumb-divider: '>';
+    }
+
+    .divider-2 {
+      /* css 的 unicode */
+      --bs-breadcrumb-divider: '\1F812';
+    }
+
+    .breadcrumb-item::before {
+      font-size: 2rem;
+      position: relative;
+      top: -10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>麵包屑 (Breadcrumb)</h1>
+    <nav style="--bs-breadcrumb-divider: '>';">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Library</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Data</li>
+      </ol>
+    </nav>
+    <nav class="divider-1">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Library</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Data</li>
+      </ol>
+    </nav>
+    <nav class="divider-2">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Library</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Data</li>
+      </ol>
+    </nav>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js'></script>
+</body>
+
+</html>

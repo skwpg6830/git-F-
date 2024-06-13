@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./bootstrap.css">
+</head>
+
+<body>
+  <div class="container mt-5">
+    <div id="progress" class="progress bg-dark" style="height:50px;">
+      <!-- 修改文字方向 text-end -->
+      <div class="progress-bar progress-bar-striped progress-bar-animated text-end text-white fs-3"></div>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <div class="progress overflow-visible" style="height:1px;">
+      <!-- 修改文字方向 text-end -->
+      <div class="progress-bar progress-bar-striped progress-bar-animated w-25 text-end text-dark position-relative overflow-visible">
+        <span class="position-relative" style="top:-10px;">25%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <div class="progress overflow-visible" style="height:1px;">
+      <!-- 修改文字方向 text-end -->
+      <div class="progress-bar progress-bar-striped progress-bar-animated w-25 text-end text-dark position-relative overflow-visible">
+        <span style="position: absolute; right:0;top:-20px">25%</span>
+      </div>
+    </div>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js'></script>
+
+  <script>
+    const progressBar = document.querySelector('.progress-bar');
+
+    let width = 0;
+
+    let id = setInterval(() => {
+      if (width >= 100) {
+        clearInterval(id);
+      } else {
+        width += 1;
+        progressBar.style.width = width + '%';
+        progressBar.textContent = width + '%';
+      }
+    }, 10);
+  </script>
+
+</body>
+
+</html>
