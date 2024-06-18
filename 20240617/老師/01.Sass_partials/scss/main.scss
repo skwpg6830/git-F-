@@ -1,0 +1,24 @@
+// main.scss 是 Sass 的入口點，透過 @import 引入其他 partials
+// 只有 main.scss 會被編譯成 CSS 檔案，其他 partials 不會
+
+/*
+1. Sass Partials，以底線 _ 開頭方式來命名，例如 _variables.scss
+2. 用 @import 引入 partials，不需要加底線、副檔名，例如 @import 'variables';
+3. partials 可以依功能用途，拆分、組合管理，將它們分類放在不同的目錄或檔案中
+4. partials 載入順序很重要，所以 functions、variables、mixins 這些 partials 應該放在最前面
+*/
+
+// 函式
+@import 'functions';
+
+// 變數
+@import 'variables';
+
+// 重置 reset
+@import 'reset';
+
+// 組件 components
+@import 'components';
+
+// 佈局 layout
+@import 'layout';

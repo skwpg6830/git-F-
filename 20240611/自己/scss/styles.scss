@@ -553,3 +553,108 @@ $breakpoint-xxl: 1400px;
         }
     }
 }
+
+// lsit(列表) 就像 JS 的陣列，索引是從 1 開始取值，不是 0
+// 一系列的項目值，可以是 空格或逗號 加以分隔
+$width_list: 100px, 200px, 300px;
+$margin_list: 10px 20px 30px 40px;
+$bgcolor_list: red green blue;
+$zindex_list: 1 2 3 4;
+$border_list: 1px solid red, 1px solid green, 1px solid blue, 1px solid yellow;
+
+// nth(list, index) 內建函式，取出 list 的索引值
+.list {
+	width: nth($width_list, 1);
+	width: nth($width_list, 2);
+	width: nth($width_list, 3);
+	border: nth($border_list, 1);
+	border: nth($border_list, 2);
+	border: nth($border_list, 3);
+	border: nth($border_list, 4);
+}
+
+// index(list, value) 內建函式，取出索引
+.index {
+	line-height: index($width_list, 100px);
+	line-height: index($width_list, 200px);
+	line-height: index($width_list, 300px);
+}
+
+// length($list) 內建函式，取出長度
+.length {
+	z-index: length($zindex_list);
+}
+
+@for $i from 1 through length($bgcolor_list){
+	// #{} 用來串接變數、運算式、或是呼叫函式後的值
+	.bg-#{nth($bgcolor_list, $i)} {
+		background-color: nth($bgcolor_list, $i);
+	}
+}
+
+// @each 逐一取出列表的項目 value 值
+@each $value in $bgcolor_list {
+	.each-bg-#{$value} {
+		background-color: $value;
+	}
+}
+
+// Map
+//	const person#{
+//	name:'123',
+//	ag:5
+//	}
+
+$mpa1:(
+	primary: red,
+	secondary: green,
+	warning: blue
+);
+
+@each $key, $value in $map1 {
+	.bg-#{$key} {
+		background-color: $value;
+	}
+}
+
+$map2: (
+	size1: 100px,
+	size2: 200px,
+	size3: 300px
+);
+
+// map2 
+// map-keys($map) 取出 key，會變成一組 list
+.map-keys {
+	color: map-keys($map2);
+}
+
+@each $value in map-keys($map2) {
+	.#{$key} {
+		color: red;
+	}
+}
+
+$map3:(
+	default:(
+		width:100px,
+		height: 100px
+	),
+	box1: (
+		width: 200px,
+		height: 200px
+	),
+	box2: (
+		width: 300px,
+		height: 300px
+	)
+);
+
+@each $key, $value in $map3{
+	$width:map-get($value, width);
+	$height:map-get($value, height);
+	.btn-#{$key} {
+		width: $width;
+		height: $height;
+	}
+}

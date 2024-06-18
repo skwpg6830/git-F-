@@ -74,7 +74,7 @@ h1 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: blue;
+  background-color: green;
   color: white;
   font-size: 3rem;
   background-color: yellow;
@@ -252,7 +252,7 @@ h1 {
   height: 100px;
   color: white;
   /* 呼叫函式 */
-  font-size: 60px;
+  font-size: 40px;
   /* 傳參數 */
   width: 200px;
   height: 100px;
@@ -405,4 +405,106 @@ h1 {
   #section09 .col {
     width: 10%;
   }
+}
+
+/* list(列表) 就像 JS 的陣列，索引是從 1 開始取值，不是 0 !*/
+/* 一系列的項目值，可以是 空格或逗號 加以分隔 */
+/* nth(list, index) 內建函式，取出 list 的索引值 */
+.list {
+  width: 100px;
+  width: 200px;
+  width: 300px;
+  border: 1px solid red;
+  border: 1px solid green;
+  border: 1px solid blue;
+  border: 1px solid yellow;
+}
+
+/* index(list, value) 內建函式，取出索引 */
+.index {
+  line-height: 1;
+  line-height: 2;
+  line-height: 3;
+}
+
+/* length($list) 內建函式，取出長度 */
+.length {
+  z-index: 4;
+}
+
+.bg-red {
+  background-color: red;
+}
+
+.bg-green {
+  background-color: green;
+}
+
+.bg-blue {
+  background-color: blue;
+}
+
+/* @each 逐一取出列表的項目 value 值 */
+.each-bg-red {
+  background-color: red;
+}
+
+.each-bg-green {
+  background-color: green;
+}
+
+.each-bg-blue {
+  background-color: blue;
+}
+
+/* Map */
+/*  
+const person={
+	name:'KaiFu',
+	ag:18
+}	
+*/
+.bg-primary {
+  background-color: red;
+}
+
+.bg-secondary {
+  background-color: green;
+}
+
+.bg-warning {
+  background-color: blue;
+}
+
+/* map2 */
+/*  map-keys($map) 取出 key，會變成一組 list */
+.map-keys {
+  color: size1, size2, size3;
+}
+
+.size1 {
+  color: red;
+}
+
+.size2 {
+  color: red;
+}
+
+.size3 {
+  color: red;
+}
+
+.btn-default {
+  width: 100px;
+  height: 100px;
+}
+
+.btn-box1 {
+  width: 200px;
+  height: 200px;
+}
+
+.btn-box2 {
+  width: 300px;
+  height: 300px;
 }

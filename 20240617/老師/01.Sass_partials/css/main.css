@@ -1,0 +1,11 @@
+@charset "UTF-8";
+/*
+1. Sass Partials，以底線 _ 開頭方式來命名，例如 _variables.scss
+2. 用 @import 引入 partials，不需要加底線、副檔名，例如 @import 'variables';
+3. partials 可以依功能用途，拆分、組合管理，將它們分類放在不同的目錄或檔案中
+4. partials 載入順序很重要，所以 functions、variables、mixins 這些 partials 應該放在最前面
+*/
+/* _variables.scss */
+.navbar {
+  background: #007bff;
+}

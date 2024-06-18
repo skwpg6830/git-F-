@@ -250,7 +250,7 @@ h1 {
   height: 100px;
   color: white;
   /* 呼叫函式 */
-  font-size: 40px;
+  font-size: 60px;
   /* 傳參數 */
   width: 200px;
   height: 100px;
@@ -400,4 +400,24 @@ h1 {
   #section09 .col {
     width: 10%;
   }
+}
+
+.list {
+  width: 100px;
+  width: 200px;
+  width: 300px;
+  border: 1px solid red;
+  border: 1px solid green;
+  border: 1px solid blue;
+  border: 1px solid yellow;
+}
+
+.index {
+  line-height: 1;
+  line-height: 2;
+  line-height: 3;
+}
+
+.length {
+  z-index: 4;
 }

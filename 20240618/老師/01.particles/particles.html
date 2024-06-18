@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>粒子效果</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.css'>
+</head>
+
+<body class="bg-dark">
+  <!-- 3. 結構-照官方文件去設定 -->
+  <!--
+    請參考 app.js 的設定參數
+    套件通常都會使用 id 當作第一個參數，因為 id 在文件具有唯一性，可以最直接去抓到該元素 
+    第二參數通常會是設定參數，這邊是設定粒子的參數
+  -->
+  <div id="particles-js" class="position-fixed w-100 vh-100" style="pointer-events: none;"></div>
+  <!-- 正常文件流向 normal flow -->
+  <button id="btn">我是按鈕</button>
+
+  <!-- 1. 套件都有一支主程式，且執行順很重要，要先有主程式 -->
+  <script src="./particles.min.js"></script>
+  <!-- 2. 再使用設定參數檔 -->
+  <script src="./app.js"></script>
+
+  <script>
+    const btn = document.querySelector('#btn')
+    btn.addEventListener('click', () => {
+      alert('我被按了')
+    })
+  </script>
+</body>
+
+</html>

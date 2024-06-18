@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<!-- Swiper 的樣式檔 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <style>
+        /* 設定 swiper 的 size，使用 id 設定，不要用 .swiper */
+        #abc {
+            height: 300px;
+        }
+        .swiper-pagination-bullet {
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      line-height: 20px;
+      font-size: 12px;
+      color: #000;
+      opacity: 1;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .swiper-pagination-bullet-active {
+      color: #fff;
+      background: #007aff;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Swiper</h1>
+        <div id="abc" class="swiper">
+            <!-- 輪播主體 -->
+            <div class="swiper-wrapper">
+                <!-- 輪播單位 -->
+                <div class="swiper-slide"><img src="https://picsum.photos/1920/300/?random=1"></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/1920/300/?random=2"></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/1920/300/?random=3"></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/1920/300/?random=4"></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/1920/300/?random=5"></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/1920/300/?random=6"></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/1920/300/?random=7"></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/1920/300/?random=8"></div>
+            </div>
+            <!-- 分頁 -->
+            <div class="swiper-pagination"></div>
+            <!-- 上一張、下一張 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <!-- 進度條 -->
+            <div class="swiper-scrollbar"></div>
+        </div>
+    </div>
+    <!-- Swiper 主程式 -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // 初始化 Swiper，順便設定 id (抓到誰)與參數選項物件
+        const swiper = new Swiper('#abc', {
+            slidesPerView: 3,
+            // spaceBetween: 30,
+            // speed: 1000,  動畫持續時間
+            autoplay: {
+                delay: 5000, //自動播放，幾秒後換下一張
+            },
+        navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      effect: "cube",
+      grabCursor: true,
+      cubeEffect: {
+        shadow: true,
+        slideShadows: true,
+        shadowOffset: 20,
+        shadowScale: 0.94,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        renderBullet: function (index, className) {
+            return '<span class="' + className + '">' + (index + 1) + "</span>";
+        // type: "fraction", 顯示幾分之幾
+        // dynamicBullets: true,
+      },
+    },
+    });
+    </script>
+</body>
+</html>

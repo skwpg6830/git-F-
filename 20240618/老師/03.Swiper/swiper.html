@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.css'>
+  <!-- Swiper 的樣式檔 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+    /* 設定 swiper 的 size，使用 id 設定，不要用 .swiper */
+    #kaifu,
+    #kaifu2 {
+      height: 300px;
+    }
+
+    #kaifu .swiper-pagination-bullet {
+      width: 30px;
+      height: 30px;
+      background: #fff;
+      line-height: 30px;
+      font-size: 1.2rem;
+      transition: 0.5s;
+    }
+
+    #kaifu .swiper-pagination-bullet-active {
+      color: #fff;
+      background: black;
+    }
+
+    img {
+      max-width: 100%;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    #kaifu2 .swiper {
+      width: 100%;
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+    #kaifu2 .swiper-slide {
+      background-position: center;
+      background-size: cover;
+      width: 300px;
+      height: 300px;
+    }
+
+    #kaifu2 .swiper-slide img {
+      display: block;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div id="kaifu" class="swiper">
+      <!-- 輪播主體 -->
+      <div class="swiper-wrapper">
+        <!-- 輪播單位 -->
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/300/?random=1" loading="lazy">
+          <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/300/?random=2" loading="lazy">
+          <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/300/?random=3" loading="lazy">
+          <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/300/?random=4" loading="lazy">
+          <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/300/?random=5" loading="lazy">
+          <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/300/?random=6" loading="lazy">
+          <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/300/?random=7" loading="lazy">
+          <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/300/?random=8" loading="lazy">
+          <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+        </div>
+      </div>
+      <!-- 分頁 -->
+      <div class="swiper-pagination"></div>
+      <!-- 上一張、下一張 -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <!-- 進度條 -->
+      <div class="swiper-scrollbar"></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="kaifu2" class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/300/?random=1">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/300/?random=2">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/300/?random=3">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/300/?random=4">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/300/?random=5">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/300/?random=6">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/300/?random=7">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/300/?random=8">
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-scrollbar"></div>
+    </div>
+
+  </div>
+
+  <!-- Swiper 主程式 -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    // 初始化 Swiper，順便設定 id (抓到誰)與參數選項物件
+    const swiper = new Swiper('#kaifu', {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true, // 循環播放
+      lazy: true,
+      speed: 1000, // 動畫持續時間
+      autoplay: {
+        delay: 5000, // 自動播放，幾秒後換下一張
+      },
+      mousewheel: true,
+      keyboard: {
+        enabled: true,
+      },
+      breakpoints: {
+        576: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        992: {
+          slidesPerView: 4,
+          spaceBetween: 20,
+        },
+        1200: {
+          slidesPerView: 5,
+          spaceBetween: 20,
+        }
+      },
+      // 可以播下一張、上一張
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        // type: "fraction", // 顯示幾分之幾
+        // dynamicBullets: true,
+        clickable: true,
+        renderBullet: function (index, className) {
+          return '<span class="' + className + '">' + (index + 1) + "</span>";
+        },
+      },
+    });
+
+    const swiper2 = new Swiper('#kaifu2', {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      loop: true, // 循環播放
+      slidesPerView: "auto",
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    })
+  </script>
+</body>
+
+</html>

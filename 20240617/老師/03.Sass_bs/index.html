@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    .container {
+      margin-bottom: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="bg-primary">1234</h1>
+    <h1 class="bg-xmas-mainColor">聖誕節-顏色1</h1>
+    <h1 class="bg-xmas-secondColor">聖誕節-顏色2</h1>
+    <h1 class="bg-xmas-thirdColor">聖誕節-顏色3</h1>
+    <hr>
+    <h1 class="bg-coffee-dark">咖啡色-顏色1</h1>
+    <h1 class="bg-coffee-light">咖啡色-顏色2</h1>
+    <h1 class="bg-coffee-medium">咖啡色-顏色3</h1>
+    <hr>
+    <h1 class="mx-5">1234</h1>
+    <hr>
+    <div class="card" style="width: 18rem;">
+      <img src="https://picsum.photos/400/300/?random=10" class="card-img-top">
+      <div class="card-body shadow-lg">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+    <div class="row row-cols-8 border border-10 border-coffee-dark">
+      <div class="col">item</div>
+      <div class="col">item</div>
+      <div class="col">item</div>
+      <div class="col">item</div>
+      <div class="col">item</div>
+      <div class="col">item</div>
+      <div class="col">item</div>
+      <div class="col">item</div>
+    </div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--  
+    82法則
+    bootstarp 元件是 80%，20% 通用類別
+    tailwindcss 通用類別是 80%，20% 元件
+  -->
+  <div class="container">
+    <h1>自訂義通用類別</h1>
+    <div class="card kai-solid1 kai-dashed3-hover cursor-pointer-hover translate-y-n100px-hover transition-half" style="width: 18rem;">
+      <img src="https://picsum.photos/400/300/?random=10" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js></script>
+</body>
+
+</html>

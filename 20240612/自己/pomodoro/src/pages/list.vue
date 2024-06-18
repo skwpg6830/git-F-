@@ -17,7 +17,7 @@
           ref="newItemTextField"
         ></v-text-field>
         <v-table>
-          <thead>
+          <thead class="bg-h">
             <tr>
               <th>名稱</th>
               <th>操作</th>
@@ -55,7 +55,7 @@
       </v-col>
       <v-col cols="12">
         <v-table>
-          <thead>
+          <thead class="bg-e">
             <tr>
               <th>名稱</th>
               <th>操作</th>

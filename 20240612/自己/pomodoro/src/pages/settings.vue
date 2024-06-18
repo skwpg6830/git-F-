@@ -6,14 +6,14 @@
       </v-col>
       <v-col cols="12">
         <v-table>
-          <thead>
+          <thead class="bg-f">
             <tr>
               <th>名稱</th>
               <th>試聽</th>
               <th>選擇</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody class="bg-g">
             <tr v-for="alarm in alarms" :key="alarm.id">
               <td>{{ alarm.name }}</td>
               <td>
