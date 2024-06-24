@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP</title>
+  <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.css />
+  <style>
+    body {
+      background-color: black;
+      overflow: hidden;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: #fff;
+      position: absolute;
+    }
+
+    .shadow {
+      width: 100px;
+      height: 100px;
+      background: rgba(255, 255, 255, 0.5);
+      position: absolute;
+      z-index: -1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js></script>
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js></script>
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.js></script>
+  <script>
+    for (let i = 0; i < 20; i++) {
+      $('body').append(`<div class="shadow"></div>`)
+    }
+
+    gsap.to('.box', {
+      rotation: '+=360',
+      duration: 2,
+      repeat: -1,
+      ease: 'none'
+    })
+
+    let toggle = 0;
+
+    window.addEventListener('mousemove', function (e) {
+      if (toggle % 30 == 0) {
+        console.log(e.pageX, e.pageY)
+        gsap.to('.box', {
+          x: e.pageX - 50,
+          y: e.pageY - 50,
+          duration: 2,
+          delay: 0.1,
+        })
+
+        gsap.to('.shadow', {
+          x: e.pageX - 50,
+          y: e.pageY - 50,
+          duration: 2,
+          delay: function (index, target, targets) {
+            return 0.1 * (index + 1) + 0.1
+          },
+          opacity: function (index, target, targets) {
+            return 1 - (index * 0.05)
+          },
+          ease: 'power1'
+        })
+      }
+      toggle++
+    })
+  </script>
+</body>
+
+</html>

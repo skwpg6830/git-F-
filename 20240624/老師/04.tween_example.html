@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP</title>
+  <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.css />
+  <style>
+    body {
+      height: 100vh;
+      background-color: black;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid vh-100"></div>
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js></script>
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js></script>
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.js></script>
+  <script>
+    // 1. 產生 50 顆星星
+    function createStar(numbers) {
+      for (let i = 0; i < numbers; i++) {
+        $('.container-fluid').append(`<div class="star animate">★</div>`)
+        $('.star').each(function (index, element) {
+          // 第一種方法
+          // $(this).css({
+          //   position: 'absolute',
+          //   left: gsap.utils.random(0, 100) + '%',
+          //   top: gsap.utils.random(0, 100) + '%',
+          //   color: 'yellow'
+          // })
+
+          // 第二種方法 gsap.set() 設定補間動畫的初始值
+          gsap.set(this, {
+            position: 'absolute',
+            left: gsap.utils.random(0, 100) + '%',
+            top: gsap.utils.random(0, 100) + '%',
+            color: 'yellow'
+          })
+        })
+      }
+    }
+
+    // 產生星星
+    createStar(50);
+
+    // 2. gsap 對 50 顆星星做動畫
+
+    gsap.to('.star', {
+      fontSize: 'random(12, 50)',
+      filter: `drop-shadow(0 0 30px rgba(255, 255, 0, 1))`,
+      left: `+=random(-10, 10)%`,
+      x: `random(-50, 50)`,
+      y: `random(-50, 50)`,
+      rotationY: `-=180`,
+      scale: `random(1, 2)`,
+      duration: `random(0, 5)`,
+      repeat: -1,
+      repeatRefresh: true,
+      ease: 'back',
+      stagger: 0.1
+    })
+  </script>
+</body>
+
+</html>
