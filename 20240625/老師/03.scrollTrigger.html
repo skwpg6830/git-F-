@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP</title>
+  <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.css />
+  <style>
+    section {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    section:nth-child(odd) {
+      background: lightblue;
+    }
+
+
+    section:nth-child(even) {
+      background: lightgray;
+      justify-content: center;
+    }
+
+    section h2 {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      color: white;
+      font-size: 2rem;
+      background: darkmagenta;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .active {
+      background: red;
+    }
+
+    .hello {
+      border: 10px solid green;
+    }
+  </style>
+</head>
+
+<body>
+  <section></section>
+
+  <section id="section01">
+    <h2>1.設定 trigger、start 與 end</h2>
+    <div class="box a1">a1</div>
+  </section>
+
+  <section></section>
+
+  <section id="section02">
+    <h2>2.設定 toggleActions</h2>
+    <div class="box b1">b1</div>
+    <div class="box b2 mt-5">b2</div>
+  </section>
+
+  <section></section>
+
+  <section id="section03">
+    <h2>3.設定 scrub</h2>
+    <div class="box c1">c1</div>
+  </section>
+
+  <section></section>
+
+  <section id="section04">
+    <h2>4.timeline 與 scrollTrigger</h2>
+    <div class="box d1">d1</div>
+  </section>
+
+  <section></section>
+
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js></script>
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js></script>
+  <!-- gsap 主程式 -->
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.js></script>
+  <!-- 先有 gsap 主程式，才能引入 gsap 的 plugins -->
+  <script src="./plugins/ScrollTrigger.js"></script>
+  <script>
+    // 註冊套件
+    gsap.registerPlugin(ScrollTrigger) // S 是大寫
+
+    const tween1 = gsap.to('.a1', {
+      scrollTrigger: {
+        trigger: '.a1', // 觸發者現在是 .a1
+        /*  
+          打開 markers: true，可以看到紅、綠線標記的位置
+          start 設定綠色的線，左邊的值為 trigger(.a1) 綠色線的位置，右邊的值為視窗(scroll)綠色線的位置
+          end 設定紅色的線，左邊的值為 trigger(.a1) 紅色線的位置，右邊的值為視窗(scroll)紅色線的位置
+          值可以為關鍵字 center、top、bottom，也可以為數字或百分比
+
+          觸發條件:當兩條綠色線重疊時，觸發動畫
+        */
+        // 關鍵字
+        start: 'top bottom',
+        end: 'bottom to',
+        // 百分比
+        start: '100% 50%',
+        end: '100% 50%',
+        // 相對位置
+        start: '+=200px 50%',
+        end: '+=200px 50%',
+        // markers: true
+      },
+      x: 750,
+      rotation: 360,
+      background: 'green',
+      borderRadius: '50%',
+      duration: 1,
+      ease: 'linear'
+    })
+
+    const tween2 = gsap.to('.b1', {
+      scrollTrigger: {
+        trigger: '.b1',
+        start: 'top center',
+        end: 'bottom 20%',
+        /*  
+          toggleAcions 可以設定四個進出點觸發的動作，以下四個觸發動作
+          onEnter => 往下時綠色碰綠色觸發動作
+          onLeave => 往下時紅色碰紅色觸發動作
+          onEnterBack => 往上時紅色碰紅色觸發動作
+          onLeaveBack => 往上時綠色碰綠色觸發動作
+
+          預設值 => play none none none
+          值可以為 => play、pause、resume、reverse、restart、reset、complete、none
+        */
+        toggleActions: 'play none none reverse',
+        // 在往下綠色碰綠色時觸發，會替 .b1、.b2 加上 active 這個 class
+        toggleClass: {
+          targets: ['.b1', '.b2'],
+          className: 'active'
+        },
+        // 也可以用事件函式來觸發，ScrollTrigger 也有很多事件函式
+        onEnterBack() {
+          $('.b2').addClass('hello')
+        },
+        onLeaveBack() {
+          $('.b2').removeClass('hello')
+        },
+        // markers: true,
+      },
+      x: '85vw',
+      duration: 2,
+      ease: 'linear'
+    })
+
+    const tween3 = gsap.to('.c1', {
+      scrollTrigger: {
+        trigger: '.c1',
+        start: 'top 60%',
+        end: 'bottom 40%',
+        /*
+          scrub 可以設定動畫的進度連結到滾動調的範圍進度
+          也就是 scrollTrigger 處於活動狀態，當 scroller-start 與 start 交會，scroller-end 與 end 交會之間的距離
+          所以在這範圍內，滾動條上下移動，可以像滑塊滑動般的控制元素動畫進度
+        */
+        // scrub: true,
+        scrub: 3, // 在 3 秒後補間動畫才會跟上滾動條的進度
+        // markers: true,
+      },
+      duration: 1000, // 一般的 tween 在 scrub 模式下，duration 設定的值會被忽略
+      x: '85vw',
+      // rotation: 3600,
+      backgroundColor: 'red',
+      ease: 'linear'
+    })
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.d1',
+        start: 'center 80%',
+        end: 'center 20%',
+        scrub: 1,
+        markers: true,
+      }
+    })
+
+    // 時間軸子動畫 duration 會與整體 scrub 進度分配比例綁在一起
+    // 例如: 8、1、1 進度會被分成 8/10、1/10、1/10
+    // 1、1、1 進度會被分成 33%、33%、33%
+    tl
+      .to('.d1', {
+        x: '85vw',
+        duration: 8
+      })
+      .to('.d1', {
+        rotation: 360,
+        background: 'red',
+        duration: 1
+      })
+      .to('.d1', {
+        x: 0,
+        background: 'green',
+        duration: 1
+      })
+  </script>
+</body>
+
+</html>

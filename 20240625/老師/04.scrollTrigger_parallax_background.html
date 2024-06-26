@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP</title>
+  <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.css />
+  <style>
+    section {
+      height: 500px;
+      font-size: 3rem;
+      color: white;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 50% 50%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <section id="section01">SECTION01</section>
+  <section id="section02">SECTION02</section>
+  <section id="section03">SECTION03</section>
+  <section id="section04">SECTION04</section>
+  <section id="section05">SECTION05</section>
+  <section id="section06">SECTION06</section>
+
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js></script>
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js></script>
+  <!-- gsap 主程式 -->
+  <!-- <script src=https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.js></script> -->
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.js></script>
+  <!-- 先有 gsap 主程式，才能引入 gsap 的 plugins -->
+  <script src="./plugins/ScrollTrigger.js"></script>
+  <script>
+    // 註冊套件
+    gsap.registerPlugin(ScrollTrigger) // S 是大寫
+
+    const sections = gsap.utils.toArray('section')
+    // console.log(sections)
+
+    $(sections).each(function (index, section) {
+      $(section).css({
+        backgroundImage: `url(https://picsum.photos/1920/1080/?random=${index + 1})`,
+      })
+
+      gsap.to(section, {
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 50%',
+          end: 'bottom 0%',
+          scrub: true,
+          markers: true
+        },
+        backgroundPosition: '50% -50%',
+        backgroundSize: 'cover',
+        ease: 'linear'
+      })
+    })
+  </script>
+</body>
+
+</html>
