@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SplitText</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    body {
+      height: 100vh;
+      overflow-x: hidden;
+      font-family: "Press Start 2P", system-ui;
+    }
+
+    section {
+      color: white;
+      height: 100%;
+      background-color: #000;
+      border-bottom: 1px solid #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section:nth-child(1) {
+      background: url("./images/ff5.jpg") no-repeat center/cover;
+    }
+
+    section:nth-child(2) {
+      background:
+        linear-gradient(0deg, black, transparent),
+        url("./images/bh3.jpg") no-repeat center/cover;
+    }
+
+    #text01 {
+      width: 70%;
+      height: 250px;
+      font-size: 1.5rem;
+      padding: 1rem;
+      background: #070d7f;
+      border: 5px solid #eee;
+      border-radius: 10px;
+
+      position: absolute;
+      bottom: 5%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      z-index: 1;
+    }
+
+    #text02 {
+      width: 100%;
+      height: 100%;
+      color: red;
+      text-align: center;
+      font-size: 8rem;
+      font-family: '標楷體';
+      font-weight: 500;
+
+      display: none;
+      justify-content: space-evenly;
+      align-items: flex-end;
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <div id="text01">
+      King Tycoon departs to investigate the weakening of the Wind Crystal at the Wind Shrine. Bartz witnesses a meteor plunge to the planet's surface. He encounters Lenna, King Tycoon's daughter; Galuf, an amnesiac old man; and Faris, a pirate captain.
+    </div>
+  </section>
+
+  <section>
+    <div id="text02">生化危機3</div>
+  </section>
+  <!-- gsap -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollToPlugin.min.js"></script>
+  <script src="./js/SplitText.min.js"></script>
+  <script>
+    // 註冊
+    gsap.registerPlugin(SplitText)
+
+    const text01 = new SplitText('#text01', {
+      type: 'chars, words, lines',
+    })
+
+    // 可以將文字切割成字元、單字、行，它們都是陣列型態
+    console.log('chars', text01.chars);
+    console.log('words', text01.words);
+    console.log('lines', text01.lines);
+
+    // gsap 也可以用物件當作目標
+    gsap.from(text01.chars, {
+      opacity: 0,
+      stagger: {
+        each: 0.01,
+        // from: 'random'
+      },
+      // x: 100,
+      // y: 100,
+      // rotation: 100,
+      ease: 'power1.out'
+    })
+
+    let bh_duration = 5
+    const text02 = new SplitText('#text02', {
+      type: 'chars',
+    })
+
+    gsap.set('#text02', {
+      display: 'flex'
+    })
+
+    gsap.set(text02.chars, {
+      margin: '0 -300'
+    })
+
+    gsap.from(text02.chars, {
+      scale: 20,
+      filter: 'blur(50px)',
+      duration: bh_duration,
+      opacity: 0,
+      stagger: {
+        each: 1,
+        fram: 'random'
+      }
+    })
+
+    gsap.from('#text02', {
+      background: 'red',
+      filter: 'blur(50px)',
+      backdropFilter: 'blur(100px)',
+      duration: bh_duration
+    })
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SplitText</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <style>
+        body {
+            height: 100vh;
+            overflow-x: hidden;
+            font-family: "Press Start 2P", system-ui;
+        }
+
+        section {
+            color: white;
+            height: 100%;
+            background-color: #000;
+            border-bottom: 1px solid #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        section:nth-child(1){
+            background: url("./images/ff5.jpg") no-repeat center/cover;
+        }
+
+        section:nth-child(2) {
+            background: linear-gradient(0deg, black, transparent), url("./images/bh4.jpg") no-repeat center/cover;
+        }
+
+        #text01 {
+            width: 70%;
+            height: 250px;
+            font-size: 1.5rem;
+            padding: 1rem;
+            background: #070d7f;
+            border: 5px solid #eee;
+            border-radius: 10px;
+
+            position: absolute;
+            bottom: 5%;
+            left: 0;
+            right: 0;
+            margin: auto;
+            z-index: 1;
+        }
+
+        #text02{
+            width: 100%;
+            height: 100%;
+            color: red;
+            text-align: center;
+            font-size: 8rem;
+            font-family: "Rubik Mono One", monospace;
+            font-weight: 500;
+
+            display: none;
+            justify-content: space-evenly;
+            align-items: flex-end;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div id="text01">
+《最終幻想5》情節從風逐漸消緩陳腐的一天開始。泰肯王對此深感不安，在並騎在飛龍的背上前去風之神殿，平息他女兒蕾娜公主的不安。在到達神殿後，國王親眼目睹了水晶的粉碎。與此同時，一個名為巴茲的年輕旅行者在特肯附近的樹林中休息，他目睹了一塊隕石墜落在城堡外面的地上。巴茲立即趕去調查，發現昏迷的蕾娜倒在地上被怪物拖走。在將她救出後，他們發現了一個名為格魯夫，失去部分記憶的老人。蕾娜解釋稱她跟著父親前去風之神殿，這時格魯夫突然想起這便是他的目的地，並選擇隨她同去。
+        </div>
+    </section>
+
+    <section>
+        <div id="text02">
+            <h1>惡靈古堡4重製版</h1>
+        </div>
+    </section>
+     <!-- gsap -->
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.js'></script>
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js'></script>
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollToPlugin.min.js'></script>
+   <script src="./js/SplitText.min.js"></script>
+   <script>
+    // 註冊
+    gsap.registerPlugin(SplitText)
+
+    const text01 = new SplitText('#text01', {
+        type: 'chars, words, lines',
+    })
+
+    // 可以將文字切割成字元、單字、行，他們都是陣列型態
+    console.log('chars', text01.chars);
+    console.log('words', text01.words);
+    console.log('lines', text01.lines);
+
+    // gsap 也可以用物件當作目標
+    gsap.from(text01.chars, {
+        opacity: 0,
+        stagger:{
+            each:0.05
+        },
+        ease: 'power1.out'
+    })
+
+    let bh_duration = 5
+    const text02 = new SplitText('#text02', {
+        type: 'chars',
+    })
+
+    gsap.set('#text02', {
+        display: 'flex'
+    })
+
+    gsap.set(text02.chars, {
+        margin: '0 -300'
+    })
+
+    gsap.from(text02.chars, {
+        scale: 20,
+        filter: 'blur(50px)',
+        duration: bh_duration,
+        opacity: 0,
+        stagger: {
+            each: 1,
+            fram: 'random'
+        }
+    })
+
+    gsap.from('#text02',{
+        background: 'red',
+        filter: 'blur(50px)',
+        backdropFilter: 'blur(100px)',
+        duration: bh_duration
+    })
+   </script>
+</body>
+</html>
