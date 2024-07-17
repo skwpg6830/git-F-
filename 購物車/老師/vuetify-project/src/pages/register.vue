@@ -50,7 +50,9 @@ import { useSnackbar } from 'vuetify-use-dialog'
 
 definePage({
   meta: {
-    title: '購物網 | 註冊'
+    title: '購物網 | 註冊',
+    login: false,
+    admin: false
   }
 })
 

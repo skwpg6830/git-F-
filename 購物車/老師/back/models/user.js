@@ -3,7 +3,7 @@ import validator from 'validator'
 import bcrypt from 'bcrypt'
 import UserRole from '../enums/UserRole.js'
 
-const cartSchema = Schema({
+const cartSchema = new Schema({
   p_id: {
     type: ObjectId,
     ref: 'products',

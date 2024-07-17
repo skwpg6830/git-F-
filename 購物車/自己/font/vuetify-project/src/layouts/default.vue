@@ -72,7 +72,7 @@ const logout = async () => {
   createSnackbar({
     text: '登出成功',
     snackbarProps: {
-      color: 'yellow'
+      color: 'green'
     }
   })
 }
