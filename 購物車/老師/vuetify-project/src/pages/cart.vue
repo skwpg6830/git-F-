@@ -5,7 +5,20 @@
     </v-col>
     <v-divider></v-divider>
     <v-col cols="12">
-      <v-data-table :items="items" :headers="headers"></v-data-table>
+      <v-data-table :items="items" :headers="headers">
+        <template #[`item.p_id.name`]="{item}">
+          <span v-if="item.p_id.sell">{{ item.p_id.name }}</span>
+          <span v-else class="text-red">{{ item.p_id.name }} (已下架)</span>
+        </template>
+        <template #[`item.quantity`]="{item}">
+          <v-btn variant="text" color="red" @click="addCart(item.p_id._id, -1)">-</v-btn>
+          <span>{{ item.quantity }}</span>
+          <v-btn variant="text" color="green" @click="addCart(item.p_id._id, 1)">+</v-btn>
+        </template>
+        <template #[`item.action`]="{item}">
+          <v-btn variant="text" color="red" icon="mdi-delete" @click="addCart(item.p_id._id, item.quantity * -1)"></v-btn>
+        </template>
+      </v-data-table>
     </v-col>
     <v-col cols="12" class="text-center">
       <p>總金額: {{ total }}</p>
@@ -88,5 +101,22 @@ const checkout = async () => {
   }
 
   loading.value = false
+}
+
+const addCart = async (product, quantity) => {
+  const result = await user.addCart(product, quantity)
+  createSnackbar({
+    text: result.text,
+    snackbarProps: {
+      color: result.color
+    }
+  })
+  if (result.color === 'green') {
+    const idx = items.value.findIndex(item => item.p_id._id === product)
+    items.value[idx].quantity += quantity
+    if (items.value[idx].quantity <= 0) {
+      items.value.splice(idx, 1)
+    }
+  }
 }
 </script>
